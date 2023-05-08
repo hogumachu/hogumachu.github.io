@@ -10,11 +10,11 @@ defaults:
 jobs:
   build-output:
     name: Build output
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     if: ${{ github.event.action != 'labeled' || github.event.label.name == 'build output' }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         
       - name: Checkout Publish
         run: brew install publish
