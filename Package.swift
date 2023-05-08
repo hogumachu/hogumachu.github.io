@@ -3,12 +3,12 @@
 import PackageDescription
 
 let package = Package(
-    name: "HogumachuGithubIo",
+    name: "HogumachuBlog",
     platforms: [.macOS(.v12)],
     products: [
         .executable(
-            name: "HogumachuGithubIo",
-            targets: ["HogumachuGithubIo"]
+            name: "HogumachuBlog",
+            targets: ["HogumachuBlog"]
         )
     ],
     dependencies: [
@@ -16,7 +16,7 @@ let package = Package(
     ],
     targets: [
         .executableTarget(
-            name: "HogumachuGithubIo",
+            name: "HogumachuBlog",
             dependencies: ["Publish"]
         )
     ]

@@ -1,1 +1,1 @@
-# Welcome to HogumachuGithubIo!
+# Welcome to HogumachuBlog!
