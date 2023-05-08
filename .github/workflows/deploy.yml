@@ -1,0 +1,17 @@
+name: Deploy
+on:
+  push:
+    branches: [ "main" ]
+    
+  workflow_dispatch:
+  
+permissions: write-all
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Push Output folder to a git subtree for automatic deployment
+        run: git push origin `git subtree split --prefix Output main`:production --force
