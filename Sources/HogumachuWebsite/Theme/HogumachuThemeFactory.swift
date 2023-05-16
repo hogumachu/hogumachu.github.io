@@ -25,7 +25,7 @@ struct HogumachuThemeFactory<Site: Website>: HTMLFactory {
                 Wrapper {
                     H1(index.title)
                     Paragraph(context.site.description).class("description")
-                    H2("Latest content")
+                    H2("게시글")
                     ItemList(
                         items: context.allItems(
                             sortedBy: \.date,
@@ -47,10 +47,7 @@ struct HogumachuThemeFactory<Site: Website>: HTMLFactory {
             .headWithStylesheets(for: section, on: context.site),
             .body {
                 SiteHeader(context: context, selectedSelectionID: section.id)
-                Wrapper {
-                    H1(section.title)
-                    ItemList(items: section.items, site: context.site)
-                }
+                SectionItem(section: section, context: context)
                 SiteFooter()
             }
         )
@@ -67,9 +64,9 @@ struct HogumachuThemeFactory<Site: Website>: HTMLFactory {
                     SiteHeader(context: context, selectedSelectionID: item.sectionID)
                     Wrapper {
                         Article {
-                            Div(item.content.body).class("content")
-                            Span("Tagged with: ")
+                            H1(item.title)
                             ItemTagList(item: item, site: context.site)
+                            Div(item.content.body).class("content")
                         }
                     }
                     SiteFooter()
@@ -99,7 +96,7 @@ struct HogumachuThemeFactory<Site: Website>: HTMLFactory {
             .body {
                 SiteHeader(context: context, selectedSelectionID: nil)
                 Wrapper {
-                    H1("Browse all tags")
+                    H1("모든 태그")
                     List(page.tags.sorted()) { tag in
                         ListItem {
                             Link(tag.string,
@@ -124,11 +121,11 @@ struct HogumachuThemeFactory<Site: Website>: HTMLFactory {
                 SiteHeader(context: context, selectedSelectionID: nil)
                 Wrapper {
                     H1 {
-                        Text("Tagged with ")
+                        Text("태그: ")
                         Span(page.tag.string).class("tag")
                     }
 
-                    Link("Browse all tags",
+                    Link("모든 태그 보기",
                         url: context.site.tagListPath.absoluteString
                     )
                     .class("browse-all")
