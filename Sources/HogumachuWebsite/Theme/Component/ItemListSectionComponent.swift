@@ -9,7 +9,7 @@ struct ItemListSectionComponent<Site: Website>: Component {
     var body: Component {
         Wrapper {
             H1(section.title)
-            ItemList(items: section.items, site: context.site)
+            ItemList(items: section.items.sorted(by: { $0.date > $1.date}), site: context.site)
         }
     }
     
