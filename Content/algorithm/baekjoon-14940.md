@@ -1,7 +1,7 @@
 ---
 title: 백준: 쉬운 최단거리
 date: 2023-05-16 18:15
-description: 백준, 쉬운 최단거리 문제 풀이
+description: 백준 (14940번), 쉬운 최단거리 문제 풀이
 tags: Algorithm, Swift, Baekjoon
 ---
 # 쉬운 최단거리
