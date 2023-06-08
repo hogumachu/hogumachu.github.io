@@ -1,6 +1,6 @@
 ---
 title: 백준: 가장 가까운 세 사람의 심리적 거리
-date: 2023-05-16 18:15
+date: 2023-06-08 17:15
 description: 백준 (20529번), 가장 가까운 세 사람의 심리적 거리 문제 풀이
 tags: Algorithm, Swift, Baekjoon
 ---
