@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"/><meta property="og:site_name" content="호구마츄로그"/><link rel="canonical" href="https://hogumachu.github.io/algorithm/programmers-181832"/><meta name="twitter:url" content="https://hogumachu.github.io/algorithm/programmers-181832"/><meta property="og:url" content="https://hogumachu.github.io/algorithm/programmers-181832"/><title>프로그래머스: 정수를 나선형으로 배치하기 | 호구마츄로그</title><meta name="twitter:title" content="프로그래머스: 정수를 나선형으로 배치하기 | 호구마츄로그"/><meta property="og:title" content="프로그래머스: 정수를 나선형으로 배치하기 | 호구마츄로그"/><meta name="description" content="프로그래머스 (181832번), 정수를 나선형으로 배치하기 문제 풀이"/><meta name="twitter:description" content="프로그래머스 (181832번), 정수를 나선형으로 배치하기 문제 풀이"/><meta property="og:description" content="프로그래머스 (181832번), 정수를 나선형으로 배치하기 문제 풀이"/><meta name="twitter:card" content="summary"/><link rel="stylesheet" href="/Theme/styles.css" type="text/css"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><link rel="shortcut icon" href="/images/favicon.png" type="image/png"/><link rel="alternate" href="/feed.rss" type="application/rss+xml" title="Subscribe to 호구마츄로그"/></head><body class="item-page"><header><div class="wrapper"><a href="/" class="site-name">호구마츄로그</a><nav><ul><li><a href="/articles" class="not-selected">아티클</a></li><li><a href="/projects" class="not-selected">프로젝트</a></li><li><a href="/algorithm" class="selected">알고리즘</a></li><li><a href="/about" class="not-selected">호구마츄</a></li></ul></nav></div></header><div class="wrapper"><article><h1>프로그래머스: 정수를 나선형으로 배치하기</h1><ul class="tag-list"><li><a href="/tags/algorithm">Algorithm</a></li><li><a href="/tags/swift">Swift</a></li><li><a href="/tags/baekjoon">Baekjoon</a></li></ul><div class="content"><h1>정수를 나선형으로 배치하기</h1><p>✔️ 난이도: Level 0 (Level 0 치고는 어려운 것 같다)</p><p>✔️ <a href="https://school.programmers.co.kr/learn/courses/30/lessons/181832">링크</a></p><h2>문제</h2><p>정수 n 이 주어지면 나선형으로 2차원 배열을 생성하여 리턴해라.</p><p>n이 3이라면 [[1, 2, 3] [8, 9, 4] [7, 6, 5]]</p><p>이런 형태로 리턴하면 된다.</p><h2>해결 방법</h2><p>n의 최대가 크지 않아 반복문이나 재귀함수 호출하면 된다.</p><h2>전체 코드</h2><pre><code><span class="keyword">func</span> solution(<span class="keyword">_</span> n: <span class="type">Int</span>) -&gt; [[<span class="type">Int</span>]] {
+    <span class="keyword">var</span> result: [[<span class="type">Int</span>]] = <span class="type">Array</span>(repeating: <span class="type">Array</span>(repeating: <span class="number">0</span>, count: n), count: n)
+    
+    <span class="keyword">func</span> isValidPoint(x: <span class="type">Int</span>, y: <span class="type">Int</span>) -&gt; <span class="type">Bool</span> {
+        <span class="keyword">return</span> x &gt;= <span class="number">0</span> &amp;&amp; x &lt; n &amp;&amp; y &gt;= <span class="number">0</span> &amp;&amp; y &lt; n
+    }
+    
+    <span class="keyword">func</span> visit(x: <span class="type">Int</span>, y: <span class="type">Int</span>, value: <span class="type">Int</span>, direction: <span class="type">Direction</span>) {
+        result[x][y] = value
+        <span class="keyword">let</span> (nextX, nextY) = direction.<span class="call">next</span>(x: x, y: y)
+        
+        <span class="keyword">if</span> <span class="call">isValidPoint</span>(x: nextX, y: nextY) &amp;&amp; result[nextX][nextY] == <span class="number">0</span> {
+            <span class="call">visit</span>(x: nextX, y: nextY, value: value + <span class="number">1</span>, direction: direction)
+        } <span class="keyword">else</span> {
+            <span class="keyword">let</span> rotateDirection = direction.<span class="call">rotate</span>()
+            <span class="keyword">let</span> (rotateX, rotateY) = rotateDirection.<span class="call">next</span>(x: x, y: y)
+            
+            <span class="keyword">if</span> <span class="call">isValidPoint</span>(x: rotateX, y: rotateY) &amp;&amp; result[rotateX][rotateY] == <span class="number">0</span>  {
+                <span class="call">visit</span>(x: rotateX, y: rotateY, value: value + <span class="number">1</span>, direction: rotateDirection)
+            }
+        }
+    }
+    
+    <span class="call">visit</span>(x: <span class="number">0</span>, y: <span class="number">0</span>, value: <span class="number">1</span>, direction: .<span class="dotAccess">right</span>)
+    
+    <span class="keyword">return</span> result
+}
+
+<span class="keyword">enum</span> Direction {
+    <span class="keyword">case</span> left
+    <span class="keyword">case</span> right
+    <span class="keyword">case</span> up
+    <span class="keyword">case</span> down
+    
+    <span class="keyword">func</span> next(x: <span class="type">Int</span>, y: <span class="type">Int</span>) -&gt; (x: <span class="type">Int</span>, y: <span class="type">Int</span>) {
+        <span class="keyword">switch self</span> {
+        <span class="keyword">case</span> .<span class="dotAccess">left</span>: <span class="keyword">return</span> (x, y - <span class="number">1</span>)
+        <span class="keyword">case</span> .<span class="dotAccess">right</span>: <span class="keyword">return</span> (x, y + <span class="number">1</span>)
+        <span class="keyword">case</span> .<span class="dotAccess">up</span>: <span class="keyword">return</span> (x - <span class="number">1</span>, y)
+        <span class="keyword">case</span> .<span class="dotAccess">down</span>: <span class="keyword">return</span> (x + <span class="number">1</span>, y)
+        }
+    }
+    
+    <span class="keyword">func</span> rotate() -&gt; <span class="type">Direction</span> {
+        <span class="keyword">switch self</span> {
+        <span class="keyword">case</span> .<span class="dotAccess">left</span>: <span class="keyword">return</span> .<span class="dotAccess">up</span>
+        <span class="keyword">case</span> .<span class="dotAccess">right</span>: <span class="keyword">return</span> .<span class="dotAccess">down</span>
+        <span class="keyword">case</span> .<span class="dotAccess">up</span>: <span class="keyword">return</span> .<span class="dotAccess">right</span>
+        <span class="keyword">case</span> .<span class="dotAccess">down</span>: <span class="keyword">return</span> .<span class="dotAccess">left</span>
+        }
+    }
+}
+</code></pre><h2>설명</h2><pre><code><span class="keyword">enum</span> Direction {
+    <span class="keyword">case</span> left
+    <span class="keyword">case</span> right
+    <span class="keyword">case</span> up
+    <span class="keyword">case</span> down
+    
+    <span class="keyword">func</span> next(x: <span class="type">Int</span>, y: <span class="type">Int</span>) -&gt; (x: <span class="type">Int</span>, y: <span class="type">Int</span>) {
+        <span class="keyword">switch self</span> {
+        <span class="keyword">case</span> .<span class="dotAccess">left</span>: <span class="keyword">return</span> (x, y - <span class="number">1</span>)
+        <span class="keyword">case</span> .<span class="dotAccess">right</span>: <span class="keyword">return</span> (x, y + <span class="number">1</span>)
+        <span class="keyword">case</span> .<span class="dotAccess">up</span>: <span class="keyword">return</span> (x - <span class="number">1</span>, y)
+        <span class="keyword">case</span> .<span class="dotAccess">down</span>: <span class="keyword">return</span> (x + <span class="number">1</span>, y)
+        }
+    }
+    
+    <span class="keyword">func</span> rotate() -&gt; <span class="type">Direction</span> {
+        <span class="keyword">switch self</span> {
+        <span class="keyword">case</span> .<span class="dotAccess">left</span>: <span class="keyword">return</span> .<span class="dotAccess">up</span>
+        <span class="keyword">case</span> .<span class="dotAccess">right</span>: <span class="keyword">return</span> .<span class="dotAccess">down</span>
+        <span class="keyword">case</span> .<span class="dotAccess">up</span>: <span class="keyword">return</span> .<span class="dotAccess">right</span>
+        <span class="keyword">case</span> .<span class="dotAccess">down</span>: <span class="keyword">return</span> .<span class="dotAccess">left</span>
+        }
+    }
+}
+</code></pre><p>회전을 위해 Direction 이라는 Enum 을 만들었다.</p><pre><code><span class="keyword">func</span> solution(<span class="keyword">_</span> n: <span class="type">Int</span>) -&gt; [[<span class="type">Int</span>]] {
+    <span class="keyword">var</span> result: [[<span class="type">Int</span>]] = <span class="type">Array</span>(repeating: <span class="type">Array</span>(repeating: <span class="number">0</span>, count: n), count: n)
+    
+    <span class="keyword">func</span> isValidPoint(x: <span class="type">Int</span>, y: <span class="type">Int</span>) -&gt; <span class="type">Bool</span> {
+        <span class="keyword">return</span> x &gt;= <span class="number">0</span> &amp;&amp; x &lt; n &amp;&amp; y &gt;= <span class="number">0</span> &amp;&amp; y &lt; n
+    }
+    
+    <span class="keyword">func</span> visit(x: <span class="type">Int</span>, y: <span class="type">Int</span>, value: <span class="type">Int</span>, direction: <span class="type">Direction</span>) {
+        result[x][y] = value
+        <span class="keyword">let</span> (nextX, nextY) = direction.<span class="call">next</span>(x: x, y: y)
+        
+        <span class="keyword">if</span> <span class="call">isValidPoint</span>(x: nextX, y: nextY) &amp;&amp; result[nextX][nextY] == <span class="number">0</span> {
+            <span class="call">visit</span>(x: nextX, y: nextY, value: value + <span class="number">1</span>, direction: direction)
+        } <span class="keyword">else</span> {
+            <span class="keyword">let</span> rotateDirection = direction.<span class="call">rotate</span>()
+            <span class="keyword">let</span> (rotateX, rotateY) = rotateDirection.<span class="call">next</span>(x: x, y: y)
+            
+            <span class="keyword">if</span> <span class="call">isValidPoint</span>(x: rotateX, y: rotateY) &amp;&amp; result[rotateX][rotateY] == <span class="number">0</span>  {
+                <span class="call">visit</span>(x: rotateX, y: rotateY, value: value + <span class="number">1</span>, direction: rotateDirection)
+            }
+        }
+    }
+    
+    <span class="call">visit</span>(x: <span class="number">0</span>, y: <span class="number">0</span>, value: <span class="number">1</span>, direction: .<span class="dotAccess">right</span>)
+    
+    <span class="keyword">return</span> result
+}
+</code></pre><p>결과 값에 쓰일 배열을 만들고 접근할 수 있는 좌표 값인지 확인하는 <code>isValidPoint</code> 를 만들었다.</p><p><code>visit</code> 은 좌표와 direction을 통해 다음으로 이동할 수 있으면 이동하고,</p><p>그렇지 않으면 회전을 한 후 다음으로 이동할 수 있는지 확인한다.</p></div></article></div><footer><p>Swift를 이용해 만들었어요 - <a href="https://github.com/johnsundell/publish">Publish</a></p><p>저작권 - <a href="http://www.wtfpl.net/">WTFPL</a></p><p><a href="/feed.rss">RSS feed</a></p></footer></body></html>
