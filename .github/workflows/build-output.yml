@@ -33,7 +33,7 @@ jobs:
         run: |
           git config --global user.name "Buildbot"
           git config --global user.email "buildbot@users.noreply.github.com"
+          cp google6a751de03e3b3eb2.html Output/google6a751de03e3b3eb2.html
           git add Output/*
-          git add google6a751de03e3b3eb2.html
           git commit -m "[BOT] build output for ${{ github.event.number }}"
           git push origin HEAD:${{ github.head_ref }} --force
