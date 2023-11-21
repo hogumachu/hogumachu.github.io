@@ -6,4 +6,11 @@ tags: Swift
 ---
 # iOS04-HeatPick
 
-([1.0.0 다운로드](itms-services://?action=download-manifest&amp;url=https://cdn.jsdelivr.net/gh/hogumachu/HeatPickStorage/Public/Manifest/manifest.plist))
+
+### 프로젝트 바로 가기
+
+✔️ [구경가기](https://github.com/boostcampwm2023/iOS04-HeatPick)
+
+### 다운로드
+
+✔️ [1.0.0 다운로드](itms-services://?action=download-manifest&amp;url=https://cdn.jsdelivr.net/gh/hogumachu/HeatPickStorage/Public/Manifest/manifest.plist)
