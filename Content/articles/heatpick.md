@@ -13,4 +13,4 @@ tags: Swift
 
 ### 다운로드
 
-✔️ [1.0.0 다운로드](itms-services://?action=download-manifest&amp;url=https://cdn.jsdelivr.net/gh/hogumachu/HeatPickStorage/Public/Manifest/manifest.plist)
+✔️ [1.0 다운로드](itms-services://?action=download-manifest&amp;url=https://cdn.jsdelivr.net/gh/hogumachu/HeatPickStorage/Public/Manifest/manifest_1.0.plist)
