@@ -3,14 +3,14 @@ import Publish
 import Plot
 
 struct ItemListSectionComponent<Site: Website>: Component {
-    var section: Section<Site>
-    var context: PublishingContext<Site>
-    
-    var body: Component {
-        Wrapper {
-            H1(section.title)
-            ItemList(items: section.items.sorted(by: { $0.date > $1.date}), site: context.site)
-        }
+  let section: Section<Site>
+  let context: PublishingContext<Site>
+  
+  var body: Component {
+    Wrapper {
+      H1(section.title)
+      ItemList(items: section.items.sorted(by: { $0.date > $1.date}), site: context.site)
     }
-    
+  }
+  
 }
