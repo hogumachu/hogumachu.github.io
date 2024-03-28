@@ -14,7 +14,7 @@ body {
 }
 
 .wrapper {
-  max-width: 1500px;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
   padding: 40px;
@@ -46,6 +46,50 @@ header nav {
 
 .header-logo {
   margin-right: 2rem;
+}
+
+.home-h1 {
+  margin-bottom: 3rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  white-space: pre-line;
+}
+
+.home-text1 {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  white-space: pre-line;
+  text-align: center;
+  font-weight: 600;
+}
+
+.home-text2 {
+  color: #626C7E;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+  white-space: pre-line;
+  text-align: center;
+  font-weight: 400;
+}
+
+.home-link {
+  display: inline-block;
+  background-color: #E7EEF9;
+  color: #4178D4;
+  padding: 8px 20px;
+  border-radius: 10px;
+  display: block;
+  text-align: center;
+  margin: auto;
+  max-width: 150px;
+}
+
+.home-image {
+  width: 100%;
+  border-radius: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 nav li {
@@ -81,6 +125,7 @@ nav li a:hover {
 h1 {
   margin-bottom: 30px;
   font-size: 2.2em;
+  white-space: pre-line;
 }
 
 h2 {
@@ -133,7 +178,6 @@ a {
   row-gap: 3rem;
   justify-items: stretch;
   justify-content: center;
-  margin-top: 2.75rem;
 }
 
 .grid-item-list > li {
@@ -219,15 +263,15 @@ footer {
   text-align: center;
 }
 
-@media(max-width: 600px) {
-  .wrapper {
-    padding: 40px 20px;
-  }
-}
-
 @media screen and (min-width: 800px) {
   .grid-item-list {
     grid-template-columns: 1fr 1fr;
+  }
+  .home-h1 {
+    margin-bottom: 3rem;
+    font-size: 3em;
+    line-height: 4rem;
+    white-space: pre-line;
   }
 }
 
