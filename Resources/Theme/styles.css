@@ -14,7 +14,7 @@ body {
 }
 
 .wrapper {
-  max-width: 900px;
+  max-width: 1500px;
   margin-left: auto;
   margin-right: auto;
   padding: 40px;
@@ -22,27 +22,29 @@ body {
 }
 
 header {
+  top: 0px;
+  position: sticky;
   background-color: #FFFFFF;
 }
 
 header .wrapper {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
 }
 
 header a {
   text-decoration: none;
 }
 
-header .site-name {
-  font-size: 1.5em;
-  color: #000000;
-  font-weight: bold;
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-nav {
-  margin-top: 20px;
+.header-logo {
+  margin-right: 2rem;
 }
 
 nav li {
@@ -59,15 +61,16 @@ a:hover {
 
 nav li a.selected {
   color: #4178D4;
-  border-radius: 5px;
-  margin-right: 5px;
-  font-weight: bold;
+  margin-right: 2rem;
+  font-weight: 700;
+  font-size: 1.1em;
 }
 
 nav li a.not-selected {
   color: #281E19;
-  border-radius: 5px;
-  margin-right: 5px;
+  margin-right: 2rem;
+  font-weight: 500;
+  font-size: 1.1em;
 }
 
 nav li a:hover {
@@ -122,6 +125,37 @@ a {
   margin-bottom: 10;
 }
 
+.grid-item-list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 3rem;
+  justify-items: center;
+  justify-content: center;
+  margin-top: 2.75rem;
+}
+
+.grid-item-list > li {
+  display: block;
+  padding: 30px;
+  border-radius: 30px;
+  background-color: #FFFFFF;
+  margin-bottom: 30px;
+}
+
+.grid-item-list > li:last-child {
+  margin-bottom: 0;
+}
+
+.grid-item-list h1 {
+  margin-bottom: 15px;
+  font-size: 1.3em;
+}
+
+.grid-item-list p {
+  margin-bottom: 10;
+}
+
 .tag-list {
   margin-bottom: 15px;
 }
@@ -173,6 +207,12 @@ footer {
 @media(max-width: 600px) {
   .wrapper {
     padding: 40px 20px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .grid-item-list {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
