@@ -1,0 +1,122 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8"/><meta property="og:site_name" content="호구마츄로그"/><link rel="canonical" href="https://hogumachu.github.io/articles/uitextfield_rx"/><meta name="twitter:url" content="https://hogumachu.github.io/articles/uitextfield_rx"/><meta property="og:url" content="https://hogumachu.github.io/articles/uitextfield_rx"/><title>RxTextField | 호구마츄로그</title><meta name="twitter:title" content="RxTextField | 호구마츄로그"/><meta property="og:title" content="RxTextField | 호구마츄로그"/><meta name="description" content="UITextField를 RxDelegateProxy를 이용하여 사용해보자"/><meta name="twitter:description" content="UITextField를 RxDelegateProxy를 이용하여 사용해보자"/><meta property="og:description" content="UITextField를 RxDelegateProxy를 이용하여 사용해보자"/><meta name="twitter:card" content="summary"/><link rel="stylesheet" href="/Theme/styles.css" type="text/css"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><link rel="shortcut icon" href="/images/favicon.png" type="image/png"/><link rel="alternate" href="/feed.rss" type="application/rss+xml" title="Subscribe to 호구마츄로그"/></head><body class="item-page"><header><div class="wrapper"><a href="/" class="header-logo"><img src="/Image/logo.svg"/></a><nav><ul><li><a href="/articles" class="selected">아티클</a></li><li><a href="/projects" class="not-selected">프로젝트</a></li><li><a href="/algorithm" class="not-selected">알고리즘</a></li><li><a href="/about" class="not-selected">호구마츄</a></li></ul></nav></div></header><div class="wrapper"><article><h1>RxTextField</h1><ul class="tag-list"><li><a href="/tags/article">Article</a></li><li><a href="/tags/swift">Swift</a></li><li><a href="/tags/rxswift">RxSwift</a></li></ul><div class="content"><h1>UITextField+Rx</h1><p>생각보다 RxSwift에서 UITextField에 대한 지원이 적다</p><pre><code><span class="comment">// RxCocoa에 있는 UITextField+Rx</span>
+<span class="keyword">extension</span> <span class="type">Reactive</span> <span class="keyword">where</span> <span class="type">Base</span>: <span class="type">UITextField</span> {
+    <span class="comment">/// Reactive wrapper for `text` property.</span>
+    <span class="keyword">public var</span> text: <span class="type">ControlProperty</span>&lt;<span class="type">String</span>?&gt; {
+        value
+    }
+    
+    <span class="comment">/// Reactive wrapper for `text` property.</span>
+    <span class="keyword">public var</span> value: <span class="type">ControlProperty</span>&lt;<span class="type">String</span>?&gt; {
+        <span class="keyword">return</span> base.<span class="property">rx</span>.<span class="call">controlPropertyWithDefaultEvents</span>(
+            getter: { textField <span class="keyword">in</span>
+                textField.<span class="property">text</span>
+            },
+            setter: { textField, value <span class="keyword">in</span>
+                <span class="comment">// This check is important because setting text value always clears control state
+                // including marked text selection which is important for proper input
+                // when IME input method is used.</span>
+                <span class="keyword">if</span> textField.<span class="property">text</span> != value {
+                    textField.<span class="property">text</span> = value
+                }
+            }
+        )
+    }
+    
+    <span class="comment">/// Bindable sink for `attributedText` property.</span>
+    <span class="keyword">public var</span> attributedText: <span class="type">ControlProperty</span>&lt;<span class="type">NSAttributedString</span>?&gt; {
+        <span class="keyword">return</span> base.<span class="property">rx</span>.<span class="call">controlPropertyWithDefaultEvents</span>(
+            getter: { textField <span class="keyword">in</span>
+                textField.<span class="property">attributedText</span>
+            },
+            setter: { textField, value <span class="keyword">in</span>
+                <span class="comment">// This check is important because setting text value always clears control state
+                // including marked text selection which is important for proper input
+                // when IME input method is used.</span>
+                <span class="keyword">if</span> textField.<span class="property">attributedText</span> != value {
+                    textField.<span class="property">attributedText</span> = value
+                }
+            }
+        )
+    }
+}
+</code></pre><h2>UITextFieldDelgate를 이용한 동작</h2><pre><code><span class="keyword">extension</span> <span class="type">SomeViewController</span>: <span class="type">UITextFieldDelegate</span> {
+    <span class="keyword">func</span> textFieldShouldReturn(<span class="keyword">_</span> textField: <span class="type">UITextField</span>) -&gt; <span class="type">Bool</span> {
+        <span class="keyword">if</span> textField == nameTextField {
+            <span class="comment">// Do something</span>
+        } <span class="keyword">else if</span> textField == urlTextField {
+            <span class="comment">// Do something</span>
+        } <span class="keyword">else if</span> textField == descTextField {
+            <span class="comment">// Do something</span>
+        }
+        <span class="keyword">return true</span>
+    }
+}
+</code></pre><p>UITextFieldDelegate를 이용하면 Delegate를 통해 받은 textField 를 이용하여 동작을 하면 된다.</p><p>그러나 if-else 가 textField 가 증가함과 동시에 증가하므로 딱히 좋은 방법은 아닌 것 같다.</p><h2>RxDelegateProxy를 활용하자</h2><p>Delegate에 있는 동작을 <b>RxDelegateProxy</b>로 추가할 수 있다.</p><pre><code><span class="keyword">extension</span> <span class="type">UITextField</span>: <span class="type">HasDelegate</span> {
+    <span class="keyword">public typealias</span> Delegate = <span class="type">UITextFieldDelegate</span>
+}
+</code></pre><p>먼저 <b>UITextField</b>가 <b>HasDelegate</b> 를 준수하도록 한다.</p><pre><code><span class="keyword">open class</span> RxTextFieldDelegateProxy: <span class="type">DelegateProxy</span>&lt;<span class="type">UITextField</span>, <span class="type">UITextFieldDelegate</span>&gt;, <span class="type">DelegateProxyType</span> {
+    
+    <span class="keyword">public weak private(set) var</span> textField: <span class="type">UITextField</span>?
+    
+    <span class="keyword">public init</span>(textField: <span class="type">ParentObject</span>) {
+        <span class="keyword">self</span>.<span class="property">textField</span> = textField
+        <span class="keyword">super</span>.<span class="keyword">init</span>(parentObject: textField, delegateProxy: <span class="type">RxTextFieldDelegateProxy</span>.<span class="keyword">self</span>)
+    }
+    
+    <span class="keyword">public static func</span> registerKnownImplementations() {
+        <span class="keyword">self</span>.<span class="call">register</span> { <span class="type">RxTextFieldDelegateProxy</span>(textField: $0) }
+    }
+    
+    <span class="keyword">private var</span> _returnKeyDidTapPublishSubject: <span class="type">PublishSubject</span>&lt;()&gt;?
+    
+    <span class="keyword">internal var</span> returnKeyDidTapPublishSubject: <span class="type">PublishSubject</span>&lt;()&gt; {
+        <span class="keyword">if let</span> subject = _returnKeyDidTapPublishSubject {
+            <span class="keyword">return</span> subject
+        }
+        <span class="keyword">let</span> subject = <span class="type">PublishSubject</span>&lt;()&gt;()
+        _returnKeyDidTapPublishSubject = subject
+        <span class="keyword">return</span> subject
+    }
+    
+    <span class="keyword">deinit</span> {
+        <span class="keyword">if let</span> subject = _returnKeyDidTapPublishSubject {
+            subject.<span class="call">on</span>(.<span class="dotAccess">completed</span>)
+        }
+    }
+    
+}
+</code></pre><p>다음으로 <b>DelegateProxy</b> 를 준수하여 필요한 동작을 추가한다.</p><p>그리고 <b>textFieldShouldReturn</b> 를 활용하기 위한 <b>PublishSubject</b>인 <b>returnKeyDidTapPublishSubject</b> 를 추가한다.</p><pre><code><span class="keyword">extension</span> <span class="type">RxTextFieldDelegateProxy</span>: <span class="type">UITextFieldDelegate</span> {
+    
+    <span class="keyword">public func</span> textFieldShouldReturn(<span class="keyword">_</span> textField: <span class="type">UITextField</span>) -&gt; <span class="type">Bool</span> {
+        <span class="keyword">if let</span> subject = _returnKeyDidTapPublishSubject {
+            subject.<span class="call">on</span>(.<span class="call">next</span>(()))
+        }
+        <span class="keyword">return self</span>.<span class="property">_forwardToDelegate</span>?.<span class="call">textFieldShouldReturn</span>(textField) ?? <span class="keyword">true</span>
+    }
+    
+}
+</code></pre><p>추가한 <b>PublishSubject</b>에 <b>textFieldShouldReturn</b> 이 호출될 때 onNext를 보낸다.</p><pre><code><span class="keyword">public extension</span> <span class="type">Reactive</span> <span class="keyword">where</span> <span class="type">Base</span>: <span class="type">UITextField</span> {
+    
+    <span class="keyword">var</span> returnKeyDidTap: <span class="type">ControlEvent</span>&lt;<span class="type">Void</span>&gt; {
+        <span class="keyword">let</span> source = <span class="type">RxTextFieldDelegateProxy</span>.<span class="call">proxy</span>(for: base).<span class="property">returnKeyDidTapPublishSubject</span>
+        <span class="keyword">return</span> <span class="type">ControlEvent</span>(events: source)
+        
+    }
+    
+}
+</code></pre><p>마지막으로 바로 사용하기 위해 <b>ControlEvent</b>를 만들어 사용한다.</p><h2>활용</h2><pre><code>nameTextField.<span class="property">rx</span>.<span class="property">returnKeyDidTap</span>
+    .<span class="call">withUnretained</span>(<span class="keyword">self</span>.<span class="property">urlTextField</span>)
+    .<span class="call">observe</span>(on: <span class="type">MainScheduler</span>.<span class="property">asyncInstance</span>)
+    .<span class="call">subscribe</span>(onNext: { nextTextField, <span class="keyword">_ in</span>
+        nextTextField.<span class="call">becomeFirstResponder</span>()
+    })
+    .<span class="call">disposed</span>(by: disposeBag)
+
+urlTextField.<span class="property">rx</span>.<span class="property">returnKeyDidTap</span>
+    .<span class="call">withUnretained</span>(<span class="keyword">self</span>.<span class="property">descTextField</span>)
+    .<span class="call">observe</span>(on: <span class="type">MainScheduler</span>.<span class="property">asyncInstance</span>)
+    .<span class="call">subscribe</span>(onNext: { nextTextField, <span class="keyword">_ in</span>
+        nextTextField.<span class="call">becomeFirstResponder</span>()
+    })
+    .<span class="call">disposed</span>(by: disposeBag)
+</code></pre><p>위와 같이 활용하여 현재 TextField에서 return key를 입력하면 다음 입력창으로 넘어가도록 할 수 있다.</p></div></article></div><footer><p>Swift를 이용해 만들었어요 - <a href="https://github.com/johnsundell/publish">Publish</a></p><p>저작권 - <a href="http://www.wtfpl.net/">WTFPL</a></p><p><a href="/feed.rss">RSS feed</a></p></footer></body></html>
