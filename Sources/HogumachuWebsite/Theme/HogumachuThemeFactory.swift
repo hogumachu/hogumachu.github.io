@@ -2,21 +2,14 @@ import Foundation
 import Publish
 import Plot
 
-extension Theme {
+struct HogumachuThemeFactory: HTMLFactory {
   
-  static var hogumachu: Self {
-    Theme(
-      htmlFactory: HogumachuThemeFactory(),
-      resourcePaths: ["Resources/Theme/styles.css"]
-    )
-  }
+  typealias Site = HogumachuWebsite
   
-}
-
-struct HogumachuThemeFactory<Site: Website>: HTMLFactory {
-  
-  func makeIndexHTML(for index: Index,
-                     context: PublishingContext<Site>) throws -> HTML {
+  func makeIndexHTML(
+    for index: Index,
+    context: PublishingContext<Site>
+  ) throws -> HTML {
     HTML(
       .lang(context.site.language),
       .headWithStylesheets(for: index, on: context.site),
@@ -25,7 +18,7 @@ struct HogumachuThemeFactory<Site: Website>: HTMLFactory {
         Wrapper {
           H1(index.title)
           Paragraph(context.site.description).class("description")
-          H2("게시글")
+          H2("최근 게시글")
           GridItemList(
             items: context.allItems(
               sortedBy: \.date,
@@ -40,8 +33,10 @@ struct HogumachuThemeFactory<Site: Website>: HTMLFactory {
   }
   
   
-  func makeSectionHTML(for section: Section<Site>,
-                       context: PublishingContext<Site>) throws -> HTML {
+  func makeSectionHTML(
+    for section: Section<Site>,
+    context: PublishingContext<Site>
+  ) throws -> HTML {
     HTML(
       .lang(context.site.language),
       .headWithStylesheets(for: section, on: context.site),
@@ -53,8 +48,10 @@ struct HogumachuThemeFactory<Site: Website>: HTMLFactory {
     )
   }
   
-  func makeItemHTML(for item: Item<Site>,
-                    context: PublishingContext<Site>) throws -> HTML {
+  func makeItemHTML(
+    for item: Item<Site>,
+    context: PublishingContext<Site>
+  ) throws -> HTML {
     HTML(
       .lang(context.site.language),
       .headWithStylesheets(for: item, on: context.site),
@@ -75,8 +72,10 @@ struct HogumachuThemeFactory<Site: Website>: HTMLFactory {
     )
   }
   
-  func makePageHTML(for page: Page,
-                    context: PublishingContext<Site>) throws -> HTML {
+  func makePageHTML(
+    for page: Page,
+    context: PublishingContext<Site>
+  ) throws -> HTML {
     HTML(
       .lang(context.site.language),
       .headWithStylesheets(for: page, on: context.site),
@@ -88,8 +87,10 @@ struct HogumachuThemeFactory<Site: Website>: HTMLFactory {
     )
   }
   
-  func makeTagListHTML(for page: TagListPage,
-                       context: PublishingContext<Site>) throws -> HTML? {
+  func makeTagListHTML(
+    for page: TagListPage,
+    context: PublishingContext<Site>
+  ) throws -> HTML? {
     HTML(
       .lang(context.site.language),
       .headWithStylesheets(for: page, on: context.site),
@@ -112,8 +113,10 @@ struct HogumachuThemeFactory<Site: Website>: HTMLFactory {
     )
   }
   
-  func makeTagDetailsHTML(for page: TagDetailsPage,
-                          context: PublishingContext<Site>) throws -> HTML? {
+  func makeTagDetailsHTML(
+    for page: TagDetailsPage,
+    context: PublishingContext<Site>
+  ) throws -> HTML? {
     HTML(
       .lang(context.site.language),
       .headWithStylesheets(for: page, on: context.site),

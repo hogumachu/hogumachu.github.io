@@ -12,7 +12,7 @@ struct HogumachuWebsite: Website {
   }
   
   struct ItemMetadata: WebsiteItemMetadata {
-    
+    var thumbnail: String?
   }
   
   var url = URL(string: "https://hogumachu.github.io/")!
