@@ -13,22 +13,7 @@ struct HogumachuThemeFactory: HTMLFactory {
     HTML(
       .lang(context.site.language),
       .headWithStylesheets(for: index, on: context.site),
-      .body {
-        SiteHeader(context: context, selectedSelectionID: nil)
-        Wrapper {
-          H1(index.title)
-          Paragraph(context.site.description).class("description")
-          H2("최근 게시글")
-          GridItemList(
-            items: context.allItems(
-              sortedBy: \.date,
-              order: .descending
-            ),
-            site: context.site
-          )
-        }
-        SiteFooter()
-      }
+      .body { HomeComponent(context: context) }
     )
   }
   

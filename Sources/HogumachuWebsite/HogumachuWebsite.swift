@@ -15,9 +15,9 @@ struct HogumachuWebsite: Website {
     var thumbnail: String?
   }
   
-  var url = URL(string: "https://hogumachu.github.io/")!
-  var name = "호구마츄로그"
-  var description = "반갑습니다.\niOS 개발자 호구마츄입니다."
+  let url = URL(string: "https://hogumachu.github.io/")!
+  let name = "호구마츄로그"
+  let description = "반갑습니다.\niOS 개발자 호구마츄입니다."
   var language: Language { .korean }
   var imagePath: Path? { nil }
   
