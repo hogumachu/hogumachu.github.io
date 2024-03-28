@@ -3,8 +3,8 @@ import Publish
 import Plot
 
 struct ItemList<Site: Website>: Component {
-  var items: [Item<Site>]
-  var site: Site
+  let items: [Item<Site>]
+  let site: Site
   
   var body: Component {
     List(items) { item in
