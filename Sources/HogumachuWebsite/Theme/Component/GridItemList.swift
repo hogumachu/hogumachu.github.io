@@ -1,8 +1,15 @@
+//
+//  GridItemList.swift
+//
+//
+//  Created by 홍성준 on 3/28/24.
+//
+
 import Foundation
 import Publish
 import Plot
 
-struct ItemList<Site: Website>: Component {
+struct GridItemList<Site: Website>: Component {
   let items: [Item<Site>]
   let site: Site
   
@@ -14,6 +21,6 @@ struct ItemList<Site: Website>: Component {
         ItemTagList(item: item, site: site)
       }
     }
-    .class("item-list")
+    .class("grid-item-list")
   }
 }
