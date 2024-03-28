@@ -7,7 +7,7 @@ try HogumachuWebsite().publish(using: [
     .installPlugin(.splash(withClassPrefix: "")),
     .optional(.copyResources()),
     .addMarkdownFiles(),
-    .generateHTML(withTheme: .hogumachu),
+    .generateHTML(withTheme: Theme(htmlFactory: HogumachuThemeFactory(), resourcePaths: ["Resources/Theme/styles.css"])),
     .generateRSSFeed(including: [.articles]),
     .generateSiteMap(),
 ])
