@@ -265,9 +265,14 @@ a {
   width: 170px;
 }
 
+.all-tags {
+  margin-bottom: 2rem;
+}
+
 .all-tags li {
-  font-size: 1.4em;
-  margin-right: 10px;
+  font-size: 1.2em;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
   padding: 6px 10px;
 }
 

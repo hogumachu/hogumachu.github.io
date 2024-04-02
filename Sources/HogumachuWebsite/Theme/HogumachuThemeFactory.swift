@@ -97,20 +97,23 @@ struct HogumachuThemeFactory: HTMLFactory {
       .headWithStylesheets(for: page, on: context.site),
       .body(
         .components {
-          SiteHeader(context: context, selectedSelectionID: nil)
           Wrapper {
-            H1("모든 태그")
-            List(page.tags.sorted()) { tag in
-              ListItem {
-                Link(tag.string,
-                     url: context.site.path(for: tag).absoluteString
-                )
+            SiteHeader(context: context, selectedSelectionID: nil)
+            ContentWrapper {
+              H1("모든 태그")
+              List(page.tags.sorted()) { tag in
+                ListItem {
+                  Link(
+                    tag.string,
+                    url: context.site.path(for: tag).absoluteString
+                  )
+                }
+                .class("tag")
               }
-              .class("tag")
+              .class("all-tags")
             }
-            .class("all-tags")
+            SiteFooter()
           }
-          SiteFooter()
         },
         .script(.src("/Javascript/header.js"))
       )
