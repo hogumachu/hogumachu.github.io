@@ -28,11 +28,14 @@ struct HogumachuThemeFactory: HTMLFactory {
     HTML(
       .lang(context.site.language),
       .headWithStylesheets(for: section, on: context.site),
-      .body {
-        SiteHeader(context: context, selectedSelectionID: section.id)
-        SectionItem(section: section, context: context)
-        SiteFooter()
-      }
+      .body(
+        .components {
+          SiteHeader(context: context, selectedSelectionID: section.id)
+          SectionItem(section: section, context: context)
+          SiteFooter()
+        },
+        .script(.src("/Javascript/header.js"))
+      )
     )
   }
   
@@ -55,7 +58,8 @@ struct HogumachuThemeFactory: HTMLFactory {
             }
           }
           SiteFooter()
-        }
+        },
+        .script(.src("/Javascript/header.js"))
       )
     )
   }
@@ -67,11 +71,14 @@ struct HogumachuThemeFactory: HTMLFactory {
     HTML(
       .lang(context.site.language),
       .headWithStylesheets(for: page, on: context.site),
-      .body {
-        SiteHeader(context: context, selectedSelectionID: nil)
-        Wrapper(page.body)
-        SiteFooter()
-      }
+      .body(
+        .components {
+          SiteHeader(context: context, selectedSelectionID: nil)
+          Wrapper(page.body)
+          SiteFooter()
+        },
+        .script(.src("/Javascript/header.js"))
+      )
     )
   }
   
@@ -82,22 +89,25 @@ struct HogumachuThemeFactory: HTMLFactory {
     HTML(
       .lang(context.site.language),
       .headWithStylesheets(for: page, on: context.site),
-      .body {
-        SiteHeader(context: context, selectedSelectionID: nil)
-        Wrapper {
-          H1("모든 태그")
-          List(page.tags.sorted()) { tag in
-            ListItem {
-              Link(tag.string,
-                   url: context.site.path(for: tag).absoluteString
-              )
+      .body(
+        .components {
+          SiteHeader(context: context, selectedSelectionID: nil)
+          Wrapper {
+            H1("모든 태그")
+            List(page.tags.sorted()) { tag in
+              ListItem {
+                Link(tag.string,
+                     url: context.site.path(for: tag).absoluteString
+                )
+              }
+              .class("tag")
             }
-            .class("tag")
+            .class("all-tags")
           }
-          .class("all-tags")
-        }
-        SiteFooter()
-      }
+          SiteFooter()
+        },
+        .script(.src("/Javascript/header.js"))
+      )
     )
   }
   
@@ -108,30 +118,33 @@ struct HogumachuThemeFactory: HTMLFactory {
     HTML(
       .lang(context.site.language),
       .headWithStylesheets(for: page, on: context.site),
-      .body {
-        SiteHeader(context: context, selectedSelectionID: nil)
-        Wrapper {
-          H1 {
-            Text("태그: ")
-            Span(page.tag.string).class("tag")
+      .body(
+        .components {
+          SiteHeader(context: context, selectedSelectionID: nil)
+          Wrapper {
+            H1 {
+              Text("태그: ")
+              Span(page.tag.string).class("tag")
+            }
+            
+            Link("모든 태그 보기",
+                 url: context.site.tagListPath.absoluteString
+            )
+            .class("browse-all")
+            
+            ItemList(
+              items: context.items(
+                taggedWith: page.tag,
+                sortedBy: \.date,
+                order: .descending
+              ),
+              site: context.site
+            )
           }
-          
-          Link("모든 태그 보기",
-               url: context.site.tagListPath.absoluteString
-          )
-          .class("browse-all")
-          
-          ItemList(
-            items: context.items(
-              taggedWith: page.tag,
-              sortedBy: \.date,
-              order: .descending
-            ),
-            site: context.site
-          )
-        }
-        SiteFooter()
-      }
+          SiteFooter()
+        },
+        .script(.src("/Javascript/header.js"))
+      )
     )
   }
 }
