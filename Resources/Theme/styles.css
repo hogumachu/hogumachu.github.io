@@ -282,8 +282,24 @@ a {
 }
 
 footer {
+  display: flex;
   color: #281E19;
   text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-content {
+  display: inline-block;
+  color: #8BABE2;
+  margin-right: 1.5rem;
+}
+
+.footer-logo {
+  size 24px;
+  margin-right: 1.5rem;
 }
 
 .navbar__toggleBtn {
