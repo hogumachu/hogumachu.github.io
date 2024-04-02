@@ -175,27 +175,6 @@ a {
   margin-bottom: 40px;
 }
 
-.item-list > li {
-  display: block;
-  padding: 30px;
-  border-radius: 30px;
-  background-color: #FFFFFF;
-  margin-bottom: 30px;
-}
-
-.item-list > li:last-child {
-  margin-bottom: 0;
-}
-
-.item-list h1 {
-  margin-bottom: 15px;
-  font-size: 1.3em;
-}
-
-.item-list p {
-  margin-bottom: 10;
-}
-
 .grid-item-list {
   width: 100%;
   display: grid;
@@ -209,7 +188,7 @@ a {
 .grid-item-list > li {
   display: block;
   background-color: #FFFFFF;
-  margin-bottom: 30px;
+  margin-bottom: 2rem;
 }
 
 .grid-item-list > li:last-child {
