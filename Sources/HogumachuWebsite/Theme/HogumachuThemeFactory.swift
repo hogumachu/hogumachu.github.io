@@ -13,7 +13,10 @@ struct HogumachuThemeFactory: HTMLFactory {
     HTML(
       .lang(context.site.language),
       .headWithStylesheets(for: index, on: context.site),
-      .body { HomeComponent(context: context) }
+      .body(
+        .component(HomeComponent(context: context)),
+        .script(.src("/Javascript/header.js"))
+      )
     )
   }
   

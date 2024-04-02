@@ -17,6 +17,10 @@ struct SiteHeader<Site: Website>: Component {
         if Site.SectionID.allCases.count > 1 {
           navigation
         }
+        Link(url: "#") {
+          Image("/Image/align-justify.svg")
+        }
+        .class("navbar__toggleBtn")
       }
     }
   }
@@ -33,6 +37,6 @@ struct SiteHeader<Site: Website>: Component {
         )
         .class(className)
       }
-    }
+    }.class("navbar__menu")
   }
 }

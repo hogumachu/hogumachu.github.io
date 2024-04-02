@@ -18,7 +18,7 @@ struct HomeComponent: Component {
   var body: Component {
     Wrapper {
       SiteHeader(context: context, selectedSelectionID: nil)
-      Wrapper {
+      ContentWrapper {
         H1("만나서 반가워요\niOS 개발자 호구마츄입니다")
           .class("home-h1")
         Image("/Image/Home/image1.svg")
