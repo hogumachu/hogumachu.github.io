@@ -49,15 +49,17 @@ struct HogumachuThemeFactory: HTMLFactory {
       .body(
         .class("item-page"),
         .components {
-          SiteHeader(context: context, selectedSelectionID: item.sectionID)
           Wrapper {
-            Article {
-              H1(item.title)
-              ItemTagList(item: item, site: context.site)
-              Div(item.content.body).class("content")
+            SiteHeader(context: context, selectedSelectionID: item.sectionID)
+            ContentWrapper {
+              Article {
+                H1(item.title)
+                ItemTagList(item: item, site: context.site)
+                Div(item.content.body).class("content")
+              }
             }
+            SiteFooter()
           }
-          SiteFooter()
         },
         .script(.src("/Javascript/header.js"))
       )
