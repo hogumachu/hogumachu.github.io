@@ -30,9 +30,13 @@ struct HogumachuThemeFactory: HTMLFactory {
       .headWithStylesheets(for: section, on: context.site),
       .body(
         .components {
-          SiteHeader(context: context, selectedSelectionID: section.id)
-          SectionItem(section: section, context: context)
-          SiteFooter()
+          Wrapper {
+            SiteHeader(context: context, selectedSelectionID: section.id)
+            ContentWrapper {
+              SectionItem(section: section, context: context)
+            }
+            SiteFooter()
+          }
         },
         .script(.src("/Javascript/header.js"))
       )
@@ -134,7 +138,7 @@ struct HogumachuThemeFactory: HTMLFactory {
             )
             .class("browse-all")
             
-            ItemList(
+            GridItemList(
               items: context.items(
                 taggedWith: page.tag,
                 sortedBy: \.date,
