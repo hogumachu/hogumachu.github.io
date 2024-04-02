@@ -229,6 +229,15 @@ a {
   margin-right: 10px;
 }
 
+.search-tag {
+  display: inline-block;
+  background-color: #F2F3F6;
+  color: #868B94;
+  padding: 4px 8px;
+  border-radius: 20px;
+  margin-left: 10px;
+}
+
 .tag-list a,
 .tag a {
   text-decoration: none;
@@ -247,12 +256,23 @@ a {
 
 .browse-all {
   display: block;
-  margin-bottom: 30px;
+  margin-bottom: 2rem;
+  background-color: #E7EEF9;
+  color: #4178D4;
+  padding: 8px 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 170px;
+}
+
+.all-tags {
+  margin-bottom: 2rem;
 }
 
 .all-tags li {
-  font-size: 1.4em;
-  margin-right: 10px;
+  font-size: 1.2em;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
   padding: 6px 10px;
 }
 
