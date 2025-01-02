@@ -7,5 +7,8 @@ struct Home: StaticPage {
   func body(context: PublishingContext) async -> [any BlockElement] {
     Text("Hello hogumachu!")
       .font(.title1)
+    
+    Text("Hello world")
+      .font(.title2)
   }
 }
