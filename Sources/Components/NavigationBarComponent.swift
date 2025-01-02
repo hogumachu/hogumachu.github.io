@@ -10,15 +10,14 @@ import Ignite
 
 struct NavigationBarComponent: Component {
   func body(context: PublishingContext) -> [any PageElement] {
-    NavigationBar(
-      logo: Image("add some image", description: "add some image")
-    ) {
+    NavigationBar(logo: logo) {
       Dropdown("개발") {
         Link("Naver", target: "https://naver.com")
         Link("Naver", target: "https://naver.com")
         Link("Naver", target: "https://naver.com")
         Link("Naver", target: "https://naver.com")
       }
+      .foregroundStyle(.gray100)
       
       Dropdown("개발2") {
         Link("Naver", target: "https://naver.com")
@@ -26,12 +25,20 @@ struct NavigationBarComponent: Component {
         Link("Naver", target: "https://naver.com")
         Link("Naver", target: "https://naver.com")
       }
+      .foregroundStyle(.gray100)
       
       Link("GitHub", target: "https://github.com/hogumachu")
+        .foregroundStyle(.gray100)
     }
     .navigationItemAlignment(.trailing)
     .navigationBarStyle(.dark)
-    .background(.aliceBlue)
+    .background(.gray400)
     .position(.fixedTop)
+  }
+  
+  private var logo: some InlineElement {
+    Text("🌎 Hogumachu Blog")
+      .font(.title2)
+      .foregroundStyle(.primaryColor)
   }
 }
