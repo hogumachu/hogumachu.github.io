@@ -19,9 +19,11 @@ struct MainTheme: Theme {
         NavigationBarComponent()
         
         page.body
+          .background(.gray400)
       }
       .padding(.vertical, 80)
       .class("container")
     }
+    .background(.gray400)
   }
 }
