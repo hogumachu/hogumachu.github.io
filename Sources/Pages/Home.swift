@@ -1,11 +1,11 @@
 import Foundation
 import Ignite
 
-struct Home: StaticLayout {
+struct Home: StaticPage {
   var title = "Home"
   
-  var body: some HTML {
-    Text("Hello world!")
+  func body(context: PublishingContext) async -> [any BlockElement] {
+    Text("Hello hogumachu!")
       .font(.title1)
   }
 }
