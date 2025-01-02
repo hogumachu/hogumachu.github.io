@@ -2,11 +2,11 @@ name: Build Output
 on:
   pull_request:
     types: [labeled]
-    
+
 defaults:
   run:
     shell: bash --noprofile --norc -euo pipefail {0}
-    
+
 jobs:
   build-output:
     name: Build output
@@ -16,25 +16,31 @@ jobs:
       - name: Remove 'build output' label
         if: ${{ github.event.action == 'labeled' }}
         run: |
-            curl \
+              curl \
               -X DELETE \
               -H 'Accept: application/vnd.github.v3+json' \
               -H 'Authorization: token ${{ github.token }}' \
               'https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.number }}/labels/build%20output'
-
+      
       - name: Checkout
         uses: actions/checkout@v3
-        
-      - name: Checkout Publish
-        run: brew install publish
-      - name: Build Publish site
-        run: publish generate
+      
+      - name: Set up Swift
+        uses: swift-actions/setup-swift@v2
+      
+      - name: Build Swift package
+        run: swift build --configuration release
+      
+      - name: Build Ignite site
+        run: .build/release/HogumachuWeb
+      
       - name: Setup Google Search File
-        run: cp google6a751de03e3b3eb2.html Output/google6a751de03e3b3eb2.html
-      - name: Push changes to the Output folder
+        run: cp google6a751de03e3b3eb2.html Build/google6a751de03e3b3eb2.html
+      
+      - name: Push changes to the Build folder
         run: |
           git config --global user.name "Buildbot"
           git config --global user.email "buildbot@users.noreply.github.com"
-          git add Output/*
+          git add Build/*
           git commit -m "[BOT] build output for ${{ github.event.number }}"
           git push origin HEAD:${{ github.head_ref }} --force
