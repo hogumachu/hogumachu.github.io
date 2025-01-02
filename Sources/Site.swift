@@ -17,11 +17,10 @@ struct IgniteWebsite {
 struct ExampleSite: Site {
   var name = "Hello World"
   var titleSuffix = " – My Awesome Site"
-  var url = URL(static: "https://hogumachu.github.io")
+  var url = URL(string: "https://hogumachu.github.io")!
   var builtInIconsEnabled = true
-  
   var author = "Hogumachu"
-  
   var homePage = Home()
-  var layout = MainLayout()
+  var theme: some Theme = SampleTheme()
+  let pages: [any StaticPage] = []
 }

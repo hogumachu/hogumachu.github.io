@@ -1,12 +1,13 @@
 {
+  "originHash" : "539206ff8b5bbb7d8896c14252f4fcf259efc291385a872279255daae641692a",
   "pins" : [
     {
       "identity" : "ignite",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/twostraws/Ignite.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "bc6531d55133aca16c0ff30021fb38f5b7f2aa26"
+        "revision" : "d4d87ed9e3cfa7f76aa399c0c2327c5145e6b190",
+        "version" : "0.2.2"
       }
     },
     {
@@ -28,15 +29,6 @@
       }
     },
     {
-      "identity" : "swift-collections",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-collections.git",
-      "state" : {
-        "revision" : "671108c96644956dddcd89dd59c203dcdb36cec7",
-        "version" : "1.1.4"
-      }
-    },
-    {
       "identity" : "swift-markdown",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/swiftlang/swift-markdown.git",
@@ -44,16 +36,7 @@
         "revision" : "8f79cb175981458a0a27e76cb42fee8e17b1a993",
         "version" : "0.5.0"
       }
-    },
-    {
-      "identity" : "swiftsoup",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/scinfu/SwiftSoup.git",
-      "state" : {
-        "revision" : "0837db354faf9c9deb710dc597046edaadf5360f",
-        "version" : "2.7.6"
-      }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
