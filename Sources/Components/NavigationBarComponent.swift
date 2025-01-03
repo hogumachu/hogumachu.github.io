@@ -11,24 +11,11 @@ import Ignite
 struct NavigationBarComponent: Component {
   func body(context: PublishingContext) -> [any PageElement] {
     NavigationBar(logo: logo) {
-      Dropdown("개발") {
-        Link("Naver", target: "https://naver.com")
-        Link("Naver", target: "https://naver.com")
-        Link("Naver", target: "https://naver.com")
-        Link("Naver", target: "https://naver.com")
+      Link(target: "https://github.com/hogumachu") {
+        Image(resource: .github)
+          .resizable()
+          .foregroundStyle(.gray100)
       }
-      .foregroundStyle(.gray100)
-      
-      Dropdown("개발2") {
-        Link("Naver", target: "https://naver.com")
-        Link("Naver", target: "https://naver.com")
-        Link("Naver", target: "https://naver.com")
-        Link("Naver", target: "https://naver.com")
-      }
-      .foregroundStyle(.gray100)
-      
-      Link("GitHub", target: "https://github.com/hogumachu")
-        .foregroundStyle(.gray100)
     }
     .navigationItemAlignment(.trailing)
     .navigationBarStyle(.dark)
@@ -38,7 +25,7 @@ struct NavigationBarComponent: Component {
   
   private var logo: some InlineElement {
     Text("🌎 Hogumachu Blog")
-      .font(.title2)
+      .font(.title3)
       .foregroundStyle(.primaryColor)
   }
 }
