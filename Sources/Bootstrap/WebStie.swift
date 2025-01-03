@@ -14,7 +14,8 @@ struct WebStie: Site {
   let name = "Hogumachu 블로그"
   let titleSuffix = " :: 🦧 iOS & Swift 🍌"
   let url = URL(string: "https://hogumachu.github.io")!
-  let builtInIconsEnabled = true
+  let language: Language = .korean
+  let builtInIconsEnabled: BootstrapOptions = .localBootstrap
   let author = "Hogumachu"
   let homePage = Home()
   let theme: some Theme = MainTheme()
