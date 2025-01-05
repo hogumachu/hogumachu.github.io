@@ -16,6 +16,7 @@ struct NavigationBarComponent: Component {
       linkComponent(CareerPage(), context: context)
       additionalLinks
     }
+    .padding(.horizontal, .extraLarge)
     .navigationItemAlignment(.trailing)
     .navigationBarStyle(.dark)
     .background(.gray400)
