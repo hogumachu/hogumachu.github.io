@@ -24,4 +24,7 @@ struct WebStie: Site {
     ServicePage(),
     CareerPage()
   ]
+  let layouts: [any ContentPage] = [
+    BlogContentLayout()
+  ]
 }
