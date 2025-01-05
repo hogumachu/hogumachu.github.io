@@ -1,16 +1,19 @@
+//
+//  ServicePage.swift
+//  HogumachuWeb
+//
+//  Created by 홍성준 on 1/5/25.
+//
+
 import Foundation
 import Ignite
 
-struct Home: StaticPage {
-  let title = "Home"
+struct ServicePage: StaticPage {
+  let title = "Service"
   
   func body(context: PublishingContext) async -> [any BlockElement] {
-    Text("Hello hogumachu!")
+    Text("ServicePage")
       .font(.title1)
-      .foregroundStyle(.textColor)
-    
-    Text("Hello world")
-      .font(.title2)
       .foregroundStyle(.gray100)
   }
 }
