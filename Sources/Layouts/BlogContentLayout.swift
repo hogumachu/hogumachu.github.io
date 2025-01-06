@@ -21,12 +21,13 @@ struct BlogContentLayout: ContentPage {
       .horizontalAlignment(.center)
       .padding(.bottom, .extraLarge)
     
-    // TODO: - Markdown Dark Mode 로 변경
     Group {
       Text(content.body)
     }
     .margin(.medium)
     .padding(.medium)
     .background(.gray400)
+    
+    Script.comment
   }
 }
