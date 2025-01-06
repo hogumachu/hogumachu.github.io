@@ -8,11 +8,9 @@
 import Foundation
 import Ignite
 
-// TODO: - WebSite 설정
-
 struct WebStie: Site {
-  let name = "Hogumachu 블로그"
-  let titleSuffix = " :: 🦧 iOS & Swift 🍌"
+  let name = "hogumachu tech"
+  let titleSuffix = " - hogumachu tech"
   let url = URL(string: "https://hogumachu.github.io")!
   let language: Language = .korean
   let builtInIconsEnabled: BootstrapOptions = .localBootstrap
