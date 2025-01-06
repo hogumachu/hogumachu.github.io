@@ -12,7 +12,7 @@ import Ignite
 
 struct MainTheme: Theme {
   func render(page: Page, context: PublishingContext) async -> HTML {
-    HTML {
+    HTML(type: .dark) {
       Head(for: page, in: context)
       
       Body {

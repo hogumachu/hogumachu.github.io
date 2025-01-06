@@ -7,7 +7,7 @@ let package = Package(
   name: "HogumachuWeb",
   platforms: [.macOS(.v13)],
   dependencies: [
-    .package(url: "https://github.com/twostraws/Ignite.git", exact: "0.2.2")
+    .package(url: "https://github.com/hogumachu/Ignite", branch: "main")
   ],
   targets: [
     .executableTarget(
