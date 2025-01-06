@@ -1,13 +1,13 @@
 {
-  "originHash" : "539206ff8b5bbb7d8896c14252f4fcf259efc291385a872279255daae641692a",
+  "originHash" : "45b71986ed68ad59aa6b04cbcb4f3e728676f350c4d434f224301d5236a30fe4",
   "pins" : [
     {
       "identity" : "ignite",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/twostraws/Ignite.git",
+      "location" : "https://github.com/hogumachu/Ignite",
       "state" : {
-        "revision" : "d4d87ed9e3cfa7f76aa399c0c2327c5145e6b190",
-        "version" : "0.2.2"
+        "branch" : "main",
+        "revision" : "cedf709dacbb2dea472949535c59cf826ee85ffa"
       }
     },
     {
