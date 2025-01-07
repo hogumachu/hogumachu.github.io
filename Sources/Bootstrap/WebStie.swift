@@ -25,4 +25,5 @@ struct WebStie: Site {
   let layouts: [any ContentPage] = [
     BlogContentLayout()
   ]
+  let syntaxHighlighters: [SyntaxHighlighter] = [.swift]
 }
