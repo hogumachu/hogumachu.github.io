@@ -16,7 +16,7 @@ _특히 기존에 겪었던 환경과 매우 다른 환경의 회사에 입사�
 ### 😇 새로운 회사 그리고 새로운 사람들 그리고 새로운 불만
 
 ---
-![fire](/images/contents/background/fire-background.jpg)
+<p align="center"><img src="/images/contents/background/fire-background.jpg" width="80%" /></p>
 
 긴 이직 준비를 끝으로 5월에 새로운 회사에 입사할 수 있었다.<br/>
 전에 다녔던 회사와는 굉장히 달랐다.<br/>
@@ -69,7 +69,7 @@ _특히 기존에 겪었던 환경과 매우 다른 환경의 회사에 입사�
 ### 🧐 2025년에는
 
 ---
-![perplex](/images/contents/background/perplex-background.jpg)
+<p align="center"><img src="/images/contents/background/perplex-background.jpg" width="80%" /></p>
 
 #### 아래와 같은 것을 이루고 싶다
 - 커뮤니케이션 역량을 더 키우고 싶다. 초등학생도 이해할 수 있도록 잘 대화하고 싶다.
