@@ -18,6 +18,14 @@ enum ImageResource: String {
   }
 }
 
+enum ServiceImageResource: String {
+  case heatPickIcon = "heat-pick-icon"
+  
+  var path: String {
+    return "/images/service/\(rawValue).png"
+  }
+}
+
 enum ContentBackgroundImageResource: String, CaseIterable {
   case banana
   case fire
@@ -33,6 +41,10 @@ enum ContentBackgroundImageResource: String, CaseIterable {
 
 extension Image {
   init(local resource: ImageResource) {
+    self.init(resource.path, description: resource.rawValue + " image")
+  }
+  
+  init(service resource: ServiceImageResource) {
     self.init(resource.path, description: resource.rawValue + " image")
   }
   

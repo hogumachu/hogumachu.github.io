@@ -20,7 +20,8 @@ struct WebStie: Site {
   let pages: [any StaticPage] = [
     BlogPage(),
     ServicePage(),
-    CareerPage()
+    CareerPage(),
+    HeatPickPage()
   ]
   let layouts: [any ContentPage] = [
     BlogContentLayout()
