@@ -1,0 +1,51 @@
+<!doctype html><html lang="ko" data-bs-theme="dark" style="background-color: rgb(26 26 26 / 100%)"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="이전에 티스토리에서 모듈화를 해야 하는 이유에 대해 게시글을 작성한 적이 있어요. 이전 글과 생각이 바뀐 것과 더 나아간 것이 있어서 다시 정리하려고 해요.   "><meta name="author" content="Hogumachu"><meta name="generator" content="Ignite v0.2.1"><title>모듈화를 하는 이유 - hogumachu tech</title><link href="/css/bootstrap.min.css" rel="stylesheet"><link href="/css/prism-default-dark.css" rel="stylesheet"><link href="/css/bootstrap-icons.min.css" rel="stylesheet"><link href="https://hogumachu.github.io/blog/modularization" rel="canonical"><meta property="og:site_name" content="hogumachu tech"><meta property="og:title" content="모듈화를 하는 이유"><meta property="twitter:title" content="모듈화를 하는 이유"><meta property="og:description" content="모듈화를 하는 이유"><meta name="twitter:description" content="모듈화를 하는 이유"><meta property="og:url" content="https://hogumachu.github.io/blog/modularization"><meta name="twitter:domain" content="hogumachu.github.io"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:dnt" content="on"></head><body class="px-5 container" style="background-color: rgb(26 26 26 / 100%); padding-top: 80px; padding-bottom: 80px"><div class="col-sm-10 mx-auto"><header><nav class="px-5 fixed-top navbar navbar-expand-md" style="background-color: rgb(26 26 26 / 100%)" data-bs-theme="dark"><div class="container-fluid col"><a href="/" class="navbar-brand"><h4 style="font-weight: 400; color: rgb(255 255 255 / 100%)">hogumachu tech</h4></a><button type="button" class="navbar-toggler btn" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div id="navbarCollapse" class="collapse navbar-collapse"><ul class="navbar-nav mb-2 mb-md-0 col justify-content-end"><li class="nav-item"><a href="/blog-page" class="nav-link"><p style="color: rgb(118 118 119 / 100%)">Blog</p></a></li><li class="nav-item"><a href="/service-page" class="nav-link"><p style="color: rgb(118 118 119 / 100%)">Service</p></a></li><li class="nav-item"><a href="/career-page" class="nav-link"><p style="color: rgb(118 118 119 / 100%)">Career</p></a></li><li class="nav-item dropdown" data-bs-theme="light"><a href="#" role="button" class="dropdown-toggle nav-link" data-bs-toggle="dropdown" aria-expanded="false">More</a><ul class="dropdown-menu"><li><a href="https://github.com/hogumachu" class="dropdown-item"><p style="color: rgb(118 118 119 / 100%)">GitHub</p></a></li><li><a href="https://hogumachu.tistory.com" class="dropdown-item"><p style="color: rgb(118 118 119 / 100%)">Tistory</p></a></li></ul></li></ul></div></div></nav></header><h1 class="text-center" style="color: rgb(255 255 255 / 100%)">모듈화를 하는 이유</h1><p class="text-center pb-5" style="color: rgb(118 118 119 / 100%)">모듈화가 필요한 이유에 대한 설명 | 2025-01-12</p><div class="m-3 p-3" style="background-color: rgb(26 26 26 / 100%)"><p><p>이전에 <a href="https://hogumachu.tistory.com/35">티스토리</a>에서 모듈화를 해야 하는 이유에 대해 게시글을 작성한 적이 있어요.<br/> 이전 글과 생각이 바뀐 것과 더 나아간 것이 있어서 다시 정리하려고 해요. <br/> <br/> <br/></p><h3>🤨 모듈화와 생산성</h3><hr /><p align="center"><img src="/images/contents/background/perplex-background.jpg" width="80%" /></p>
+<p>먼저 모듈화를 하지 않는다면 어떠한 일이 있을까요?<br/> 일단 <code>private</code> 또는 <code>fileprivate</code>으로 선언하지 않는 한, 모든 모듈에서 접근이 가능해요.<br/></p><p><strong>Q: 모든 모듈에서 접근이 가능하면 뭐가 문제인가요?</strong></p><p>사실 관리만 잘하면 큰 문제가 없다고 생각해요.<br/> 작은 수의 iOS 개발자와 협업을 하거나, 코드의 크기가 크지 않으면 아무 문제 없어요.<br/> 그러나 iOS 개발자가 많아지거나(또는 변경되거나) 코드의 크기가 커지면 문제가 발생해요.<br/></p><h4>모듈화를 하지 않으면?</h4><p>모듈화를 하지 않으면 의도와는 다르게 코드가 사용될 수 있어요.<br/></p><pre><code class="language-swift">final class UserService {
+  static let shared = UserService()
+}
+</code></pre><p>사용자의 정보를 가져올 수 있고, 사용자를 설정할 수 있는 <code>UserSerivce</code>가 있다고 가정할게요.<br/> 회원가입을 한다고 가정하면, <code>사용자 정보 입력 -> 검증 -> 회원가입</code> 이런 방식으로 진행될 거에요.<br/> <code>UserService</code>에 있는 구현은 아래와 같아요.<br/></p><pre><code class="language-swift">protocol UserStorage {
+  func read(_ id: String) -> User?
+  func save(_ user: User)
+  func delete(_ user: User)
+}
+
+final class LocalStorage: UserStorage { /* 생략 */ }
+final class RemoteStorage: UserStorage { /* 생략 */ }
+</code></pre><p>먼저 <code>LocalStorage</code>와 <code>RemoteStorage</code>가 존재해요.<br/></p><pre><code class="language-swift">final class UserService {
+  static let shared = UserService()
+  private let local = LocalStorage()
+  private let remote = RemoteStorage()
+  
+  func user(_ id: String) -> User? {
+    if let user = local.read(id) {
+      return user
+    }
+    
+    if let user = remote.read(id) {
+      return user
+    }
+    
+    return nil
+  }
+  
+  func setUser(_ user: User) {
+    local.save(user)
+    remote.save(user)
+  }
+}
+</code></pre><p>이러한 방식으로 로컬(<code>LocalStorage</code>) 뿐만 아니라 서버(<code>RemoteStorage</code>)에도 값을 저장하고 있어요.<br/> 만약 회원가입 후에 <code>UserService</code>가 아닌 <code>LocalStorage</code>또는 <code>RemoteStorage</code>에 접근하여 <code>setUser(:User)</code>를 호출하면 어떻게 될까요?<br/> 아마도 제대로 User 정보가 저장이 되지 않아 로그인 후에 모든 기능에서 장애가 발생할 확률이 높아요.<br/></p><h4>모듈화를 하게 된다면?</h4><p>위와 같은 일은 확실히 줄어들어요.<br/></p><pre><code class="language-swift">/// UserModule
+
+public final class UserService {
+  public static let shared = UserService()
+  / * 생략 * /
+}
+
+final class LocalStorage: UserStorage { /* 생략 */ }
+final class RemoteStorage: UserStorage { /* 생략 */ }
+</code></pre><pre><code class="language-swift">import UserModule
+
+let userService = UserService.shared
+let local = LocalStorage() // 컴파일 에러
+let remote = RemoteStorage() // 컴파일 에러
+</code></pre><p><code>UserSerivce</code>는 <code>public</code>이므로 접근이 가능하지만, <code>internal</code>은 다른 모듈에서 접근이 불가능해요.<br/> 모듈로 나누기 전에는 로컬과 서버에 모두 접근 가능했지만, 모듈화 후에는 <code>UserModule</code>을 제외하고는 접근이 불가능해요.<br/> 따라서 원하는 기능만 열어 사용하도록 만들 수 있어요.<br/></p><h4>빌드 속도</h4><p>모듈화를 하게 되면 빌드 속도가 빨라져 생산성을 향상시킬 수 있어요.<br/> 이를 이해하려면 먼저 증분 빌드를 알고 있어야 해요.<br/></p><p><strong>증분 빌드란, 빌드가 최신 상태인 요소는 빌드를 다시 하지 않아요. 변경사항이 있는 코드만 빌드를 진행해요.</strong></p><p>즉, 모듈에서 변경사항이 있는 경우 다시 빌드를 해요.<br/> <br/> <code>UserSerivce</code>에서 변경사항이 발생했다고 가정할게요.<br/></p><p align="center"><img src="/images/blog/modularization/1.png" width="80%" /></p>
+<p>위와 같이 단일 모듈(APP)인 경우에는 결국 앱 전체가 빌드를 하게 되어요.<br/></p><p align="center"><img src="/images/blog/modularization/2.png" width="80%" /></p>
+<p>위와 같이 모듈화를 진행했다면 <code>PayService</code>와 <code>DriverService</code> 모듈은 증분 빌드로 인해 다시 빌드가 되지 않아요.<br/> 서비스가 작을 때는 유의미한 개선은 아니지만 서비스가 커지면 커질수록 훨씬 효과를 발휘해요.<br/></p><h4>더 좋은 설계</h4><p>모듈화를 하면 더 좋은 설계에 대한 고민할 거리를 많이 제공해요.<br/> 모듈화를 진행하지 않으면 모듈 구조에 대한 고민을 하지 않아도 돼요.<br/> 깔끔하게 폴더 정리만 하면 끝이에요.<br/> 모듈화를 하게 되면 이 영역이 모듈 수준으로 확장이 되어요.<br/></p></p></div><script repo="hogumachu/hogumachu.github.io" issue-term="pathname" theme="github-dark" crossorigin="anonymous" src="https://utteranc.es/client.js"></script></div><script src="/js/bootstrap.bundle.min.js"></script><script src="/js/syntax-highlighting.js"></script></body></html>
