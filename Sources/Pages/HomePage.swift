@@ -14,6 +14,12 @@ struct HomePage: StaticPage {
       .padding(.top, 200)
     
     pageDescriptionCarousel
+    
+    recentBlogTitle
+      .padding(.top, 200)
+    
+    recentBlogSection(context)
+      .padding(.top, .large)
   }
   
   private var header: some BlockElement {
@@ -57,7 +63,7 @@ struct HomePage: StaticPage {
       Text("공유하는 것")
         .font(.title6)
         .fontWeight(.regular)
-        .foregroundStyle(.textColor)
+        .foregroundStyle(.primaryColor)
       
       Text("개발자 그리고 직장인으로 겪은 모든 것을 공유해요")
         .font(.title2)
@@ -122,5 +128,95 @@ struct HomePage: StaticPage {
       }
     }
     .backgroundOpacity(0.1)
+  }
+  
+  private var recentBlogTitle: some BlockElement {
+    Group {
+      Text("최근 게시글")
+        .font(.title6)
+        .fontWeight(.regular)
+        .foregroundStyle(.secondaryColor)
+      
+      Text("최근에 어떤 생각을 하며 개발을 하는 지 공유해요")
+        .font(.title2)
+        .fontWeight(.semibold)
+        .foregroundStyle(.textColor)
+      
+      Text("개발을 잘하는 것을 넘어 더 좋은 동료로 지내기 위해 열심히 노력하고 있어요.")
+        .font(.body)
+        .fontWeight(.regular)
+        .foregroundStyle(.gray200)
+    }
+    .horizontalAlignment(.center)
+  }
+  
+  private func recentBlogSection(_ context: PublishingContext) -> some BlockElement {
+    Section {
+      for (index, content) in recentBlogContents(context).enumerated() {
+        ContentPreview(for: content)
+          .contentPreviewStyle(BlogPreviewStyle(index: index))
+          .background(.gray400)
+          .padding(.extraSmall)
+      }
+    }
+    .columns(2)
+  }
+  
+  private func recentBlogContents(_ context: PublishingContext) -> [Content] {
+    context.content(ofType: "blog").sorted {
+      $0.date > $1.date
+    }
+    .prefix(2)
+    .map { $0 }
+  }
+}
+
+private struct BlogPreviewStyle: ContentPreviewStyle {
+  let index: Int
+  let imageID = UniqueID().string
+  let titleID = UniqueID().string
+  let descriptionID = UniqueID().string
+  
+  func body(content: Content, context: PublishingContext) -> any BlockElement {
+    Group {
+      Image(contentIndex: index)
+        .id(imageID)
+        .resizable()
+        .cornerRadius(8)
+        .contentAction(content: content, imageID: imageID, titleID: titleID, descriptionID: descriptionID)
+      
+      Text(content.title)
+        .id(titleID)
+        .font(.title4)
+        .fontWeight(.semibold)
+        .foregroundStyle(.textColor)
+        .horizontalAlignment(.center)
+        .padding(.top, .small)
+        .contentAction(content: content, imageID: imageID, titleID: titleID, descriptionID: descriptionID)
+      
+      Text(content.description)
+        .id(descriptionID)
+        .font(.body)
+        .fontWeight(.regular)
+        .foregroundStyle(.gray200)
+        .horizontalAlignment(.center)
+        .contentAction(content: content, imageID: imageID, titleID: titleID, descriptionID: descriptionID)
+    }
+  }
+}
+
+private extension PageElement {
+  func contentAction(content: Content, imageID: String, titleID: String, descriptionID: String) -> Self {
+    self.onHover { isHovering in
+      OpacityAction(id: imageID, opacity: isHovering ? 0.8 : 1.0)
+      ColorAction(id: titleID, color: isHovering ? .gray200 : .textColor)
+      ColorAction(id: descriptionID, color: isHovering ? .gray300 : .gray200)
+      CursorAction(id: imageID, isHovering: isHovering)
+      CursorAction(id: titleID, isHovering: isHovering)
+      CursorAction(id: descriptionID, isHovering: isHovering)
+    }
+    .onClick {
+      NavigationAction(link: content.path)
+    }
   }
 }
