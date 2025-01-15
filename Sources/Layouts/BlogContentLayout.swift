@@ -12,6 +12,7 @@ struct BlogContentLayout: ContentPage {
   func body(content: Content, context: PublishingContext) async -> [any BlockElement] {
     Text(content.title)
       .font(.title1)
+      .fontWeight(.bold)
       .foregroundStyle(.textColor)
       .horizontalAlignment(.center)
     

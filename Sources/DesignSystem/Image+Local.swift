@@ -20,6 +20,7 @@ enum ImageResource: String {
 
 enum ServiceImageResource: String {
   case heatPickIcon = "heat-pick-icon"
+  case heatPickService = "heat-pick-service"
   
   var path: String {
     return "/images/service/\(rawValue).png"

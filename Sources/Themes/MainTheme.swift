@@ -22,7 +22,7 @@ struct MainTheme: Theme {
       }
       .background(.gray400)
       .padding(.vertical, 80)
-      .padding(.horizontal, .extraLarge)
+      .padding(.horizontal, .medium)
       .class("container")
     }
     .background(.gray400)
