@@ -33,6 +33,7 @@ struct BlogPage: StaticPage {
             .contentPreviewStyle(PreviewStyle(index: index))
             .width(.max)
             .background(.gray400)
+            .padding()
         }
       }
       .columns(2)
