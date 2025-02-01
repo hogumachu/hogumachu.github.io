@@ -21,7 +21,7 @@ struct MainTheme: Theme {
         page.body
       }
       .background(.gray400)
-      .padding(.vertical, 80)
+      .padding(.vertical, 70)
       .padding(.horizontal, .medium)
       .class("container")
     }
