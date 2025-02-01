@@ -17,6 +17,11 @@ enum BootstrapImageResource: String {
   case bookFill = "book-fill"
   case phone
   case personWorkspace = "person-workspace"
+  case arrowUpRight = "arrow-up-right"
+  case arrowRightSquareFill = "arrow-right-square-fill"
+  case link
+  case linkedin
+  case mailbox = "mailbox2"
 }
 
 extension Image {
