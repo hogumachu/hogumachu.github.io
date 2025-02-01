@@ -19,7 +19,7 @@ struct BlogPage: StaticPage {
         .foregroundStyle(.textColor)
         .horizontalAlignment(.center)
       
-      Text("Swift, iOS에 대한 이야기 이외에도 많은 내용을 공유해요.")
+      Text("좋은 제품을 만들기 위해 했던 노력을 공유해요.")
         .font(.title4)
         .fontWeight(.semibold)
         .foregroundStyle(.gray100)
@@ -73,7 +73,7 @@ private struct PreviewStyle: ContentPreviewStyle {
         .id(descriptionID)
         .font(.title6)
         .fontWeight(.regular)
-        .foregroundStyle(.gray200)
+        .foregroundStyle(.secondaryTextColor)
         .contentAction(content: content, imageID: imageID, titleID: titleID, descriptionID: descriptionID)
     }
   }
@@ -84,7 +84,7 @@ private extension PageElement {
     self.onHover { isHovering in
       OpacityAction(id: imageID, opacity: isHovering ? 0.8 : 1.0)
       ColorAction(id: titleID, color: isHovering ? .gray200 : .textColor)
-      ColorAction(id: descriptionID, color: isHovering ? .gray300 : .gray200)
+      ColorAction(id: descriptionID, color: isHovering ? .gray200 : .secondaryTextColor)
       CursorAction(id: imageID, isHovering: isHovering)
       CursorAction(id: titleID, isHovering: isHovering)
       CursorAction(id: descriptionID, isHovering: isHovering)
