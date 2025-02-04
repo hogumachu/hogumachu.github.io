@@ -105,7 +105,7 @@ struct HomePage: StaticPage {
           .role(.primary)
       }
     }
-    .backgroundOpacity(0.3)
+    .backgroundOpacity(0.2)
   }
   
   private var recentBlogTitle: some BlockElement {
