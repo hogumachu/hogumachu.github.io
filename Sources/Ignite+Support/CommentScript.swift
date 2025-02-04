@@ -10,8 +10,8 @@ import Ignite
 
 extension Script {
   static let comment = Script(file: "https://utteranc.es/client.js")
-    .addCustomAttribute(name: "repo", value: "hogumachu/hogumachu.github.io")
-    .addCustomAttribute(name: "issue-term", value: "pathname")
-    .addCustomAttribute(name: "theme", value: "github-dark")
-    .addCustomAttribute(name: "crossorigin", value: "anonymous")
+    .customAttribute(name: "repo", value: "hogumachu/hogumachu.github.io")
+    .customAttribute(name: "issue-term", value: "pathname")
+    .customAttribute(name: "theme", value: "github-dark")
+    .customAttribute(name: "crossorigin", value: "anonymous")
 }

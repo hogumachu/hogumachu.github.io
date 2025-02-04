@@ -1,10 +1,10 @@
 import Foundation
 import Ignite
 
-struct HomePage: StaticPage {
+struct HomePage: StaticLayout {
   let title = "Home"
   
-  func body(context: PublishingContext) async -> [any BlockElement] {
+  var body: some HTML {
     header
     
     pageDescriptionTitle
@@ -20,23 +20,23 @@ struct HomePage: StaticPage {
       .padding(.top, .large)
   }
   
-  private var header: some BlockElement {
+  private var header: some HTML {
     Group {
       Text("호구마츄테크,")
+        .horizontalAlignment(.center)
         .font(.title1)
         .fontWeight(.bold)
         .foregroundStyle(.textColor)
-        .horizontalAlignment(.center)
       
       Text("Swift, iOS 이야기를 주로 해요")
+        .horizontalAlignment(.center)
         .font(.title4)
         .fontWeight(.semibold)
         .foregroundStyle(.gray100)
-        .horizontalAlignment(.center)
     }
   }
   
-  private var pageDescriptionTitle: some BlockElement {
+  private var pageDescriptionTitle: some HTML {
     Group {
       Text("공유하는 것")
         .font(.title6)
@@ -56,7 +56,7 @@ struct HomePage: StaticPage {
     .horizontalAlignment(.center)
   }
   
-  private var pageDescriptionCarousel: some BlockElement {
+  private var pageDescriptionCarousel: some HTML {
     Carousel {
       pageDescriptionSlide(
         target: BlogPage(),
@@ -82,7 +82,7 @@ struct HomePage: StaticPage {
   }
   
   private func pageDescriptionSlide(
-    target: any StaticPage,
+    target: any StaticLayout,
     resource: ImageResource,
     title: String,
     description: String
@@ -108,7 +108,7 @@ struct HomePage: StaticPage {
     .backgroundOpacity(0.2)
   }
   
-  private var recentBlogTitle: some BlockElement {
+  private var recentBlogTitle: some HTML {
     Group {
       Text("최근 게시글")
         .font(.title6)
@@ -128,7 +128,7 @@ struct HomePage: StaticPage {
     .horizontalAlignment(.center)
   }
   
-  private func recentBlogSection(_ context: PublishingContext) -> some BlockElement {
+  private func recentBlogSection(_ context: PublishingContext) -> some HTML {
     Section {
       for (index, content) in recentBlogContents(context).enumerated() {
         ContentPreview(for: content)
@@ -155,7 +155,7 @@ private struct BlogPreviewStyle: ContentPreviewStyle {
   let titleID = UniqueID().string
   let descriptionID = UniqueID().string
   
-  func body(content: Content, context: PublishingContext) -> any BlockElement {
+  func body(content: Content) -> any BlockHTML {
     Group {
       Image(contentIndex: index)
         .id(imageID)
