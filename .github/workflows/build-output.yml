@@ -22,19 +22,19 @@ jobs:
               -H 'Authorization: token ${{ github.token }}' \
               'https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.number }}/labels/build%20output'
       
-      - name: Checkout
-        uses: actions/checkout@v3
-      
-      - name: Set up Swift
-        uses: swift-actions/setup-swift@v2
-        with:
-          swift-version: "5.10.1"
-      
-      - name: Build Swift package
-        run: swift build --configuration release
-      
-      - name: Build Ignite site
-        run: .build/release/HogumachuWeb
+#      - name: Checkout
+#        uses: actions/checkout@v3
+#      
+#      - name: Set up Swift
+#        uses: swift-actions/setup-swift@v2
+#        with:
+#          swift-version: "5.10.1"
+#      
+#      - name: Build Swift package
+#        run: swift build --configuration release
+#      
+#      - name: Build Ignite site
+#        run: .build/release/HogumachuWeb
       
       - name: Setup Google Search File
         run: cp Includes/google6a751de03e3b3eb2.html Build/google6a751de03e3b3eb2.html
