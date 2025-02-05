@@ -6,30 +6,31 @@
 //
 
 import Foundation
-import Ignite
+@preconcurrency import Ignite
 
-struct BlogPage: StaticPage {
+struct BlogPage: StaticLayout {
+  @Environment(\.content) var content
   let title = "Blog"
   
-  func body(context: PublishingContext) async -> [any BlockElement] {
+  var body: some HTML {
     Group {
       Text("Blog")
+        .horizontalAlignment(.center)
         .font(.title1)
         .fontWeight(.bold)
         .foregroundStyle(.textColor)
-        .horizontalAlignment(.center)
       
       Text("좋은 제품을 만들기 위해 했던 노력을 공유해요.")
+        .horizontalAlignment(.center)
         .font(.title4)
         .fontWeight(.semibold)
         .foregroundStyle(.gray100)
-        .horizontalAlignment(.center)
         .padding(.top, .medium)
-        .padding(.bottom, .extraLarge)
+        .padding(.bottom, .xLarge)
       
-      Section {
-        for (index, content) in contents(context).enumerated() {
-          ContentPreview(for: content)
+      Grid {
+        ForEach(contents(content)) { index, item in
+          ContentPreview(for: item)
             .contentPreviewStyle(PreviewStyle(index: index))
             .width(.max)
             .background(.gray400)
@@ -40,26 +41,28 @@ struct BlogPage: StaticPage {
     }
   }
   
-  private func contents(_ context: PublishingContext) -> [Content] {
-    context.content(ofType: "blog").sorted {
+  private func contents(_ content: ContentLoader) -> EnumeratedSequence<[Content]> {
+    content.typed("blog").sorted {
       $0.date > $1.date
     }
+    .enumerated()
   }
 }
 
-private struct PreviewStyle: ContentPreviewStyle {
+private struct PreviewStyle: @preconcurrency ContentPreviewStyle {
   let index: Int
   let imageID = UniqueID().string
   let titleID = UniqueID().string
   let descriptionID = UniqueID().string
   
-  func body(content: Content, context: PublishingContext) -> any BlockElement {
+  @MainActor
+  func body(content: Content) -> any BlockHTML {
     Group {
       Image(contentIndex: index)
         .id(imageID)
         .resizable()
         .cornerRadius(16)
-        .contentAction(content: content, imageID: imageID, titleID: titleID, descriptionID: descriptionID)
+//        .contentAction(content: content, imageID: imageID, titleID: titleID, descriptionID: descriptionID)
       
       Text(content.title)
         .id(titleID)
@@ -67,30 +70,30 @@ private struct PreviewStyle: ContentPreviewStyle {
         .fontWeight(.semibold)
         .foregroundStyle(.textColor)
         .padding(.top, .small)
-        .contentAction(content: content, imageID: imageID, titleID: titleID, descriptionID: descriptionID)
+//        .contentAction(content: content, imageID: imageID, titleID: titleID, descriptionID: descriptionID)
       
       Text(content.description)
         .id(descriptionID)
         .font(.title6)
         .fontWeight(.regular)
         .foregroundStyle(.secondaryTextColor)
-        .contentAction(content: content, imageID: imageID, titleID: titleID, descriptionID: descriptionID)
+//        .contentAction(content: content, imageID: imageID, titleID: titleID, descriptionID: descriptionID)
     }
   }
 }
 
-private extension PageElement {
-  func contentAction(content: Content, imageID: String, titleID: String, descriptionID: String) -> Self {
-    self.onHover { isHovering in
-      OpacityAction(id: imageID, opacity: isHovering ? 0.8 : 1.0)
-      ColorAction(id: titleID, color: isHovering ? .gray200 : .textColor)
-      ColorAction(id: descriptionID, color: isHovering ? .gray200 : .secondaryTextColor)
-      CursorAction(id: imageID, isHovering: isHovering)
-      CursorAction(id: titleID, isHovering: isHovering)
-      CursorAction(id: descriptionID, isHovering: isHovering)
-    }
-    .onClick {
-      NavigationAction(link: content.path)
-    }
-  }
-}
+//private extension PageElement {
+//  func contentAction(content: Content, imageID: String, titleID: String, descriptionID: String) -> Self {
+//    self.onHover { isHovering in
+//      OpacityAction(id: imageID, opacity: isHovering ? 0.8 : 1.0)
+//      ColorAction(id: titleID, color: isHovering ? .gray200 : .textColor)
+//      ColorAction(id: descriptionID, color: isHovering ? .gray200 : .secondaryTextColor)
+//      CursorAction(id: imageID, isHovering: isHovering)
+//      CursorAction(id: titleID, isHovering: isHovering)
+//      CursorAction(id: descriptionID, isHovering: isHovering)
+//    }
+//    .onClick {
+//      NavigationAction(link: content.path)
+//    }
+//  }
+//}

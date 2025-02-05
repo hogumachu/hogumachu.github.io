@@ -8,20 +8,20 @@
 import Foundation
 import Ignite
 
-struct HeatPickPage: StaticPage {
+struct HeatPickPage: StaticLayout {
   let title = "HeatPick"
   
-  func body(context: PublishingContext) async -> [any BlockElement] {
+  var body: some HTML {
     Text("HeatPick")
+      .horizontalAlignment(.center)
       .font(.title1)
       .fontWeight(.bold)
       .foregroundStyle(.textColor)
-      .horizontalAlignment(.center)
     
     Text("2023.11.06 ~ 2023.12.15")
+      .horizontalAlignment(.center)
       .font(.body)
       .foregroundStyle(.gray200)
-      .horizontalAlignment(.center)
       .padding(.bottom, .small)
     
     Text {
@@ -32,9 +32,9 @@ struct HeatPickPage: StaticPage {
       " GitHub 보러가기"
     }
     .id("github")
+    .horizontalAlignment(.center)
     .font(.body)
     .foregroundStyle(.textColor)
-    .horizontalAlignment(.center)
     .onClick {
       NavigationAction(link: "https://github.com/boostcampwm2023/iOS04-HeatPick")
     }
@@ -51,9 +51,9 @@ struct HeatPickPage: StaticPage {
       " Wiki 보러가기"
     }
     .id("wiki")
+    .horizontalAlignment(.center)
     .font(.body)
     .foregroundStyle(.textColor)
-    .horizontalAlignment(.center)
     .padding(.bottom, .small)
     .onClick {
       NavigationAction(link: "https://github.com/boostcampwm2023/iOS04-HeatPick/wiki")
@@ -67,7 +67,7 @@ struct HeatPickPage: StaticPage {
       .font(.title1)
       .fontWeight(.bold)
       .foregroundStyle(.textColor)
-      .padding(.top, .extraLarge)
+      .padding(.top, .xLarge)
     
     Text("제가 발표한 영상이에요. 가장 쉽고 빠르게 프로젝트에 대해 확인할 수 있어요.")
       .font(.body)
@@ -146,7 +146,7 @@ struct HeatPickPage: StaticPage {
     
     roleContent("네트워크 설계", description: "URLProtocol을 활용하여 네트워크 테스트 및 서버 중단 시에도 개발 가능하도록 설계했어요.")
       .padding(.top, .medium)
-      .padding(.bottom, .extraLarge)
+      .padding(.bottom, .xLarge)
     
     Divider()
     
@@ -167,10 +167,10 @@ struct HeatPickPage: StaticPage {
         .role(.primary)
     }
     .horizontalAlignment(.center)
-    .padding(.top, .extraLarge)
+    .padding(.top, .xLarge)
   }
   
-  private func roleContent(_ title: String, description: String) -> some BlockElement {
+  private func roleContent(_ title: String, description: String) -> some BlockHTML {
     Group {
       Text(title)
         .font(.title6)

@@ -8,26 +8,26 @@
 import Foundation
 import Ignite
 
-struct NavigationBarComponent: Component {
-  func body(context: PublishingContext) -> [any PageElement] {
+struct NavigationBarComponent: HTML {
+  var body: some HTML {
     NavigationBar(logo: logo) {
-      linkComponent(BlogPage(), context: context)
-      linkComponent(ServicePage(), context: context)
-      linkComponent(CareerPage(), context: context)
+      linkComponent(BlogPage())
+      linkComponent(ServicePage())
+      linkComponent(CareerPage())
       additionalLinks
     }
-    .padding(.horizontal, .medium)
-    .navigationItemAlignment(.trailing)
     .navigationBarStyle(.dark)
-    .background(.gray400)
+    .navigationItemAlignment(.trailing)
     .position(.fixedTop)
+    .padding(.horizontal, .medium)
+    .background(.gray400)
   }
   
-  private var logo: some InlineElement {
+  private var logo: some InlineHTML {
     Text("hogumachu tech")
       .font(.title4)
       .fontWeight(.regular)
-      .foregroundStyle(.textColor)
+//      .foregroundStyle(.textColor)
   }
   
   private var additionalLinks: some NavigationItem {
@@ -37,10 +37,10 @@ struct NavigationBarComponent: Component {
     }
   }
   
-  private func linkComponent(_ page: any StaticPage, context: PublishingContext) -> Link {
+  private func linkComponent(_ page: any StaticLayout) -> Link {
     Link(page: page) {
       Text(page.title)
-        .foregroundStyle(context.currentRenderingPath == page.path ? .primaryColor : .gray200)
+//        .foregroundStyle(context.currentRenderingPath == page.path ? .primaryColor : .gray200)
     }
   }
   

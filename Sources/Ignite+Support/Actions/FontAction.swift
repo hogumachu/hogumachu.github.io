@@ -8,21 +8,21 @@
 import Foundation
 @preconcurrency import Ignite
 
-struct FontAction: Action {
-  let id: String
-  let font: Font
-  
-  func compile() -> String {
-    """
-    const \(id)Font = document.getElementById('\(id)');
-    \(id)Font.style.font = "\(font.rawValue)";
-    """
-  }
-}
+//struct FontAction: Action {
+//  let id: String
+//  let font: Font
+//  
+//  func compile() -> String {
+//    """
+//    const \(id)Font = document.getElementById('\(id)');
+//    \(id)Font.style.font = "\(font.rawValue)";
+//    """
+//  }
+//}
 
 struct FontWeightAction: Action {
   let id: String
-  let fontWeight: FontWeight
+  let fontWeight: Font.Weight
   
   func compile() -> String {
     """

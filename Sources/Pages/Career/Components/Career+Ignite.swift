@@ -5,10 +5,11 @@
 //  Created by 홍성준 on 1/26/25.
 //
 
-import Ignite
+@preconcurrency import Ignite
 
 extension Career {
-  var element: some BlockElement {
+  @MainActor
+  var element: some BlockHTML {
     Section {
       Group {
         Text {
@@ -38,20 +39,21 @@ extension Career {
             .margin(.bottom, .small)
         }
       }
-      .padding(.top, 80)
       .position(.stickyTop)
+      .padding(.top, 80)
       
       descriptions
         .map {
           $0.element
-            .padding(.top, .extraLarge)
+            .padding(.top, .xLarge)
         }
     }
   }
 }
 
 extension CareerDescription {
-  var element: some BlockElement {
+  @MainActor
+  var element: some BlockHTML {
     Group {
       Text(title)
         .font(.title5)

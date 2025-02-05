@@ -8,19 +8,19 @@
 import Foundation
 import Ignite
 
-struct BlogContentLayout: ContentPage {
-  func body(content: Content, context: PublishingContext) async -> [any BlockElement] {
+struct BlogContentLayout: ContentLayout {
+  var body: some HTML {
     Text(content.title)
+      .horizontalAlignment(.center)
       .font(.title1)
       .fontWeight(.bold)
       .foregroundStyle(.textColor)
-      .horizontalAlignment(.center)
     
     Text(content.blogDescription)
+      .horizontalAlignment(.center)
       .font(.body)
       .foregroundStyle(.gray200)
-      .horizontalAlignment(.center)
-      .padding(.bottom, .extraLarge)
+      .padding(.bottom, .xLarge)
     
     Group {
       Text(content.body)

@@ -5,10 +5,11 @@
 //  Created by 홍성준 on 1/31/25.
 //
 
-import Ignite
+@preconcurrency import Ignite
 
 extension Career {
-  var projectElement: some BlockElement {
+  @MainActor
+  var projectElement: some BlockHTML {
     Group {
       Text {
         Link.withImage(url: link.url, name: link.name)
@@ -48,7 +49,8 @@ extension Career {
 }
 
 extension CareerDescription {
-  var projectElement: some BlockElement {
+  @MainActor
+  var projectElement: some BlockHTML {
     Group {
       Text("■ \(title)")
         .font(.title5)

@@ -8,43 +8,43 @@
 import Foundation
 import Ignite
 
-struct ServicePage: StaticPage {
+struct ServicePage: StaticLayout {
   let title = "Service"
   
-  func body(context: PublishingContext) async -> [any BlockElement] {
+  var body: some HTML {
     header
-      .padding(.bottom, .extraLarge)
+      .padding(.bottom, .xLarge)
     
     projectTitle
-      .padding(.top, .extraLarge)
-      .padding(.bottom, .extraLarge)
+      .padding(.top, .xLarge)
+      .padding(.bottom, .xLarge)
     
     heatPick
-      .padding(.top, .extraLarge)
-      .padding(.bottom, .extraLarge)
+      .padding(.top, .xLarge)
+      .padding(.bottom, .xLarge)
     
     Divider()
   }
   
-  private var header: some BlockElement {
+  private var header: some BlockHTML {
     Group {
       Text("Service")
+        .horizontalAlignment(.center)
         .font(.title1)
         .fontWeight(.bold)
         .foregroundStyle(.textColor)
-        .horizontalAlignment(.center)
       
       Text("제가 참여한 여러 제품에 대해 소개해요.")
+        .horizontalAlignment(.center)
         .font(.title4)
         .fontWeight(.semibold)
         .foregroundStyle(.gray100)
-        .horizontalAlignment(.center)
         .padding(.top, .medium)
-        .padding(.bottom, .extraLarge)
+        .padding(.bottom, .xLarge)
     }
   }
   
-  private var projectTitle: some BlockElement {
+  private var projectTitle: some HTML {
     Group {
       Text("프로젝트")
         .font(.title6)
@@ -60,12 +60,12 @@ struct ServicePage: StaticPage {
         .font(.body)
         .fontWeight(.regular)
         .foregroundStyle(.gray200)
-        .padding(.bottom, .extraLarge)
+        .padding(.bottom, .xLarge)
     }
     .horizontalAlignment(.center)
   }
   
-  private var heatPick: some BlockElement {
+  private var heatPick: some HTML {
     Group {
       Image(service: .heatPickIcon)
         .frame(width: 50, height: 50)
@@ -80,9 +80,9 @@ struct ServicePage: StaticPage {
         .font(.body)
         .fontWeight(.regular)
         .foregroundStyle(.secondaryTextColor)
-        .padding(.top, .extraSmall)
+        .padding(.top, .xSmall)
       
-      Section {
+      Grid {
         Group {
           Text("RIBs 및 클린 아키텍처 활용")
             .font(.title4)
@@ -115,7 +115,7 @@ struct ServicePage: StaticPage {
           .font(.title5)
           .fontWeight(.semibold)
           .foregroundStyle(.textColor)
-          .padding(.top, .extraLarge)
+          .padding(.top, .xLarge)
           .padding(.bottom, .medium)
         
         Link("구경하기", target: HeatPickPage())

@@ -8,60 +8,60 @@
 import Foundation
 import Ignite
 
-struct CareerPage: StaticPage {
+struct CareerPage: StaticLayout {
   let title = "Career"
   
-  func body(context: PublishingContext) async -> [any BlockElement] {
+  var body: some HTML {
     header
       .padding(.top, .medium)
     
     introduce
-      .padding(.bottom, .extraLarge)
+      .padding(.bottom, .xLarge)
     
     Divider()
     
     links
-      .padding(.vertical, .extraLarge)
+      .padding(.vertical, .xLarge)
     
     Divider()
     
     career
-      .padding(.vertical, .extraLarge)
+      .padding(.vertical, .xLarge)
     
     Divider()
     
     project
-      .padding(.vertical, .extraLarge)
+      .padding(.vertical, .xLarge)
     
     Divider()
     
     skills
-      .padding(.vertical, .extraLarge)
+      .padding(.vertical, .xLarge)
     
     Divider()
     
     educations
-      .padding(.vertical, .extraLarge)
+      .padding(.vertical, .xLarge)
   }
   
-  private var header: some BlockElement {
+  private var header: some BlockHTML {
     Group {
       Text("iOS 개발자 홍성준")
+        .horizontalAlignment(.leading)
         .font(.title1)
         .fontWeight(.bold)
         .foregroundStyle(.textColor)
-        .horizontalAlignment(.leading)
       
       Text("좋은 제품을 만드는 것을 최우선으로 목표하고 있어요.")
+        .horizontalAlignment(.leading)
         .font(.title4)
         .fontWeight(.semibold)
         .foregroundStyle(.gray100)
-        .horizontalAlignment(.leading)
         .padding(.top, .medium)
     }
   }
   
-  private var introduce: some BlockElement {
+  private var introduce: some BlockHTML {
     Group {
       Text {
         "개발뿐만 아니라 여러 실험을 통해 개선하며, 동료와 적극적으로 커뮤니케이션하기를 목표로 해요.".br
@@ -75,7 +75,7 @@ struct CareerPage: StaticPage {
     }
   }
   
-  private var links: some BlockElement {
+  private var links: some BlockHTML {
     Group {
       sectionTitle("링크")
       
@@ -85,19 +85,19 @@ struct CareerPage: StaticPage {
     }
   }
   
-  private var career: some BlockElement {
+  private var career: some BlockHTML {
     Group {
       sectionTitle("경력")
       
       Career.ikoob.element
-        .padding(.bottom, .extraLarge)
+        .padding(.bottom, .xLarge)
       
       Career.orwellHealth.element
-        .padding(.vertical, .extraLarge)
+        .padding(.vertical, .xLarge)
     }
   }
   
-  private var project: some BlockElement {
+  private var project: some BlockHTML {
     Group {
       sectionTitle("프로젝트")
       
@@ -105,14 +105,14 @@ struct CareerPage: StaticPage {
         .padding(.bottom, .large)
       
       Career.simpleNote.projectElement
-        .padding(.vertical, .extraLarge)
+        .padding(.vertical, .xLarge)
       
       Career.heatPick.projectElement
-        .padding(.vertical, .extraLarge)
+        .padding(.vertical, .xLarge)
     }
   }
   
-  private var skills: some BlockElement {
+  private var skills: some BlockHTML {
     Group {
       sectionTitle("기술")
       
@@ -172,7 +172,7 @@ struct CareerPage: StaticPage {
     }
   }
   
-  private var educations: some BlockElement {
+  private var educations: some BlockHTML {
     Group {
       sectionTitle("교육")
       
@@ -198,14 +198,14 @@ struct CareerPage: StaticPage {
     }
   }
   
-  private func sectionTitle(_ title: String) -> Text {
+  private func sectionTitle(_ title: String) -> some HTML {
     Text(title)
       .font(.title2)
       .fontWeight(.semibold)
       .foregroundStyle(.textColor)
   }
   
-  private func listSection(title: String, @ElementBuilder<PageElement> items: () -> [PageElement]) -> some BlockElement {
+  private func listSection(title: String, @HTMLBuilder items: () -> some HTML) -> some BlockHTML {
     Group {
       Text(title)
         .font(.title5)
@@ -219,8 +219,8 @@ struct CareerPage: StaticPage {
   private func educationSection(
     title: String,
     subtitle: String,
-    @ElementBuilder<PageElement> items: () -> [PageElement]
-  ) -> some BlockElement {
+    @HTMLBuilder items: () -> some HTML
+  ) -> some BlockHTML {
     Group {
       Text(title)
         .font(.title5)
@@ -236,7 +236,7 @@ struct CareerPage: StaticPage {
     }
   }
   
-  private func linkComponent(url: String, name: String, image: BootstrapImageResource) -> some BlockElement {
+  private func linkComponent(url: String, name: String, image: BootstrapImageResource) -> some InlineHTML {
     Text {
       Link.withImage(
         url: url,

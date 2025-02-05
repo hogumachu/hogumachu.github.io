@@ -52,6 +52,7 @@ extension Career {
     end: "2024.04"
   )
   
+  @MainActor
   static let heatPick = Career(
     link: .init(name: "HeatPick", url: HeatPickPage().path),
     role: "네이버 커넥트재단 부스트캠프",
