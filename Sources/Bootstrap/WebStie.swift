@@ -17,6 +17,7 @@ struct WebStie: Site {
   let author = "Hogumachu"
   var homePage = HomePage()
   var layout = MainLayout()
+  var darkTheme = BlogDarkTheme()
   let staticLayouts: [any StaticLayout] = [
     BlogPage(),
     ServicePage(),
