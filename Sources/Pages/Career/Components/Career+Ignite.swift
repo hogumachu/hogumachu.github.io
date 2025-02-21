@@ -17,19 +17,16 @@ extension Career {
         }
         .font(.title3)
         .fontWeight(.semibold)
-        .foregroundStyle(.textColor)
         
         Text {
           role + " | " + "\(start)-\(end)"
         }
         .font(.body)
         .fontWeight(.regular)
-        .foregroundStyle(.gray200)
         
         Text(summary)
           .font(.body)
           .fontWeight(.regular)
-          .foregroundStyle(.gray100)
         
         skills.map {
           Badge($0)
@@ -58,12 +55,10 @@ extension CareerDescription {
       Text(title)
         .font(.title5)
         .fontWeight(.semibold)
-        .foregroundStyle(.primaryColor)
       
       components.map {
         Text($0)
           .font(.body)
-          .foregroundStyle(.textColor)
       }
     }
   }

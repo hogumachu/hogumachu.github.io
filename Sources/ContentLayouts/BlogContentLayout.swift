@@ -14,12 +14,10 @@ struct BlogContentLayout: ContentLayout {
       .horizontalAlignment(.center)
       .font(.title1)
       .fontWeight(.bold)
-      .foregroundStyle(.textColor)
     
     Text(content.blogDescription)
       .horizontalAlignment(.center)
       .font(.body)
-      .foregroundStyle(.gray200)
       .padding(.bottom, .xLarge)
     
     Group {
@@ -27,7 +25,6 @@ struct BlogContentLayout: ContentLayout {
     }
     .margin(.medium)
     .padding(.medium)
-    .background(.gray400)
     
     Script.comment
   }

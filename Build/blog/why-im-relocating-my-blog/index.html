@@ -1,7 +1,118 @@
-<!doctype html><html lang="ko" data-bs-theme="dark" style="background-color: rgb(21 21 21 / 100%)"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="이전에는 티스토리에서 블로그를 운영했습니다. 열심히 이미지 리소스도 만들고 포스팅을 하였지만 결국에는 이사를 하게 되었습니다.   "><meta name="author" content="Hogumachu"><meta name="generator" content="Ignite v0.2.1"><title>블로그를 이사하는 이유 - hogumachu tech</title><link href="/css/bootstrap.min.css" rel="stylesheet"><link href="/css/prism-default-dark.css" rel="stylesheet"><link href="/css/bootstrap-icons.min.css" rel="stylesheet"><link href="https://hogumachu.github.io/blog/why-im-relocating-my-blog" rel="canonical"><meta property="og:site_name" content="hogumachu tech"><meta property="og:title" content="블로그를 이사하는 이유"><meta property="twitter:title" content="블로그를 이사하는 이유"><meta property="og:description" content="블로그를 이사하는 이유"><meta name="twitter:description" content="블로그를 이사하는 이유"><meta property="og:url" content="https://hogumachu.github.io/blog/why-im-relocating-my-blog"><meta name="twitter:domain" content="hogumachu.github.io"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:dnt" content="on"></head><body class="px-3 container" style="background-color: rgb(21 21 21 / 100%); padding-top: 70px; padding-bottom: 70px"><div class="col-sm-10 mx-auto"><header><nav class="px-3 fixed-top navbar navbar-expand-md" style="background-color: rgb(21 21 21 / 100%)" data-bs-theme="dark"><div class="container-fluid col"><a href="/" class="navbar-brand"><h4 style="font-weight: 400; color: rgb(255 255 255 / 100%)">hogumachu tech</h4></a><button type="button" class="navbar-toggler btn" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div id="navbarCollapse" class="collapse navbar-collapse"><ul class="navbar-nav mb-2 mb-md-0 col justify-content-end"><li class="nav-item"><a href="/blog-page" class="nav-link"><p style="color: rgb(159 158 164 / 100%)">Blog</p></a></li><li class="nav-item"><a href="/service-page" class="nav-link"><p style="color: rgb(159 158 164 / 100%)">Service</p></a></li><li class="nav-item"><a href="/career-page" class="nav-link"><p style="color: rgb(159 158 164 / 100%)">Career</p></a></li><li class="nav-item dropdown" data-bs-theme="light"><a href="#" role="button" class="dropdown-toggle nav-link" data-bs-toggle="dropdown" aria-expanded="false">More</a><ul class="dropdown-menu"><li><a href="https://github.com/hogumachu" class="dropdown-item"><p style="color: rgb(159 158 164 / 100%)">GitHub</p></a></li><li><a href="https://hogumachu.tistory.com" class="dropdown-item"><p style="color: rgb(159 158 164 / 100%)">Tistory</p></a></li></ul></li></ul></div></div></nav></header><h1 class="text-center" style="font-weight: 700; color: rgb(255 255 255 / 100%)">블로그를 이사하는 이유</h1><p class="text-center pb-5" style="color: rgb(159 158 164 / 100%)">블로그를 이전하는 이유에 대한 설명 | 2025-01-07</p><div class="m-3 p-3" style="background-color: rgb(21 21 21 / 100%)"><p><p align="center"><img src="/images/blog/why-im-relocating-my-blog/1.png" width="80%" /></p>
-<p>이전에는 <a href="https://hogumachu.tistory.com/">티스토리</a>에서 블로그를 운영했습니다.<br/> 열심히 이미지 리소스도 만들고 포스팅을 하였지만 결국에는 이사를 하게 되었습니다. <br/> <br/> <br/></p><h3>🚗 블로그를 GitHub Pages로 이사하는 이유</h3><hr /><p align="center"><img src="/images/contents/background/perplex-background.jpg" width="80%" /></p>
-<p>티스토리, 네이버, velog 등 블로그를 시작하기 적합한 곳이 많습니다.<br/> 여러 플러그인도 많아서 버튼 하나만 누르면 추가되고 조회수도 다 나오고 좋은 기능을 편리하게 제공해줍니다.</p><p>그럼에도 GitHub Pages을 선택한 이유는 <strong>커스텀이 자유</strong>롭습니다.<br/> 물론 다른 서비스도 테마나 HTML/CSS을 건드리면 커스텀이 가능한 것으로 알고 있습니다.<br/> 그러나 그렇게 편하지는 않더라구요. 일단 HTML/CSS에 대한 지식이 거의 없기 때문에…🦧<br/></p><p>따라서 저는 제가 주로 사용하는 언어인 <strong>Swift로 블로그를 만들기</strong> 시작했습니다. <br/> <br/> <br/></p><h3>Swift로 정적 페이지 만들기 - Publish vs. Ignite</h3><hr /><br/>
-<h4>Publish</h4><p>원래 티스토리로 블로그를 하기 전에 <a href="https://github.com/JohnSundell/Publish">Publish</a>로 블로그를 운영했습니다.<br/> Publish는 UI를 <strong>Swift를 통해 HTML/CSS로 컨버팅</strong> 해주는 방식입니다.</p><pre><code class="language-swift">extension Theme where Site == DeliciousRecipes {
+<!doctype html>
+<html data-bs-theme="auto" lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="이전에는 티스토리에서 블로그를 운영했습니다. 열심히 이미지 리소스도 만들고 포스팅을 하였지만 결국에는 이사를 하게 되었습니다.   " name="description" />
+    <meta content="Hogumachu" name="author" />
+    <meta content="Ignite v0.2.1" name="generator" />
+    <title>블로그를 이사하는 이유 - hogumachu tech</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/prism-xcode-dark.css" rel="stylesheet" data-highlight-theme="xcode-dark" />
+    <link href="/css/prism-xcode-light.css" rel="stylesheet" data-highlight-theme="xcode-light" />
+    <link href="/css/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="/css/themes.min.css" rel="stylesheet" />
+    <link href="https://hogumachu.github.io/blog/why-im-relocating-my-blog" rel="canonical" />
+    <script>/*
+ Automatic Theme Switching Implementation
+ Used in HTMLHead.swift.
+ For user-driven theme switching implementation, see ignite-core.js.
+ */
+
+(function() {
+    function getThemePreference() {
+        return localStorage.getItem('custom-theme') || 'auto';
+    }
+
+    function applyTheme(themeID) {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const lightThemeID = document.documentElement.getAttribute('data-light-theme') || 'light';
+        const darkThemeID = document.documentElement.getAttribute('data-dark-theme') || 'dark';
+        const actualThemeID = themeID === 'auto' ? (prefersDark ? darkThemeID : lightThemeID) : themeID;
+
+        document.documentElement.setAttribute('data-bs-theme', actualThemeID);
+        document.documentElement.setAttribute('data-theme-state', themeID);
+    }
+
+    function applySyntaxTheme() {
+        const syntaxTheme = getComputedStyle(document.documentElement)
+            .getPropertyValue('--syntax-highlight-theme').trim().replace(/"/g, '');
+
+        if (!syntaxTheme) return;
+
+        document.querySelectorAll('link[data-highlight-theme]').forEach(link => {
+            link.setAttribute('disabled', 'disabled');
+        });
+
+        const themeLink = document.querySelector(`link[data-highlight-theme="${syntaxTheme}"]`);
+        if (themeLink) {
+            themeLink.removeAttribute('disabled');
+        }
+    }
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        const currentTheme = getThemePreference();
+        if (currentTheme === 'auto') {
+            applyTheme('auto');
+            applySyntaxTheme();
+        }
+    });
+
+    const savedTheme = getThemePreference();
+    applyTheme(savedTheme);
+    applySyntaxTheme();
+})();
+</script>
+    <meta content="hogumachu tech" property="og:site_name" />
+    <meta content="블로그를 이사하는 이유" property="og:title" />
+    <meta content="블로그를 이사하는 이유" name="twitter:title" />
+    <meta content="이전에는 티스토리에서 블로그를 운영했습니다. 열심히 이미지 리소스도 만들고 포스팅을 하였지만 결국에는 이사를 하게 되었습니다.   " property="og:description" />
+    <meta content="이전에는 티스토리에서 블로그를 운영했습니다. 열심히 이미지 리소스도 만들고 포스팅을 하였지만 결국에는 이사를 하게 되었습니다.   " name="twitter:description" />
+    <meta content="https://hogumachu.github.io/blog/why-im-relocating-my-blog" property="og:url" />
+    <meta content="hogumachu.github.io" name="twitter:domain" />
+    <meta content="summary_large_image" name="twitter:card" />
+    <meta content="on" name="twitter:dnt" />
+  </head>
+  <body class="container px-3" style="padding-bottom: 70px; padding-top: 70px">
+    <header>
+      <nav class="fixed-top navbar navbar-expand-md px-3" style="background-color: rgb(21 21 21 / 50%)" data-bs-theme="dark">
+        <div class="container">
+          <a href="/" class="link-underline link-underline-opacity-100 link-underline-opacity-100-hover navbar-brand"><h4 style="font-weight: 400">hogumachu tech</h4></a>
+          <button type="button" class="btn navbar-toggler" data-bs-target="#navbarCollapse" data-bs-toggle="collapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+          <div id="navbarCollapse" class="collapse navbar-collapse">
+            <ul class="col justify-content-end mb-2 mb-md-0 navbar-nav">
+              <li class="nav-item"><a href="/blog-page" class="link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover nav-link"><p>Blog</p></a></li>
+              <li class="nav-item"><a href="/service-page" class="link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover nav-link"><p>Service</p></a></li>
+              <li class="nav-item"><a href="/career-page" class="link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover nav-link"><p>Career</p></a></li>
+              <li class="dropdown nav-item" data-bs-theme="light"><a href="#" role="button" class="dropdown dropdown-toggle link-underline link-underline-opacity-100 link-underline-opacity-100-hover nav-link" data-bs-toggle="dropdown" aria-expanded="false">More</a>
+                <ul class="dropdown dropdown-menu">
+                  <li><a href="https://github.com/hogumachu" class="dropdown-item link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover"><p>GitHub</p></a></li>
+                  <li><a href="https://hogumachu.tistory.com" class="dropdown-item link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover"><p>Tistory</p></a></li>
+                </ul></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div>
+      <div>
+        <h1 class="text-center" style="font-weight: 700">블로그를 이사하는 이유</h1>
+        <p class="pb-5 text-center">블로그를 이전하는 이유에 대한 설명 | 2025-01-07</p>
+        <p class="m-3 p-3"></p>
+        <p align="center"><img src="/images/blog/why-im-relocating-my-blog/1.png" width="80%" /></p> 
+        <p>이전에는 <a href="https://hogumachu.tistory.com/">티스토리</a>에서 블로그를 운영했습니다.<br /> 열심히 이미지 리소스도 만들고 포스팅을 하였지만 결국에는 이사를 하게 되었습니다. <br /> <br /> <br /></p>
+        <h3>🚗 블로그를 GitHub Pages로 이사하는 이유</h3>
+        <hr />
+        <p align="center"><img src="/images/contents/background/perplex-background.jpg" width="80%" /></p> 
+        <p>티스토리, 네이버, velog 등 블로그를 시작하기 적합한 곳이 많습니다.<br /> 여러 플러그인도 많아서 버튼 하나만 누르면 추가되고 조회수도 다 나오고 좋은 기능을 편리하게 제공해줍니다.</p>
+        <p>그럼에도 GitHub Pages을 선택한 이유는 <strong>커스텀이 자유</strong>롭습니다.<br /> 물론 다른 서비스도 테마나 HTML/CSS을 건드리면 커스텀이 가능한 것으로 알고 있습니다.<br /> 그러나 그렇게 편하지는 않더라구요. 일단 HTML/CSS에 대한 지식이 거의 없기 때문에…🦧<br /></p>
+        <p>따라서 저는 제가 주로 사용하는 언어인 <strong>Swift로 블로그를 만들기</strong> 시작했습니다. <br /> <br /> <br /></p>
+        <h3>Swift로 정적 페이지 만들기 - Publish vs. Ignite</h3>
+        <hr />
+        <br /> 
+        <h4>Publish</h4>
+        <p>원래 티스토리로 블로그를 하기 전에 <a href="https://github.com/JohnSundell/Publish">Publish</a>로 블로그를 운영했습니다.<br /> Publish는 UI를 <strong>Swift를 통해 HTML/CSS로 컨버팅</strong> 해주는 방식입니다.</p>
+        <pre><code class="language-swift">extension Theme where Site == DeliciousRecipes {
     static var delicious: Self {
         Theme(htmlFactory: DeliciousHTMLFactory())
     }
@@ -9,38 +120,22 @@
     private struct DeliciousHTMLFactory: HTMLFactory {
         ...
         func makeItemHTML(
-            for item: Item<DeliciousRecipes>,
-            context: PublishingContext<DeliciousRecipes>
-        ) throws -> HTML {
-            HTML(
-                .head(for: item, on: context.site),
-                .body(
-                    .ul(
-                        .class("ingredients"),
-                        .forEach(item.metadata.ingredients) {
-                            .li(.text($0))
-                        }
-                    ),
-                    .p(
-                        "This will take around ",
-                        "\(Int(item.metadata.preparationTime / 60)) ",
-                        "minutes to prepare"
-                    ),
-                    .contentBody(item.body)
-                )
-            )
-        }
-        ...
-    }
-}
-</code></pre><br/>
-<br/>
-Swift를 사용하면 편하게 블로그를 할 수 있겠다 생각했는데 HTML/CSS를 Swift로 표현하다보니 결국에는 똑같이 어려웠습니다.<br/>
-원하는 UI를 그리기 위해서는 HTML/CSS를 배워야 했습니다.
-<br/>
-<br/>
-<br/>
-<h4>Ignite</h4><p>현재는 Publish에서 <a href="https://github.com/twostraws/Ignite">Ignite</a>로 변경하였습니다.<br/></p><pre><code class="language-swift">import Foundation
+            for item: Item
+            <deliciousrecipes>
+              , context: PublishingContext
+              <deliciousrecipes>
+                 ) throws -&gt; HTML { HTML( .head(for: item, on: context.site), .body( .ul( .class("ingredients"), .forEach(item.metadata.ingredients) { .li(.text($0)) } ), .p( "This will take around ", "\(Int(item.metadata.preparationTime / 60)) ", "minutes to prepare" ), .contentBody(item.body) ) ) } ... } } 
+              </deliciousrecipes>
+            </deliciousrecipes></code></pre>
+        <br /> 
+        <br /> Swift를 사용하면 편하게 블로그를 할 수 있겠다 생각했는데 HTML/CSS를 Swift로 표현하다보니 결국에는 똑같이 어려웠습니다.
+        <br /> 원하는 UI를 그리기 위해서는 HTML/CSS를 배워야 했습니다. 
+        <br /> 
+        <br /> 
+        <br /> 
+        <h4>Ignite</h4>
+        <p>현재는 Publish에서 <a href="https://github.com/twostraws/Ignite">Ignite</a>로 변경하였습니다.<br /></p>
+        <pre><code class="language-swift">import Foundation
 import Ignite
 
 struct CustomContentLayout: ContentLayout {
@@ -66,6 +161,22 @@ struct CustomContentLayout: ContentLayout {
         Text(content.body)
     }
 }
-</code></pre><p>Ignite의 UI 그리는 방식은 <strong>매우 친숙한 SwiftUI 방식</strong>입니다.<br/> SwiftUI에 대한 경험이 있다면 아주 편리하게 UI를 그릴 수 있습니다.</p><p>또한 Ignite는 활발하게 개발되고 있습니다.<br/> 오늘 기준 Publish는 머지된 PR이 2023년이 마지막이고 Ignite는 어제입니다. <br/> <br/> <br/></p><h4>그래서 결론은</h4><ul><li>커스텀이 자유로운 블로그를 만들고 싶었다.</li><li>Swift로 블로그를 만들고 싶었다.</li><li>HTML/CSS가 익숙하지 않은 상태에서 만들고 싶었다.</li></ul><br/>
-위와 같은 이유로 현재 Ignite로 블로그를 만들고 있습니다.
-</p></div><script repo="hogumachu/hogumachu.github.io" issue-term="pathname" theme="github-dark" crossorigin="anonymous" src="https://utteranc.es/client.js"></script></div><script src="/js/bootstrap.bundle.min.js"></script><script src="/js/syntax-highlighting.js"></script></body></html>
+</code></pre>
+        <p>Ignite의 UI 그리는 방식은 <strong>매우 친숙한 SwiftUI 방식</strong>입니다.<br /> SwiftUI에 대한 경험이 있다면 아주 편리하게 UI를 그릴 수 있습니다.</p>
+        <p>또한 Ignite는 활발하게 개발되고 있습니다.<br /> 오늘 기준 Publish는 머지된 PR이 2023년이 마지막이고 Ignite는 어제입니다. <br /> <br /> <br /></p>
+        <h4>그래서 결론은</h4>
+        <ul>
+          <li>커스텀이 자유로운 블로그를 만들고 싶었다.</li>
+          <li>Swift로 블로그를 만들고 싶었다.</li>
+          <li>HTML/CSS가 익숙하지 않은 상태에서 만들고 싶었다.</li>
+        </ul>
+        <br /> 위와 같은 이유로 현재 Ignite로 블로그를 만들고 있습니다. 
+        <p></p>
+        <script crossorigin="anonymous" issue-term="pathname" repo="hogumachu/hogumachu.github.io" src="https://utteranc.es/client.js" theme="github-dark"></script>
+      </div>
+    </div>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/syntax-highlighting.js"></script>
+    <script src="/js/ignite-core.js"></script>
+  </body>
+</html>

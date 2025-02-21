@@ -18,6 +18,9 @@ struct WebStie: Site {
   var homePage = HomePage()
   var layout = MainLayout()
   var darkTheme = BlogDarkTheme()
+  var alternateThemes: [any Theme] = [
+    BlogDarkTheme()
+  ]
   let staticLayouts: [any StaticLayout] = [
     BlogPage(),
     ServicePage(),

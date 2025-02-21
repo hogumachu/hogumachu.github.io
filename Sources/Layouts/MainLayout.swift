@@ -24,22 +24,5 @@ struct MainLayout: Layout {
       .padding(.horizontal, .medium)
       .class("container")
     }
-    .background(.gray400)
   }
-//  func render(page: Page, context: PublishingContext) async -> HTML {
-//    HTML(type: .dark) {
-//      Head(for: page, in: context)
-//      
-//      Body {
-//        NavigationBarComponent()
-//        
-//        page.body
-//      }
-//      .background(.gray400)
-//      .padding(.vertical, 70)
-//      .padding(.horizontal, .medium)
-//      .class("container")
-//    }
-//    .background(.gray400)
-//  }
 }

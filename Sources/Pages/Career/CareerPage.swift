@@ -50,13 +50,11 @@ struct CareerPage: StaticLayout {
         .horizontalAlignment(.leading)
         .font(.title1)
         .fontWeight(.bold)
-        .foregroundStyle(.textColor)
       
       Text("좋은 제품을 만드는 것을 최우선으로 목표하고 있어요.")
         .horizontalAlignment(.leading)
         .font(.title4)
         .fontWeight(.semibold)
-        .foregroundStyle(.gray100)
         .padding(.top, .medium)
     }
   }
@@ -70,7 +68,6 @@ struct CareerPage: StaticLayout {
       }
       .font(.body)
       .fontWeight(.regular)
-      .foregroundStyle(.secondaryTextColor)
       .padding(.top, .medium)
     }
   }
@@ -202,7 +199,6 @@ struct CareerPage: StaticLayout {
     Text(title)
       .font(.title2)
       .fontWeight(.semibold)
-      .foregroundStyle(.textColor)
   }
   
   private func listSection(title: String, @HTMLBuilder items: () -> some HTML) -> some BlockHTML {
@@ -225,12 +221,10 @@ struct CareerPage: StaticLayout {
       Text(title)
         .font(.title5)
         .fontWeight(.semibold)
-        .foregroundStyle(.primaryColor)
       
       Text(subtitle)
         .font(.body)
         .fontWeight(.regular)
-        .foregroundStyle(.gray100)
       
       List(items: items)
     }

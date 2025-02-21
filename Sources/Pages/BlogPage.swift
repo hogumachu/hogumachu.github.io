@@ -18,13 +18,11 @@ struct BlogPage: StaticLayout {
         .horizontalAlignment(.center)
         .font(.title1)
         .fontWeight(.bold)
-        .foregroundStyle(.textColor)
       
       Text("좋은 제품을 만들기 위해 했던 노력을 공유해요.")
         .horizontalAlignment(.center)
         .font(.title4)
         .fontWeight(.semibold)
-        .foregroundStyle(.gray100)
         .padding(.top, .medium)
         .padding(.bottom, .xLarge)
       
@@ -68,7 +66,6 @@ private struct PreviewStyle: @preconcurrency ContentPreviewStyle {
         .id(titleID)
         .font(.title3)
         .fontWeight(.semibold)
-        .foregroundStyle(.textColor)
         .padding(.top, .small)
 //        .contentAction(content: content, imageID: imageID, titleID: titleID, descriptionID: descriptionID)
       
@@ -76,7 +73,6 @@ private struct PreviewStyle: @preconcurrency ContentPreviewStyle {
         .id(descriptionID)
         .font(.title6)
         .fontWeight(.regular)
-        .foregroundStyle(.secondaryTextColor)
 //        .contentAction(content: content, imageID: imageID, titleID: titleID, descriptionID: descriptionID)
     }
   }

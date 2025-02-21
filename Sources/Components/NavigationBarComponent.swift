@@ -20,14 +20,13 @@ struct NavigationBarComponent: HTML {
     .navigationItemAlignment(.trailing)
     .position(.fixedTop)
     .padding(.horizontal, .medium)
-    .background(.gray400)
+    .background(.gray400.opacity(0.5))
   }
   
   private var logo: some InlineHTML {
     Text("hogumachu tech")
       .font(.title4)
       .fontWeight(.regular)
-//      .foregroundStyle(.textColor)
   }
   
   private var additionalLinks: some NavigationItem {
@@ -40,14 +39,12 @@ struct NavigationBarComponent: HTML {
   private func linkComponent(_ page: any StaticLayout) -> Link {
     Link(page: page) {
       Text(page.title)
-//        .foregroundStyle(context.currentRenderingPath == page.path ? .primaryColor : .gray200)
     }
   }
   
   private func linkComponent(_ title: String, target: String) -> Link {
     Link(target: target) {
       Text(title)
-        .foregroundStyle(.gray200)
     }
   }
 }

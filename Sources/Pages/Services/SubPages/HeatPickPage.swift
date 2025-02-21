@@ -16,12 +16,10 @@ struct HeatPickPage: StaticLayout {
       .horizontalAlignment(.center)
       .font(.title1)
       .fontWeight(.bold)
-      .foregroundStyle(.textColor)
     
     Text("2023.11.06 ~ 2023.12.15")
       .horizontalAlignment(.center)
       .font(.body)
-      .foregroundStyle(.gray200)
       .padding(.bottom, .small)
     
     Text {
@@ -34,7 +32,6 @@ struct HeatPickPage: StaticLayout {
     .id("github")
     .horizontalAlignment(.center)
     .font(.body)
-    .foregroundStyle(.textColor)
     .onClick {
       NavigationAction(link: "https://github.com/boostcampwm2023/iOS04-HeatPick")
     }
@@ -53,7 +50,6 @@ struct HeatPickPage: StaticLayout {
     .id("wiki")
     .horizontalAlignment(.center)
     .font(.body)
-    .foregroundStyle(.textColor)
     .padding(.bottom, .small)
     .onClick {
       NavigationAction(link: "https://github.com/boostcampwm2023/iOS04-HeatPick/wiki")
@@ -66,12 +62,10 @@ struct HeatPickPage: StaticLayout {
     Text("발표 자료")
       .font(.title1)
       .fontWeight(.bold)
-      .foregroundStyle(.textColor)
       .padding(.top, .xLarge)
     
     Text("제가 발표한 영상이에요. 가장 쉽고 빠르게 프로젝트에 대해 확인할 수 있어요.")
       .font(.body)
-      .foregroundStyle(.gray100)
       .padding(.bottom, .medium)
     
     Embed(
@@ -83,7 +77,6 @@ struct HeatPickPage: StaticLayout {
     Text("프로젝트 설명")
       .font(.title1)
       .fontWeight(.bold)
-      .foregroundStyle(.textColor)
       .padding(.top, 100)
     
     Image(service: .heatPickService)
@@ -93,17 +86,14 @@ struct HeatPickPage: StaticLayout {
     Text("HeatPick는 한 달이라는 짧은 시간에 많은 기능을 개발했어요.")
       .font(.title5)
       .fontWeight(.semibold)
-      .foregroundStyle(.textColor)
       .padding(.top, .large)
     
     Text("지도 클러스터링, SNS의 필수 요소인 좋아요와 팔로잉 그리고 댓글<br/>또 스토리 작성과 성장 기반 칭호 시스템 기능도 개발했어요.")
       .font(.body)
-      .foregroundStyle(.gray100)
     
     Text("저는 이러한 역할을 했어요")
       .font(.title1)
       .fontWeight(.bold)
-      .foregroundStyle(.textColor)
       .padding(.top, 100)
     
     roleContent("기획", description: "전체적인 프로젝트를 기획했어요.<br/>팀 빌딩, 일정 관리 그리고 디자인까지<br/>지속적으로 팀원에게 피드백을 받으며 작업했어요.")
@@ -154,12 +144,10 @@ struct HeatPickPage: StaticLayout {
       Text("그 밖에도")
         .font(.title2)
         .fontWeight(.semibold)
-        .foregroundStyle(.textColor)
       
       Text("정말 적은 부분만 담았어요.<br/>지도 클러스터링, 모듈 템플릿, 아키텍처 구조 등 많은 부분을 아래에 정리해 뒀어요.")
         .font(.body)
         .fontWeight(.regular)
-        .foregroundStyle(.gray100)
       
       Link("구경하기", target: "https://github.com/boostcampwm2023/iOS04-HeatPick/wiki")
         .linkStyle(.button)
@@ -175,11 +163,9 @@ struct HeatPickPage: StaticLayout {
       Text(title)
         .font(.title6)
         .fontWeight(.semibold)
-        .foregroundStyle(.primaryColor)
       
       Text(description)
         .font(.body)
-        .foregroundStyle(.textColor)
     }
   }
 }

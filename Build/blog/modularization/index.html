@@ -1,25 +1,138 @@
-<!doctype html><html lang="ko" data-bs-theme="dark" style="background-color: rgb(21 21 21 / 100%)"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="이전에 티스토리에서 모듈화를 해야 하는 이유에 대해 게시글을 작성한 적이 있어요. 이전 글과 생각이 바뀐 것과 더 나아간 것이 있어서 다시 정리하려고 해요. "><meta name="author" content="Hogumachu"><meta name="generator" content="Ignite v0.2.1"><title>모듈화를 하는 이유 - hogumachu tech</title><link href="/css/bootstrap.min.css" rel="stylesheet"><link href="/css/prism-default-dark.css" rel="stylesheet"><link href="/css/bootstrap-icons.min.css" rel="stylesheet"><link href="https://hogumachu.github.io/blog/modularization" rel="canonical"><meta property="og:site_name" content="hogumachu tech"><meta property="og:title" content="모듈화를 하는 이유"><meta property="twitter:title" content="모듈화를 하는 이유"><meta property="og:description" content="모듈화를 하는 이유"><meta name="twitter:description" content="모듈화를 하는 이유"><meta property="og:url" content="https://hogumachu.github.io/blog/modularization"><meta name="twitter:domain" content="hogumachu.github.io"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:dnt" content="on"></head><body class="px-3 container" style="background-color: rgb(21 21 21 / 100%); padding-top: 70px; padding-bottom: 70px"><div class="col-sm-10 mx-auto"><header><nav class="px-3 fixed-top navbar navbar-expand-md" style="background-color: rgb(21 21 21 / 100%)" data-bs-theme="dark"><div class="container-fluid col"><a href="/" class="navbar-brand"><h4 style="font-weight: 400; color: rgb(255 255 255 / 100%)">hogumachu tech</h4></a><button type="button" class="navbar-toggler btn" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button><div id="navbarCollapse" class="collapse navbar-collapse"><ul class="navbar-nav mb-2 mb-md-0 col justify-content-end"><li class="nav-item"><a href="/blog-page" class="nav-link"><p style="color: rgb(159 158 164 / 100%)">Blog</p></a></li><li class="nav-item"><a href="/service-page" class="nav-link"><p style="color: rgb(159 158 164 / 100%)">Service</p></a></li><li class="nav-item"><a href="/career-page" class="nav-link"><p style="color: rgb(159 158 164 / 100%)">Career</p></a></li><li class="nav-item dropdown" data-bs-theme="light"><a href="#" role="button" class="dropdown-toggle nav-link" data-bs-toggle="dropdown" aria-expanded="false">More</a><ul class="dropdown-menu"><li><a href="https://github.com/hogumachu" class="dropdown-item"><p style="color: rgb(159 158 164 / 100%)">GitHub</p></a></li><li><a href="https://hogumachu.tistory.com" class="dropdown-item"><p style="color: rgb(159 158 164 / 100%)">Tistory</p></a></li></ul></li></ul></div></div></nav></header><h1 class="text-center" style="font-weight: 700; color: rgb(255 255 255 / 100%)">모듈화를 하는 이유</h1><p class="text-center pb-5" style="color: rgb(159 158 164 / 100%)">모듈화가 필요한 이유에 대한 설명 | 2025-01-12</p><div class="m-3 p-3" style="background-color: rgb(21 21 21 / 100%)"><p><p>이전에 <a href="https://hogumachu.tistory.com/35">티스토리</a>에서 모듈화를 해야 하는 이유에 대해 게시글을 작성한 적이 있어요.<br/> 이전 글과 생각이 바뀐 것과 더 나아간 것이 있어서 다시 정리하려고 해요. <br/></p><h3>🤨 모듈화와 생산성</h3><hr /><p align="center"><img src="/images/contents/background/perplex-background.jpg" width="80%" /></p>
-<p>먼저 모듈화를 하지 않는다면 어떠한 일이 있을까요?<br/> 일단 <code>private</code> 또는 <code>fileprivate</code>으로 선언하지 않는 한, 모든 모듈에서 접근이 가능해요.<br/></p><p><strong>Q: 모든 모듈에서 접근이 가능하면 뭐가 문제인가요?</strong></p><p>사실 관리만 잘하면 큰 문제가 없다고 생각해요.<br/> 작은 수의 iOS 개발자와 협업을 하거나, 코드의 크기가 크지 않으면 아무 문제 없어요.<br/> 그러나 iOS 개발자가 많아지거나(또는 변경되거나) 코드의 크기가 커지면 문제가 발생해요.<br/></p><br/>
-<br/>
-<h4>모듈화를 하지 않으면?</h4><p>모듈화를 하지 않으면 의도와는 다르게 코드가 사용될 수 있어요.<br/></p><pre><code class="language-swift">final class UserService {
+<!doctype html>
+<html data-bs-theme="auto" lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="이전에 티스토리에서 모듈화를 해야 하는 이유에 대해 게시글을 작성한 적이 있어요. 이전 글과 생각이 바뀐 것과 더 나아간 것이 있어서 다시 정리하려고 해요. " name="description" />
+    <meta content="Hogumachu" name="author" />
+    <meta content="Ignite v0.2.1" name="generator" />
+    <title>모듈화를 하는 이유 - hogumachu tech</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/prism-xcode-dark.css" rel="stylesheet" data-highlight-theme="xcode-dark" />
+    <link href="/css/prism-xcode-light.css" rel="stylesheet" data-highlight-theme="xcode-light" />
+    <link href="/css/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="/css/themes.min.css" rel="stylesheet" />
+    <link href="https://hogumachu.github.io/blog/modularization" rel="canonical" />
+    <script>/*
+ Automatic Theme Switching Implementation
+ Used in HTMLHead.swift.
+ For user-driven theme switching implementation, see ignite-core.js.
+ */
+
+(function() {
+    function getThemePreference() {
+        return localStorage.getItem('custom-theme') || 'auto';
+    }
+
+    function applyTheme(themeID) {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const lightThemeID = document.documentElement.getAttribute('data-light-theme') || 'light';
+        const darkThemeID = document.documentElement.getAttribute('data-dark-theme') || 'dark';
+        const actualThemeID = themeID === 'auto' ? (prefersDark ? darkThemeID : lightThemeID) : themeID;
+
+        document.documentElement.setAttribute('data-bs-theme', actualThemeID);
+        document.documentElement.setAttribute('data-theme-state', themeID);
+    }
+
+    function applySyntaxTheme() {
+        const syntaxTheme = getComputedStyle(document.documentElement)
+            .getPropertyValue('--syntax-highlight-theme').trim().replace(/"/g, '');
+
+        if (!syntaxTheme) return;
+
+        document.querySelectorAll('link[data-highlight-theme]').forEach(link => {
+            link.setAttribute('disabled', 'disabled');
+        });
+
+        const themeLink = document.querySelector(`link[data-highlight-theme="${syntaxTheme}"]`);
+        if (themeLink) {
+            themeLink.removeAttribute('disabled');
+        }
+    }
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        const currentTheme = getThemePreference();
+        if (currentTheme === 'auto') {
+            applyTheme('auto');
+            applySyntaxTheme();
+        }
+    });
+
+    const savedTheme = getThemePreference();
+    applyTheme(savedTheme);
+    applySyntaxTheme();
+})();
+</script>
+    <meta content="hogumachu tech" property="og:site_name" />
+    <meta content="모듈화를 하는 이유" property="og:title" />
+    <meta content="모듈화를 하는 이유" name="twitter:title" />
+    <meta content="이전에 티스토리에서 모듈화를 해야 하는 이유에 대해 게시글을 작성한 적이 있어요. 이전 글과 생각이 바뀐 것과 더 나아간 것이 있어서 다시 정리하려고 해요. " property="og:description" />
+    <meta content="이전에 티스토리에서 모듈화를 해야 하는 이유에 대해 게시글을 작성한 적이 있어요. 이전 글과 생각이 바뀐 것과 더 나아간 것이 있어서 다시 정리하려고 해요. " name="twitter:description" />
+    <meta content="https://hogumachu.github.io/blog/modularization" property="og:url" />
+    <meta content="hogumachu.github.io" name="twitter:domain" />
+    <meta content="summary_large_image" name="twitter:card" />
+    <meta content="on" name="twitter:dnt" />
+  </head>
+  <body class="container px-3" style="padding-bottom: 70px; padding-top: 70px">
+    <header>
+      <nav class="fixed-top navbar navbar-expand-md px-3" style="background-color: rgb(21 21 21 / 50%)" data-bs-theme="dark">
+        <div class="container">
+          <a href="/" class="link-underline link-underline-opacity-100 link-underline-opacity-100-hover navbar-brand"><h4 style="font-weight: 400">hogumachu tech</h4></a>
+          <button type="button" class="btn navbar-toggler" data-bs-target="#navbarCollapse" data-bs-toggle="collapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+          <div id="navbarCollapse" class="collapse navbar-collapse">
+            <ul class="col justify-content-end mb-2 mb-md-0 navbar-nav">
+              <li class="nav-item"><a href="/blog-page" class="link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover nav-link"><p>Blog</p></a></li>
+              <li class="nav-item"><a href="/service-page" class="link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover nav-link"><p>Service</p></a></li>
+              <li class="nav-item"><a href="/career-page" class="link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover nav-link"><p>Career</p></a></li>
+              <li class="dropdown nav-item" data-bs-theme="light"><a href="#" role="button" class="dropdown dropdown-toggle link-underline link-underline-opacity-100 link-underline-opacity-100-hover nav-link" data-bs-toggle="dropdown" aria-expanded="false">More</a>
+                <ul class="dropdown dropdown-menu">
+                  <li><a href="https://github.com/hogumachu" class="dropdown-item link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover"><p>GitHub</p></a></li>
+                  <li><a href="https://hogumachu.tistory.com" class="dropdown-item link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover"><p>Tistory</p></a></li>
+                </ul></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div>
+      <div>
+        <h1 class="text-center" style="font-weight: 700">모듈화를 하는 이유</h1>
+        <p class="pb-5 text-center">모듈화가 필요한 이유에 대한 설명 | 2025-01-12</p>
+        <p class="m-3 p-3"></p>
+        <p>이전에 <a href="https://hogumachu.tistory.com/35">티스토리</a>에서 모듈화를 해야 하는 이유에 대해 게시글을 작성한 적이 있어요.<br /> 이전 글과 생각이 바뀐 것과 더 나아간 것이 있어서 다시 정리하려고 해요. <br /></p>
+        <h3>🤨 모듈화와 생산성</h3>
+        <hr />
+        <p align="center"><img src="/images/contents/background/perplex-background.jpg" width="80%" /></p> 
+        <p>먼저 모듈화를 하지 않는다면 어떠한 일이 있을까요?<br /> 일단 <code>private</code> 또는 <code>fileprivate</code>으로 선언하지 않는 한, 모든 모듈에서 접근이 가능해요.<br /></p>
+        <p><strong>Q: 모든 모듈에서 접근이 가능하면 뭐가 문제인가요?</strong></p>
+        <p>사실 관리만 잘하면 큰 문제가 없다고 생각해요.<br /> 작은 수의 iOS 개발자와 협업을 하거나, 코드의 크기가 크지 않으면 아무 문제 없어요.<br /> 그러나 iOS 개발자가 많아지거나(또는 변경되거나) 코드의 크기가 커지면 문제가 발생해요.<br /></p>
+        <br /> 
+        <br /> 
+        <h4>모듈화를 하지 않으면?</h4>
+        <p>모듈화를 하지 않으면 의도와는 다르게 코드가 사용될 수 있어요.<br /></p>
+        <pre><code class="language-swift">final class UserService {
   static let shared = UserService()
-  func user(_ id: String) -> User?
+  func user(_ id: String) -&gt; User?
   func setUser(_ user: User)
 }
-</code></pre><p>사용자의 정보를 가져올 수 있고, 사용자를 설정할 수 있는 <code>UserSerivce</code>가 있다고 가정할게요.<br/> 회원가입을 한다고 가정하면, <code>사용자 정보 입력 -> 검증 -> 회원가입</code> 이런 방식으로 진행될 거에요.<br/> <code>UserService</code>에 있는 구현은 아래와 같아요.<br/></p><pre><code class="language-swift">protocol UserStorage {
-  func read(_ id: String) -> User?
+</code></pre>
+        <p>사용자의 정보를 가져올 수 있고, 사용자를 설정할 수 있는 <code>UserSerivce</code>가 있다고 가정할게요.<br /> 회원가입을 한다고 가정하면, <code>사용자 정보 입력 -&gt; 검증 -&gt; 회원가입</code> 이런 방식으로 진행될 거에요.<br /> <code>UserService</code>에 있는 구현은 아래와 같아요.<br /></p>
+        <pre><code class="language-swift">protocol UserStorage {
+  func read(_ id: String) -&gt; User?
   func save(_ user: User)
   func delete(_ user: User)
 }
 
 final class LocalStorage: UserStorage { /* 생략 */ }
 final class RemoteStorage: UserStorage { /* 생략 */ }
-</code></pre><p>먼저 <code>LocalStorage</code>와 <code>RemoteStorage</code>가 존재해요.<br/></p><pre><code class="language-swift">final class UserService {
+</code></pre>
+        <p>먼저 <code>LocalStorage</code>와 <code>RemoteStorage</code>가 존재해요.<br /></p>
+        <pre><code class="language-swift">final class UserService {
   static let shared = UserService()
   private let local = LocalStorage()
   private let remote = RemoteStorage()
   
-  func user(_ id: String) -> User? {
+  func user(_ id: String) -&gt; User? {
     if let user = local.read(id) {
       return user
     }
@@ -36,9 +149,13 @@ final class RemoteStorage: UserStorage { /* 생략 */ }
     remote.save(user)
   }
 }
-</code></pre><p>이러한 방식으로 로컬(<code>LocalStorage</code>) 뿐만 아니라 서버(<code>RemoteStorage</code>)에도 값을 저장하고 있어요.<br/> 만약 회원가입 후에 <code>UserService</code>가 아닌 <code>LocalStorage</code> 또는 <code>RemoteStorage</code>에 접근하여 <code>setUser(:User)</code>를 호출하면 어떻게 될까요?<br/> 아마도 제대로 User 정보가 저장이 되지 않아 로그인 후에 모든 기능에서 장애가 발생할 확률이 높아요.<br/></p><br/>
-<br/>
-<h4>모듈화를 하게 된다면?</h4><p>위와 같은 일은 확실히 줄어들어요.<br/></p><pre><code class="language-swift">/// UserModule
+</code></pre>
+        <p>이러한 방식으로 로컬(<code>LocalStorage</code>) 뿐만 아니라 서버(<code>RemoteStorage</code>)에도 값을 저장하고 있어요.<br /> 만약 회원가입 후에 <code>UserService</code>가 아닌 <code>LocalStorage</code> 또는 <code>RemoteStorage</code>에 접근하여 <code>setUser(:User)</code>를 호출하면 어떻게 될까요?<br /> 아마도 제대로 User 정보가 저장이 되지 않아 로그인 후에 모든 기능에서 장애가 발생할 확률이 높아요.<br /></p>
+        <br /> 
+        <br /> 
+        <h4>모듈화를 하게 된다면?</h4>
+        <p>위와 같은 일은 확실히 줄어들어요.<br /></p>
+        <pre><code class="language-swift">/// UserModule
 
 public final class UserService {
   public static let shared = UserService()
@@ -47,28 +164,41 @@ public final class UserService {
 
 final class LocalStorage: UserStorage { /* 생략 */ }
 final class RemoteStorage: UserStorage { /* 생략 */ }
-</code></pre><pre><code class="language-swift">import UserModule
+</code></pre>
+        <pre><code class="language-swift">import UserModule
 
 let userService = UserService.shared
 let local = LocalStorage() // 컴파일 에러
 let remote = RemoteStorage() // 컴파일 에러
-</code></pre><p><code>UserSerivce</code>는 <code>public</code>이므로 접근이 가능하지만, <code>internal</code>은 다른 모듈에서 접근이 불가능해요.<br/> 모듈로 나누기 전에는 로컬과 서버에 모두 접근 가능했지만, 모듈화 후에는 <code>UserModule</code>을 제외하고는 접근이 불가능해요.<br/> 따라서 원하는 기능만 열어 사용하도록 만들 수 있어요.<br/></p><br/>
-<br/>
-<h4>빌드 속도</h4><p>모듈화를 하게 되면 빌드 속도가 빨라져 생산성을 향상시킬 수 있어요.<br/> 이를 이해하려면 먼저 증분 빌드를 알고 있어야 해요.<br/></p><p><strong>증분 빌드란, 빌드가 최신 상태인 요소는 빌드를 다시 하지 않아요. 변경사항이 있는 코드만 빌드를 진행해요.</strong></p><p>즉, 모듈에서 변경사항이 있는 경우 다시 빌드를 해요.<br/> <br/> <code>UserSerivce</code>에서 변경사항이 발생했다고 가정할게요.<br/></p><p align="center"><img src="/images/blog/modularization/1.png" width="80%" /></p>
-<p>위와 같이 단일 모듈(APP)인 경우에는 결국 앱 전체가 빌드를 하게 되어요.<br/></p><p align="center"><img src="/images/blog/modularization/2.png" width="80%" /></p>
-<p>위와 같이 모듈화를 진행했다면 <code>PayService</code>와 <code>DriverService</code> 모듈은 증분 빌드로 인해 다시 빌드가 되지 않아요.<br/> 서비스가 작을 때는 유의미한 개선은 아니지만 서비스가 커지면 커질수록 훨씬 효과를 발휘해요.<br/></p><br/>
-<br/>
-<h4>더 좋은 설계</h4><p>모듈화를 하면 더 좋은 설계에 대한 고민할 거리를 많이 제공해요.<br/> 모듈화를 진행하지 않으면 모듈 구조에 대한 고민을 하지 않아도 돼요.<br/> 깔끔하게 폴더 정리만 하면 끝이에요.<br/> 모듈화를 하게 되면 이 영역이 모듈 수준으로 확장이 되어요.<br/></p><pre><code class="language-swift">protocol UserService {
-  func isValid(user: User) -> Bool
+</code></pre>
+        <p><code>UserSerivce</code>는 <code>public</code>이므로 접근이 가능하지만, <code>internal</code>은 다른 모듈에서 접근이 불가능해요.<br /> 모듈로 나누기 전에는 로컬과 서버에 모두 접근 가능했지만, 모듈화 후에는 <code>UserModule</code>을 제외하고는 접근이 불가능해요.<br /> 따라서 원하는 기능만 열어 사용하도록 만들 수 있어요.<br /></p>
+        <br /> 
+        <br /> 
+        <h4>빌드 속도</h4>
+        <p>모듈화를 하게 되면 빌드 속도가 빨라져 생산성을 향상시킬 수 있어요.<br /> 이를 이해하려면 먼저 증분 빌드를 알고 있어야 해요.<br /></p>
+        <p><strong>증분 빌드란, 빌드가 최신 상태인 요소는 빌드를 다시 하지 않아요. 변경사항이 있는 코드만 빌드를 진행해요.</strong></p>
+        <p>즉, 모듈에서 변경사항이 있는 경우 다시 빌드를 해요.<br /> <br /> <code>UserSerivce</code>에서 변경사항이 발생했다고 가정할게요.<br /></p>
+        <p align="center"><img src="/images/blog/modularization/1.png" width="80%" /></p> 
+        <p>위와 같이 단일 모듈(APP)인 경우에는 결국 앱 전체가 빌드를 하게 되어요.<br /></p>
+        <p align="center"><img src="/images/blog/modularization/2.png" width="80%" /></p> 
+        <p>위와 같이 모듈화를 진행했다면 <code>PayService</code>와 <code>DriverService</code> 모듈은 증분 빌드로 인해 다시 빌드가 되지 않아요.<br /> 서비스가 작을 때는 유의미한 개선은 아니지만 서비스가 커지면 커질수록 훨씬 효과를 발휘해요.<br /></p>
+        <br /> 
+        <br /> 
+        <h4>더 좋은 설계</h4>
+        <p>모듈화를 하면 더 좋은 설계에 대한 고민할 거리를 많이 제공해요.<br /> 모듈화를 진행하지 않으면 모듈 구조에 대한 고민을 하지 않아도 돼요.<br /> 깔끔하게 폴더 정리만 하면 끝이에요.<br /> 모듈화를 하게 되면 이 영역이 모듈 수준으로 확장이 되어요.<br /></p>
+        <pre><code class="language-swift">protocol UserService {
+  func isValid(user: User) -&gt; Bool
   func login(_ user: User)
   func logout(_ user: User)
 }
-</code></pre><p>위와 같은 <code>UserService</code> 기능을 제공을 한다고 가정할게요.<br/> 사용자 검증, 로그인 그리고 로그아웃 기능을 제공하는데 이 기능이 커지면 어떻게 될까요?<br/></p><pre><code class="language-swift">final class UserServiceImpl: UserService  {
+</code></pre>
+        <p>위와 같은 <code>UserService</code> 기능을 제공을 한다고 가정할게요.<br /> 사용자 검증, 로그인 그리고 로그아웃 기능을 제공하는데 이 기능이 커지면 어떻게 될까요?<br /></p>
+        <pre><code class="language-swift">final class UserServiceImpl: UserService  {
   private let naverAuth: NaverAuthenticationService
   private let appleAuth: AppleAuthenticationService
   private let kakaoAuth: KakaoAuthenticationService
   
-  func isValid(user: User) -> Bool {
+  func isValid(user: User) -&gt; Bool {
     swith user.loginType {
     case .naver: return naverAuth.isValid(user: user)
     case .apple: return appleAuth.isValid(user: user)
@@ -78,21 +208,33 @@ let remote = RemoteStorage() // 컴파일 에러
   
   /* 생략 */
 }
-</code></pre><p>위와 같이 사용자 검증하는 부분에서 네이버, 애플, 카카오와 같은 여러 서비스가 들어가면 어떻게 될까요?<br/> 만약 다른 서비스가 계속해서 늘면 어떻게 될까요?<br/> 보통 이를 해결하기 위해 사용자 검증을 위한 모듈과 객체를 만들거에요.<br/></p><p align="center"><img src="/images/blog/modularization/3.png" width="80%" /></p>
-<p><code>UserSerivce</code>에 <code>NaverAuth</code>, <code>KakaoAuth</code> 그리고 <code>AppleAuth</code>가 포함된 구조에서</p><p align="center"><img src="/images/blog/modularization/4.png" width="80%" /></p>
-<p>이러한 구조로 변경할 수 있어요.<br/></p><p>그런데 하나 문제가 있어요.<br/> 바로 <code>User</code>라는 데이터 타입을 <code>AuthService</code>에서 알 수 없어요.<br/> 현재 <code>UserSerivce</code>만 <code>User</code>를 알고 있어요.<br/> <br/></p><p align="center"><img src="/images/blog/modularization/5.png" width="80%" /></p>
-<p>그래서 보통 이러한 데이터를 <code>Entity</code>라는 모듈을 만들고 사용하고 있어요.<br/></p><p align="center"><img src="/images/blog/modularization/6.png" width="80%" /></p>
-<p><code>Entity</code>라는 모듈을 처음 접해봤다면, <a href="https://github.com/kudoleh/iOS-Clean-Architecture-MVVM">클린 아키텍처</a>에 대해 공부해봐도 좋아요.</p><br/>
-<br/>
-<p>이러한 모듈화는 비즈니스 로직을 처리하는 모듈에서도 중요하지만, UI 모듈에서도 굉장히 중요해요.<br/></p><p align="center"><img src="/images/blog/modularization/7.png" width="80%" /></p>
-<p>UI에 네이버 지도를 그려준다고 가정해보면 위와 같이 <code>NaverMap</code>에 대한 라이브러리를 <code>Presentation</code> 모듈이 알고 있어야 해요.<br/> 만약 네이버 지도 불러오기를 실패했을 때, 카카오 지도 또는 구글 지도를 불러와야 한다면 어떻게 할까요?<br/></p><p align="center"><img src="/images/blog/modularization/8.png" width="80%" /></p>
-<p><code>Presentation</code>에서 모든 라이브러리를 알고 있어야 할까요?<br/></p><p align="center"><img src="/images/blog/modularization/9.png" width="80%" /></p>
-<p>이럴 때는 지도에 대해 추상화(Protocol)를 하여 지도가 어떤 지도인지 모르도록 하면 좋아요.<br/></p><pre><code class="language-swift">/// AS-IS
+</code></pre>
+        <p>위와 같이 사용자 검증하는 부분에서 네이버, 애플, 카카오와 같은 여러 서비스가 들어가면 어떻게 될까요?<br /> 만약 다른 서비스가 계속해서 늘면 어떻게 될까요?<br /> 보통 이를 해결하기 위해 사용자 검증을 위한 모듈과 객체를 만들거에요.<br /></p>
+        <p align="center"><img src="/images/blog/modularization/3.png" width="80%" /></p> 
+        <p><code>UserSerivce</code>에 <code>NaverAuth</code>, <code>KakaoAuth</code> 그리고 <code>AppleAuth</code>가 포함된 구조에서</p>
+        <p align="center"><img src="/images/blog/modularization/4.png" width="80%" /></p> 
+        <p>이러한 구조로 변경할 수 있어요.<br /></p>
+        <p>그런데 하나 문제가 있어요.<br /> 바로 <code>User</code>라는 데이터 타입을 <code>AuthService</code>에서 알 수 없어요.<br /> 현재 <code>UserSerivce</code>만 <code>User</code>를 알고 있어요.<br /> <br /></p>
+        <p align="center"><img src="/images/blog/modularization/5.png" width="80%" /></p> 
+        <p>그래서 보통 이러한 데이터를 <code>Entity</code>라는 모듈을 만들고 사용하고 있어요.<br /></p>
+        <p align="center"><img src="/images/blog/modularization/6.png" width="80%" /></p> 
+        <p><code>Entity</code>라는 모듈을 처음 접해봤다면, <a href="https://github.com/kudoleh/iOS-Clean-Architecture-MVVM">클린 아키텍처</a>에 대해 공부해봐도 좋아요.</p>
+        <br /> 
+        <br /> 
+        <p>이러한 모듈화는 비즈니스 로직을 처리하는 모듈에서도 중요하지만, UI 모듈에서도 굉장히 중요해요.<br /></p>
+        <p align="center"><img src="/images/blog/modularization/7.png" width="80%" /></p> 
+        <p>UI에 네이버 지도를 그려준다고 가정해보면 위와 같이 <code>NaverMap</code>에 대한 라이브러리를 <code>Presentation</code> 모듈이 알고 있어야 해요.<br /> 만약 네이버 지도 불러오기를 실패했을 때, 카카오 지도 또는 구글 지도를 불러와야 한다면 어떻게 할까요?<br /></p>
+        <p align="center"><img src="/images/blog/modularization/8.png" width="80%" /></p> 
+        <p><code>Presentation</code>에서 모든 라이브러리를 알고 있어야 할까요?<br /></p>
+        <p align="center"><img src="/images/blog/modularization/9.png" width="80%" /></p> 
+        <p>이럴 때는 지도에 대해 추상화(Protocol)를 하여 지도가 어떤 지도인지 모르도록 하면 좋아요.<br /></p>
+        <pre><code class="language-swift">/// AS-IS
 final class NaverMap {
   func rotate(angle: CGFloat) { /* 생략 */ }
   func pinned(at point: CGPoint) { /* 생략 */ }
 }
-</code></pre><pre><code class="language-swift">/// TO-BE
+</code></pre>
+        <pre><code class="language-swift">/// TO-BE
 
 // Presentation Module
 final class PresentationView: UIView {
@@ -119,7 +261,21 @@ final class GoogleMap: Map {
   func rotate(angle: CGFloat) { /* 생략 */ }
   func pinned(at point: CGPoint) { /* 생략 */ }
 }
-</code></pre><p>그러기 위해서는 각 지도마다 해당 기능을 제공하는지, 제공하지 않는다면 어떤 방식으로 해결하는 것이 좋을지 등 여러 케이스에 대해 고민을 해야 해요.<br/></p><br/>
-<br/>
-<h4>그 밖에도</h4><p>위의 예시에는 인터페이스 모듈에 대한 예시는 없었어요.<br/> 특정 객체에 대해 추상화를 하여 의존성 주입을 하는 것처럼 모듈 또한 인터페이스 모듈을 만들어야할 때도 있어요.<br/></p><p align="center"><img src="/images/blog/modularization/10.png" width="80%" /></p>
-<p><code>Presentation</code> 모듈을 테스트한다고 했을 때 네이버, 카카오 그리고 구글 지도에 대한 라이브러리를 알 필요가 있을까요?<br/> 물론 어떤 상황에서는 필요하겠지만 보통 Mock, Stub, Fake 등 테스트 더블을 통해 테스트를 진행해요.<br/> 즉, <code>MapServiceInterface</code>에 대해 테스트를 위한 가짜 객체만 생성하여 해당 기능이 잘 호출 되었는 지 판단을 해요.<br/> 테스트 뿐만 아니라 데모앱 같은 상황에도 인터페이스 모듈이 유용하게 쓰여요.<br/></p><p>그렇다고 모든 모듈에 인터페이스 모듈을 만드는 것은 오히려 복잡도를 증가시키거나 보일러 플레이트를 증가시킬 수 있어 상황에 맞게 판단해서 사용하면 정말 좋아요.<br/></p></p></div><script repo="hogumachu/hogumachu.github.io" issue-term="pathname" theme="github-dark" crossorigin="anonymous" src="https://utteranc.es/client.js"></script></div><script src="/js/bootstrap.bundle.min.js"></script><script src="/js/syntax-highlighting.js"></script></body></html>
+</code></pre>
+        <p>그러기 위해서는 각 지도마다 해당 기능을 제공하는지, 제공하지 않는다면 어떤 방식으로 해결하는 것이 좋을지 등 여러 케이스에 대해 고민을 해야 해요.<br /></p>
+        <br /> 
+        <br /> 
+        <h4>그 밖에도</h4>
+        <p>위의 예시에는 인터페이스 모듈에 대한 예시는 없었어요.<br /> 특정 객체에 대해 추상화를 하여 의존성 주입을 하는 것처럼 모듈 또한 인터페이스 모듈을 만들어야할 때도 있어요.<br /></p>
+        <p align="center"><img src="/images/blog/modularization/10.png" width="80%" /></p> 
+        <p><code>Presentation</code> 모듈을 테스트한다고 했을 때 네이버, 카카오 그리고 구글 지도에 대한 라이브러리를 알 필요가 있을까요?<br /> 물론 어떤 상황에서는 필요하겠지만 보통 Mock, Stub, Fake 등 테스트 더블을 통해 테스트를 진행해요.<br /> 즉, <code>MapServiceInterface</code>에 대해 테스트를 위한 가짜 객체만 생성하여 해당 기능이 잘 호출 되었는 지 판단을 해요.<br /> 테스트 뿐만 아니라 데모앱 같은 상황에도 인터페이스 모듈이 유용하게 쓰여요.<br /></p>
+        <p>그렇다고 모든 모듈에 인터페이스 모듈을 만드는 것은 오히려 복잡도를 증가시키거나 보일러 플레이트를 증가시킬 수 있어 상황에 맞게 판단해서 사용하면 정말 좋아요.<br /></p>
+        <p></p>
+        <script crossorigin="anonymous" issue-term="pathname" repo="hogumachu/hogumachu.github.io" src="https://utteranc.es/client.js" theme="github-dark"></script>
+      </div>
+    </div>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/syntax-highlighting.js"></script>
+    <script src="/js/ignite-core.js"></script>
+  </body>
+</html>

@@ -3,22 +3,19 @@ import Foundation
 
 struct HomePage: StaticLayout {
   @Environment(\.content) var content
+  
   let title = "Home"
   
   var body: some HTML {
     header
     
     pageDescriptionTitle
-      .padding(.top, 120)
     
     pageDescriptionCarousel
-      .padding(.top, .large)
     
     recentBlogTitle
-      .padding(.top, 200)
     
     recentBlogSection
-      .padding(.top, .large)
   }
   
   private var header: some HTML {
@@ -27,13 +24,13 @@ struct HomePage: StaticLayout {
         .horizontalAlignment(.center)
         .font(.title1)
         .fontWeight(.bold)
-        .foregroundStyle(.textColor)
+        .foregroundStyle(.bodyEmphasis)
       
       Text("Swift, iOS 이야기를 주로 해요")
         .horizontalAlignment(.center)
         .font(.title4)
         .fontWeight(.semibold)
-        .foregroundStyle(.gray100)
+        .foregroundStyle(.body)
     }
   }
   
@@ -42,17 +39,17 @@ struct HomePage: StaticLayout {
       Text("공유하는 것")
         .font(.title6)
         .fontWeight(.regular)
-        .foregroundStyle(.primaryColor)
+        .foregroundStyle(.primary)
+        .padding(.top, .xLarge)
       
       Text("개발자 그리고 직장인으로 겪은 모든 것을 공유해요")
         .font(.title2)
         .fontWeight(.semibold)
-        .foregroundStyle(.textColor)
+        .padding(.top, .small)
       
       Text("단순히 iOS 개발을 넘어 더 좋은 팀원이 되기 위한 고군분투에 대해 공유해요.")
         .font(.body)
         .fontWeight(.regular)
-        .foregroundStyle(.secondaryTextColor)
     }
     .horizontalAlignment(.center)
   }
@@ -92,12 +89,10 @@ struct HomePage: StaticLayout {
       Text(title)
         .font(.title4)
         .fontWeight(.semibold)
-        .foregroundStyle(.textColor)
       
       Text(description)
         .font(.body)
         .fontWeight(.regular)
-        .foregroundStyle(.secondaryTextColor)
       
       Text {
         Link("보러가기", target: target)
@@ -114,17 +109,14 @@ struct HomePage: StaticLayout {
       Text("최근 게시글")
         .font(.title6)
         .fontWeight(.regular)
-        .foregroundStyle(.primaryColor)
       
       Text("최근에 어떤 생각을 하며 개발을 하는 지 공유해요")
         .font(.title2)
         .fontWeight(.semibold)
-        .foregroundStyle(.textColor)
       
       Text("개발을 잘하는 것을 넘어 더 좋은 동료로 지내기 위해 열심히 노력하고 있어요.")
         .font(.body)
         .fontWeight(.regular)
-        .foregroundStyle(.secondaryTextColor)
     }
     .horizontalAlignment(.center)
   }
@@ -171,7 +163,6 @@ private struct BlogPreviewStyle: @preconcurrency ContentPreviewStyle {
         .horizontalAlignment(.center)
         .font(.title5)
         .fontWeight(.semibold)
-        .foregroundStyle(.textColor)
         .padding(.top, .small)
 //        .contentAction(content: content, imageID: imageID, titleID: titleID, descriptionID: descriptionID)
       
@@ -180,7 +171,6 @@ private struct BlogPreviewStyle: @preconcurrency ContentPreviewStyle {
         .horizontalAlignment(.center)
         .font(.body)
         .fontWeight(.regular)
-        .foregroundStyle(.secondaryTextColor)
 //        .contentAction(content: content, imageID: imageID, titleID: titleID, descriptionID: descriptionID)
     }
   }
