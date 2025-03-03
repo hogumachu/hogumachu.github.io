@@ -31,7 +31,6 @@ struct BlogPage: StaticLayout {
           ContentPreview(for: item)
             .contentPreviewStyle(PreviewStyle(index: index))
             .width(.max)
-            .background(.gray400)
             .padding()
         }
       }

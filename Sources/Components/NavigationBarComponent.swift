@@ -20,7 +20,8 @@ struct NavigationBarComponent: HTML {
     .navigationItemAlignment(.trailing)
     .position(.fixedTop)
     .padding(.horizontal, .medium)
-    .background(.gray400.opacity(0.5))
+    .background(.black.opacity(0.7)) // TODO: - Theme 설정
+    .cornerRadius(16)
   }
   
   private var logo: some InlineHTML {

@@ -24,7 +24,7 @@ struct HomePage: StaticLayout {
         .horizontalAlignment(.center)
         .font(.title1)
         .fontWeight(.bold)
-        .foregroundStyle(.bodyEmphasis)
+        .foregroundStyle(.primary)
       
       Text("Swift, iOS 이야기를 주로 해요")
         .horizontalAlignment(.center)
@@ -126,18 +126,16 @@ struct HomePage: StaticLayout {
       ForEach(recentBlogContents(content)) { index, item in
         ContentPreview(for: item)
           .contentPreviewStyle(BlogPreviewStyle(index: index))
-          .background(.gray400)
-//          .padding(.extraSmall)
       }
     }
-    .columns(4)
+    .columns(3)
   }
   
   private func recentBlogContents(_ content: ContentLoader) -> EnumeratedSequence<[Content]> {
     content.typed("blog").sorted {
       $0.date > $1.date
     }
-    .prefix(4)
+    .prefix(3)
     .map { $0 }
     .enumerated()
   }
@@ -145,49 +143,24 @@ struct HomePage: StaticLayout {
 
 private struct BlogPreviewStyle: @preconcurrency ContentPreviewStyle {
   let index: Int
-  let imageID = UniqueID().string
-  let titleID = UniqueID().string
-  let descriptionID = UniqueID().string
   
   @MainActor
   func body(content: Content) -> any BlockHTML {
     Group {
       Image(contentIndex: index)
-        .id(imageID)
         .resizable()
         .cornerRadius(8)
-//        .contentAction(content: content, imageID: imageID, titleID: titleID, descriptionID: descriptionID)
       
       Text(content.title)
-        .id(titleID)
         .horizontalAlignment(.center)
         .font(.title5)
         .fontWeight(.semibold)
         .padding(.top, .small)
-//        .contentAction(content: content, imageID: imageID, titleID: titleID, descriptionID: descriptionID)
       
       Text(content.description)
-        .id(descriptionID)
         .horizontalAlignment(.center)
         .font(.body)
         .fontWeight(.regular)
-//        .contentAction(content: content, imageID: imageID, titleID: titleID, descriptionID: descriptionID)
     }
   }
 }
-
-//private extension PageElement {
-//  func contentAction(content: Content, imageID: String, titleID: String, descriptionID: String) -> Self {
-//    self.onHover { isHovering in
-//      OpacityAction(id: imageID, opacity: isHovering ? 0.8 : 1.0)
-//      ColorAction(id: titleID, color: isHovering ? .gray200 : .textColor)
-//      ColorAction(id: descriptionID, color: isHovering ? .gray200 : .secondaryTextColor)
-//      CursorAction(id: imageID, isHovering: isHovering)
-//      CursorAction(id: titleID, isHovering: isHovering)
-//      CursorAction(id: descriptionID, isHovering: isHovering)
-//    }
-//    .onClick {
-//      NavigationAction(link: content.path)
-//    }
-//  }
-//}
