@@ -12,17 +12,11 @@ import Ignite
 
 struct MainLayout: Layout {
   var body: some HTML {
-    HTMLDocument(language: .korean) {
-      HTMLHead(for: page)
+    Body {
+      NavigationBarComponent()
+        .padding(.bottom, 80)
       
-      HTMLBody {
-        NavigationBarComponent()
-        
-        Section(page.body)
-      }
-      .padding(.vertical, 70)
-      .padding(.horizontal, .medium)
-      .class("container")
+      content
     }
   }
 }

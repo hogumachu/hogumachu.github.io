@@ -8,7 +8,7 @@
 import Foundation
 import Ignite
 
-struct ServicePage: StaticLayout {
+struct ServicePage: StaticPage {
   let title = "Service"
   
   var body: some HTML {
@@ -26,7 +26,7 @@ struct ServicePage: StaticLayout {
     Divider()
   }
   
-  private var header: some BlockHTML {
+  private var header: some HTML {
     Group {
       Text("Service")
         .horizontalAlignment(.center)
@@ -57,7 +57,7 @@ struct ServicePage: StaticLayout {
         .fontWeight(.regular)
         .padding(.bottom, .xLarge)
     }
-    .horizontalAlignment(.center)
+    .frame(alignment: .center)
   }
   
   private var heatPick: some HTML {
@@ -111,7 +111,7 @@ struct ServicePage: StaticLayout {
           .buttonSize(.large)
           .role(.primary)
       }
-      .horizontalAlignment(.center)
+      .frame(alignment: .center)
     }
   }
 }

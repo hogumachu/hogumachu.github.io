@@ -10,7 +10,7 @@ import Ignite
 // TODO: - 테마 반영
 
 struct BlogDarkTheme: Theme {
-  static var name = "dark"
+  let colorScheme: ColorScheme = .dark
   
   var accent: Color { Color(hex: "#7DE894") }
   var secondaryAccent: Color { Color(hex: "#E2F16C") }
@@ -28,7 +28,7 @@ struct BlogDarkTheme: Theme {
   var secondaryBackground: Color { Color(hex: "#1F1F21") }
   var tertiaryBackground: Color { Color(hex: "#141416") }
   var border: Color { Color(hex: "#1A1A1A") }
-  var heading: Color { .default } // TODO:
+//  var heading: Color { .default } // TODO:
   var syntaxHighlighterTheme: HighlighterTheme { .automatic }
 
   // Links
@@ -37,10 +37,10 @@ struct BlogDarkTheme: Theme {
   var linkDecoration: TextDecoration { .underline }
 
   // Font Families
-  var sansSerifFont: Font { .default }
-  var monospaceFont: Font { .default }
-  var font: Font { .default }
-  var codeFont: Font { .default }
+//  var sansSerifFont: Font { .default }
+//  var monospaceFont: Font { .default }
+//  var font: Font { .default }
+//  var codeFont: Font { .default }
   var alternateFonts: [Font] { [] }
 
   // Font Sizes
@@ -70,7 +70,7 @@ struct BlogDarkTheme: Theme {
   var xSmallHeadingSize: LengthUnit { .default }
 
   // Heading Properties
-  var headingFont: Font { .default }
+//  var headingFont: Font { .default }
   var headingFontWeight: LengthUnit { .default }
   var headingLineHeight: LengthUnit { .default }
 
@@ -98,3 +98,4 @@ struct BlogDarkTheme: Theme {
 extension LengthUnit {
   static var `default` = Self.em(.infinity)
 }
+

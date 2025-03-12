@@ -8,7 +8,7 @@
 import Foundation
 import Ignite
 
-struct CareerPage: StaticLayout {
+struct CareerPage: StaticPage {
   let title = "Career"
   
   var body: some HTML {
@@ -44,7 +44,7 @@ struct CareerPage: StaticLayout {
       .padding(.vertical, .xLarge)
   }
   
-  private var header: some BlockHTML {
+  private var header: some HTML {
     Group {
       Text("iOS 개발자 홍성준")
         .horizontalAlignment(.leading)
@@ -59,7 +59,7 @@ struct CareerPage: StaticLayout {
     }
   }
   
-  private var introduce: some BlockHTML {
+  private var introduce: some HTML {
     Group {
       Text {
         "개발뿐만 아니라 여러 실험을 통해 개선하며, 동료와 적극적으로 커뮤니케이션하기를 목표로 해요.".br
@@ -72,7 +72,7 @@ struct CareerPage: StaticLayout {
     }
   }
   
-  private var links: some BlockHTML {
+  private var links: some HTML {
     Group {
       sectionTitle("링크")
       
@@ -82,7 +82,7 @@ struct CareerPage: StaticLayout {
     }
   }
   
-  private var career: some BlockHTML {
+  private var career: some HTML {
     Group {
       sectionTitle("경력")
       
@@ -94,7 +94,7 @@ struct CareerPage: StaticLayout {
     }
   }
   
-  private var project: some BlockHTML {
+  private var project: some HTML {
     Group {
       sectionTitle("프로젝트")
       
@@ -109,7 +109,7 @@ struct CareerPage: StaticLayout {
     }
   }
   
-  private var skills: some BlockHTML {
+  private var skills: some HTML {
     Group {
       sectionTitle("기술")
       
@@ -169,7 +169,7 @@ struct CareerPage: StaticLayout {
     }
   }
   
-  private var educations: some BlockHTML {
+  private var educations: some HTML {
     Group {
       sectionTitle("교육")
       
@@ -201,7 +201,7 @@ struct CareerPage: StaticLayout {
       .fontWeight(.semibold)
   }
   
-  private func listSection(title: String, @HTMLBuilder items: () -> some HTML) -> some BlockHTML {
+  private func listSection(title: String, @HTMLBuilder items: () -> some HTML) -> some HTML {
     Group {
       Text(title)
         .font(.title5)
@@ -216,7 +216,7 @@ struct CareerPage: StaticLayout {
     title: String,
     subtitle: String,
     @HTMLBuilder items: () -> some HTML
-  ) -> some BlockHTML {
+  ) -> some HTML {
     Group {
       Text(title)
         .font(.title5)
@@ -230,7 +230,7 @@ struct CareerPage: StaticLayout {
     }
   }
   
-  private func linkComponent(url: String, name: String, image: BootstrapImageResource) -> some InlineHTML {
+  private func linkComponent(url: String, name: String, image: BootstrapImageResource) -> some HTML {
     Text {
       Link.withImage(
         url: url,

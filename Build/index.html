@@ -1,24 +1,16 @@
 <!doctype html>
-<html data-bs-theme="auto" lang="ko">
+<html lang="ko">
   <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <meta content="Hogumachu" name="author" />
-    <meta content="Ignite v0.2.1" name="generator" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Hogumachu" />
+    <meta name="generator" content="Ignite v0.5.0" />
     <title>Home - hogumachu tech</title>
     <link href="/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/css/prism-xcode-dark.css" rel="stylesheet" data-highlight-theme="xcode-dark" />
-    <link href="/css/prism-xcode-light.css" rel="stylesheet" data-highlight-theme="xcode-light" />
     <link href="/css/bootstrap-icons.min.css" rel="stylesheet" />
-    <link href="/css/themes.min.css" rel="stylesheet" />
+    <link href="/css/ignite-core.min.css" rel="stylesheet" />
     <link href="https://hogumachu.github.io/" rel="canonical" />
-    <script>/*
- Automatic Theme Switching Implementation
- Used in HTMLHead.swift.
- For user-driven theme switching implementation, see ignite-core.js.
- */
-
-(function() {
+    <script>(function() {
     function getThemePreference() {
         return localStorage.getItem('custom-theme') || 'auto';
     }
@@ -62,50 +54,55 @@
     applySyntaxTheme();
 })();
 </script>
-    <meta content="hogumachu tech" property="og:site_name" />
-    <meta content="Home" property="og:title" />
-    <meta content="Home" name="twitter:title" />
-    <meta content="https://hogumachu.github.io/" property="og:url" />
-    <meta content="hogumachu.github.io" name="twitter:domain" />
-    <meta content="summary_large_image" name="twitter:card" />
-    <meta content="on" name="twitter:dnt" />
+    <meta property="og:site_name" content="hogumachu tech" />
+    <meta property="og:title" content="Home" />
+    <meta name="twitter:title" content="Home" />
+    <meta property="og:url" content="https://hogumachu.github.io/" />
+    <meta name="twitter:domain" content="hogumachu.github.io" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:dnt" content="on" />
   </head>
-  <body class="container px-3" style="padding-bottom: 70px; padding-top: 70px">
-    <header>
-      <nav class="fixed-top navbar navbar-expand-md px-3" style="background-color: rgb(0 0 0 / 70%); border-radius: 16px" data-bs-theme="dark">
-        <div class="container">
-          <a href="/" class="link-underline link-underline-opacity-100 link-underline-opacity-100-hover navbar-brand"><h4 style="font-weight: 400">hogumachu tech</h4></a>
-          <button type="button" class="btn navbar-toggler" data-bs-target="#navbarCollapse" data-bs-toggle="collapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-          <div id="navbarCollapse" class="collapse navbar-collapse">
-            <ul class="col justify-content-end mb-2 mb-md-0 navbar-nav">
-              <li class="nav-item"><a href="/blog-page" class="link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover nav-link"><p>Blog</p></a></li>
-              <li class="nav-item"><a href="/service-page" class="link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover nav-link"><p>Service</p></a></li>
-              <li class="nav-item"><a href="/career-page" class="link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover nav-link"><p>Career</p></a></li>
-              <li class="dropdown nav-item" data-bs-theme="light"><a href="#" role="button" class="dropdown dropdown-toggle link-underline link-underline-opacity-100 link-underline-opacity-100-hover nav-link" data-bs-toggle="dropdown" aria-expanded="false">More</a>
-                <ul class="dropdown dropdown-menu">
-                  <li><a href="https://github.com/hogumachu" class="dropdown-item link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover"><p>GitHub</p></a></li>
-                  <li><a href="https://hogumachu.tistory.com" class="dropdown-item link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover"><p>Tistory</p></a></li>
-                </ul></li>
-            </ul>
+  <body class="container">
+    <div style="padding-bottom: 80px">
+      <header>
+        <nav class="fixed-top px-3 navbar navbar-expand-md" style="background-color: rgb(0 0 0 / 70%); border-radius: 16px" data-bs-theme="dark">
+          <div class="container">
+            <a href="/" class="navbar-brand link-underline link-underline-opacity-100 link-underline-opacity-100-hover"><h4 class="mb-0" style="font-weight: 400">hogumachu tech</h4></a>
+            <button type="button" class="navbar-toggler btn" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div id="navbarCollapse" class="collapse navbar-collapse">
+              <ul class="navbar-nav mb-2 mb-md-0 col justify-content-end">
+                <li class="nav-item"><a href="/blog-page" class="nav-link link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover"><p class="mb-0">Blog</p></a></li>
+                <li class="nav-item"><a href="/service-page" class="nav-link link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover"><p class="mb-0">Service</p></a></li>
+                <li class="nav-item"><a href="/career-page" class="nav-link link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover"><p class="mb-0">Career</p></a></li>
+                <li class="nav-item dropdown"><a role="button" href="#" class="dropdown-toggle nav-link dropdown link-underline link-underline-opacity-100 link-underline-opacity-100-hover" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div style="display: inline">
+                      More
+                    </div></a>
+                  <ul class="dropdown-menu dropdown">
+                    <li><a href="https://github.com/hogumachu" class="dropdown-item link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover"><p>GitHub</p></a></li>
+                    <li><a href="https://hogumachu.tistory.com" class="dropdown-item link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover"><p>Tistory</p></a></li>
+                  </ul></li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </nav>
-    </header>
+        </nav>
+      </header>
+    </div>
     <div>
       <h1 class="text-center text-primary" style="font-weight: 700">호구마츄테크,</h1>
-      <h4 class="text-body text-center" style="font-weight: 600">Swift, iOS 이야기를 주로 해요</h4>
-      <h6 class="pt-5 text-center text-primary" style="font-weight: 400">공유하는 것</h6>
-      <h2 class="pt-2 text-center" style="font-weight: 600">개발자 그리고 직장인으로 겪은 모든 것을 공유해요</h2>
-      <p class="text-center" style="font-weight: 400">단순히 iOS 개발을 넘어 더 좋은 팀원이 되기 위한 고군분투에 대해 공유해요.</p>
-      <div id="carouselFjeeZ" class="carousel slide" data-bs-ride="carousel">
+      <h4 class="text-center text-body" style="font-weight: 600">Swift, iOS 이야기를 주로 해요</h4>
+      <h6 class="text-primary pt-5 justify-content-center align-items-center" style="font-weight: 400">공유하는 것</h6>
+      <h2 class="pt-2 justify-content-center align-items-center" style="font-weight: 600">개발자 그리고 직장인으로 겪은 모든 것을 공유해요</h2>
+      <p class="justify-content-center align-items-center" style="font-weight: 400">단순히 iOS 개발을 넘어 더 좋은 팀원이 되기 위한 고군분투에 대해 공유해요.</p>
+      <div id="carouselpR2Zc" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
-          <button type="button" class="active btn" data-bs-slide-to="0" data-bs-target="#carouselFjeeZ" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" class="btn" data-bs-slide-to="1" data-bs-target="#carouselFjeeZ" aria-label="Slide 2"></button>
-          <button type="button" class="btn" data-bs-slide-to="2" data-bs-target="#carouselFjeeZ" aria-label="Slide 3"></button>
+          <button type="button" class="active btn" data-bs-target="#carouselpR2Zc" data-bs-slide-to="0" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" class="btn" data-bs-target="#carouselpR2Zc" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" class="btn" data-bs-target="#carouselpR2Zc" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
-          <div class="active carousel-item" style="background-color: black">
-            <img alt="" src="/images/cool.jpg" class="d-block w-100" style="height: 100%; object-fit: cover; opacity: 0.2" />
+          <div class="carousel-item active" style="background-color: black">
+            <img src="/images/cool.jpg" alt="" class="d-block w-100" style="height: 100%; object-fit: cover; opacity: 0.2" />
             <div class="container">
               <div class="carousel-caption">
                 <h4 style="font-weight: 600">블로그</h4>
@@ -115,7 +112,7 @@
             </div>
           </div>
           <div class="carousel-item" style="background-color: black">
-            <img alt="" src="/images/robot.jpg" class="d-block w-100" style="height: 100%; object-fit: cover; opacity: 0.2" />
+            <img src="/images/robot.jpg" alt="" class="d-block w-100" style="height: 100%; object-fit: cover; opacity: 0.2" />
             <div class="container">
               <div class="carousel-caption">
                 <h4 style="font-weight: 600">서비스</h4>
@@ -125,7 +122,7 @@
             </div>
           </div>
           <div class="carousel-item" style="background-color: black">
-            <img alt="" src="/images/student.jpg" class="d-block w-100" style="height: 100%; object-fit: cover; opacity: 0.2" />
+            <img src="/images/student.jpg" alt="" class="d-block w-100" style="height: 100%; object-fit: cover; opacity: 0.2" />
             <div class="container">
               <div class="carousel-caption">
                 <h4 style="font-weight: 600">경력</h4>
@@ -135,32 +132,31 @@
             </div>
           </div>
         </div>
-        <button type="button" class="btn carousel-control-prev" data-bs-slide="prev" data-bs-target="#carouselFjeeZ"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></button>
-        <button type="button" class="btn carousel-control-next" data-bs-slide="next" data-bs-target="#carouselFjeeZ"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span></button>
+        <button type="button" class="carousel-control-prev btn" data-bs-target="#carouselpR2Zc" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></button>
+        <button type="button" class="carousel-control-next btn" data-bs-target="#carouselpR2Zc" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span></button>
       </div>
-      <h6 class="text-center" style="font-weight: 400">최근 게시글</h6>
-      <h2 class="text-center" style="font-weight: 600">최근에 어떤 생각을 하며 개발을 하는 지 공유해요</h2>
-      <p class="text-center" style="font-weight: 400">개발을 잘하는 것을 넘어 더 좋은 동료로 지내기 위해 열심히 노력하고 있어요.</p>
+      <h6 class="justify-content-center align-items-center" style="font-weight: 400">최근 게시글</h6>
+      <h2 class="justify-content-center align-items-center" style="font-weight: 600">최근에 어떤 생각을 하며 개발을 하는 지 공유해요</h2>
+      <p class="justify-content-center align-items-center" style="font-weight: 400">개발을 잘하는 것을 넘어 더 좋은 동료로 지내기 위해 열심히 노력하고 있어요.</p>
       <div class="row row-cols-1 row-cols-md-3">
-        <div class=" col">
-          <img alt="banana image" src="/images/contents/background/banana-background.jpg" class="img-fluid" style="border-radius: 8px" />
-          <h5 class="pt-2 text-center" style="font-weight: 600">테스트를 작성해야 하는 이유</h5>
+        <div class="col">
+          <img src="/images/contents/background/banana-background.jpg" alt="banana image" class="img-fluid" style="border-radius: 8px" />
+          <h5 class="text-center pt-2" style="font-weight: 600">테스트를 작성해야 하는 이유</h5>
           <p class="text-center" style="font-weight: 400">왜 우리는 시간을 들여 테스트를 작성해야 하는가</p>
         </div>
-        <div class=" col">
-          <img alt="fire image" src="/images/contents/background/fire-background.jpg" class="img-fluid" style="border-radius: 8px" />
-          <h5 class="pt-2 text-center" style="font-weight: 600">모듈화를 하는 이유</h5>
+        <div class="col">
+          <img src="/images/contents/background/fire-background.jpg" alt="fire image" class="img-fluid" style="border-radius: 8px" />
+          <h5 class="text-center pt-2" style="font-weight: 600">모듈화를 하는 이유</h5>
           <p class="text-center" style="font-weight: 400">모듈화가 필요한 이유에 대한 설명</p>
         </div>
-        <div class=" col">
-          <img alt="party image" src="/images/contents/background/party-background.jpg" class="img-fluid" style="border-radius: 8px" />
-          <h5 class="pt-2 text-center" style="font-weight: 600">블로그를 이사하는 이유</h5>
+        <div class="col">
+          <img src="/images/contents/background/party-background.jpg" alt="party image" class="img-fluid" style="border-radius: 8px" />
+          <h5 class="text-center pt-2" style="font-weight: 600">블로그를 이사하는 이유</h5>
           <p class="text-center" style="font-weight: 400">블로그를 이전하는 이유에 대한 설명</p>
         </div>
       </div>
     </div>
     <script src="/js/bootstrap.bundle.min.js"></script>
-    <script src="/js/syntax-highlighting.js"></script>
     <script src="/js/ignite-core.js"></script>
   </body>
 </html>

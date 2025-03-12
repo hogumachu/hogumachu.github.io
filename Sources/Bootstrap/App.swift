@@ -12,7 +12,8 @@ import Ignite
 struct App {
   static func main() async {
     do {
-      try await WebStie().publish()
+      var site = WebStie()
+      try await site.publish()
     } catch {
       print(error.localizedDescription)
     }

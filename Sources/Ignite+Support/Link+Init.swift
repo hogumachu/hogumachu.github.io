@@ -11,7 +11,7 @@ import Ignite
 
 extension Link {
   init(
-    page: any StaticLayout,
+    page: any StaticPage,
     @HTMLBuilder content: @escaping () -> some HTML
   ) {
     self.init(target: page.path, content: content)

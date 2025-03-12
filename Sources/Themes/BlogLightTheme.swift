@@ -7,6 +7,6 @@
 
 import Ignite
 
-struct BlogLightTheme: LightTheme {
-  static var name: String = "light"
+struct BlogLightTheme: Theme {
+  let colorScheme: ColorScheme = .light
 }

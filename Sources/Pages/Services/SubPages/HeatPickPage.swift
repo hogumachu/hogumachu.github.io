@@ -8,7 +8,7 @@
 import Foundation
 import Ignite
 
-struct HeatPickPage: StaticLayout {
+struct HeatPickPage: StaticPage {
   let title = "HeatPick"
   
   var body: some HTML {
@@ -30,7 +30,7 @@ struct HeatPickPage: StaticLayout {
       " GitHub 보러가기"
     }
     .id("github")
-    .horizontalAlignment(.center)
+    .frame(alignment: .center)
     .font(.body)
     .onClick {
       NavigationAction(link: "https://github.com/boostcampwm2023/iOS04-HeatPick")
@@ -48,7 +48,7 @@ struct HeatPickPage: StaticLayout {
       " Wiki 보러가기"
     }
     .id("wiki")
-    .horizontalAlignment(.center)
+    .frame(alignment: .center)
     .font(.body)
     .padding(.bottom, .small)
     .onClick {
@@ -98,6 +98,7 @@ struct HeatPickPage: StaticLayout {
     
     roleContent("기획", description: "전체적인 프로젝트를 기획했어요.<br/>팀 빌딩, 일정 관리 그리고 디자인까지<br/>지속적으로 팀원에게 피드백을 받으며 작업했어요.")
       .padding(.top, .medium)
+      
     
     roleContent("아키텍처 설계", description: "RIBs 및 클린 아키텍처를 활용하여 독립적인 개발 환경을 구성했어요.")
       .padding(.top, .medium)
@@ -154,11 +155,11 @@ struct HeatPickPage: StaticLayout {
         .buttonSize(.medium)
         .role(.primary)
     }
-    .horizontalAlignment(.center)
+    .frame(alignment: .center)
     .padding(.top, .xLarge)
   }
   
-  private func roleContent(_ title: String, description: String) -> some BlockHTML {
+  private func roleContent(_ title: String, description: String) -> some HTML {
     Group {
       Text(title)
         .font(.title6)

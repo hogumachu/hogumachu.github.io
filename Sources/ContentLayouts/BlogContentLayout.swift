@@ -8,20 +8,20 @@
 import Foundation
 import Ignite
 
-struct BlogContentLayout: ContentLayout {
+struct BlogContentLayout: ArticlePage {
   var body: some HTML {
-    Text(content.title)
+    Text(article.title)
       .horizontalAlignment(.center)
       .font(.title1)
       .fontWeight(.bold)
     
-    Text(content.blogDescription)
+    Text(article.blogDescription)
       .horizontalAlignment(.center)
       .font(.body)
       .padding(.bottom, .xLarge)
     
     Group {
-      Text(content.body)
+      Text(article.text)
     }
     .margin(.medium)
     .padding(.medium)

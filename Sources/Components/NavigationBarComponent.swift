@@ -24,7 +24,7 @@ struct NavigationBarComponent: HTML {
     .cornerRadius(16)
   }
   
-  private var logo: some InlineHTML {
+  private var logo: some InlineElement {
     Text("hogumachu tech")
       .font(.title4)
       .fontWeight(.regular)
@@ -37,7 +37,7 @@ struct NavigationBarComponent: HTML {
     }
   }
   
-  private func linkComponent(_ page: any StaticLayout) -> Link {
+  private func linkComponent(_ page: any StaticPage) -> Link {
     Link(page: page) {
       Text(page.title)
     }

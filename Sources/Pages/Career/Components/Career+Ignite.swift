@@ -9,7 +9,7 @@
 
 extension Career {
   @MainActor
-  var element: some BlockHTML {
+  var element: some HTML {
     Section {
       Group {
         Text {
@@ -28,7 +28,7 @@ extension Career {
           .font(.body)
           .fontWeight(.regular)
         
-        skills.map {
+        ForEach(skills) {
           Badge($0)
             .badgeStyle(.default)
             .role(.dark)
@@ -39,24 +39,23 @@ extension Career {
       .position(.stickyTop)
       .padding(.top, 80)
       
-      descriptions
-        .map {
-          $0.element
-            .padding(.top, .xLarge)
-        }
+      ForEach(descriptions) {
+        $0.element
+          .padding(.top, .xLarge)
+      }
     }
   }
 }
 
 extension CareerDescription {
   @MainActor
-  var element: some BlockHTML {
+  var element: some HTML {
     Group {
       Text(title)
         .font(.title5)
         .fontWeight(.semibold)
       
-      components.map {
+      ForEach(components) {
         Text($0)
           .font(.body)
       }

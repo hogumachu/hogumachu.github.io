@@ -22,13 +22,13 @@ struct WebStie: Site {
   var alternateThemes: [any Theme] = [
     BlogDarkTheme()
   ]
-  let staticLayouts: [any StaticLayout] = [
+  let staticPages: [any StaticPage] = [
     BlogPage(),
     ServicePage(),
     CareerPage(),
     HeatPickPage()
   ]
-  let contentLayouts: [any ContentLayout] = [
+  let articlePages: [any ArticlePage] = [
     BlogContentLayout()
   ]
   let syntaxHighlighters: [HighlighterLanguage] = [.swift]

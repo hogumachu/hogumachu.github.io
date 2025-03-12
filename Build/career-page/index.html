@@ -1,24 +1,16 @@
 <!doctype html>
-<html data-bs-theme="auto" lang="ko">
+<html lang="ko">
   <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <meta content="Hogumachu" name="author" />
-    <meta content="Ignite v0.2.1" name="generator" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Hogumachu" />
+    <meta name="generator" content="Ignite v0.5.0" />
     <title>Career - hogumachu tech</title>
     <link href="/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/css/prism-xcode-dark.css" rel="stylesheet" data-highlight-theme="xcode-dark" />
-    <link href="/css/prism-xcode-light.css" rel="stylesheet" data-highlight-theme="xcode-light" />
     <link href="/css/bootstrap-icons.min.css" rel="stylesheet" />
-    <link href="/css/themes.min.css" rel="stylesheet" />
+    <link href="/css/ignite-core.min.css" rel="stylesheet" />
     <link href="https://hogumachu.github.io/career-page" rel="canonical" />
-    <script>/*
- Automatic Theme Switching Implementation
- Used in HTMLHead.swift.
- For user-driven theme switching implementation, see ignite-core.js.
- */
-
-(function() {
+    <script>(function() {
     function getThemePreference() {
         return localStorage.getItem('custom-theme') || 'auto';
     }
@@ -62,39 +54,44 @@
     applySyntaxTheme();
 })();
 </script>
-    <meta content="hogumachu tech" property="og:site_name" />
-    <meta content="Career" property="og:title" />
-    <meta content="Career" name="twitter:title" />
-    <meta content="https://hogumachu.github.io/career-page" property="og:url" />
-    <meta content="hogumachu.github.io" name="twitter:domain" />
-    <meta content="summary_large_image" name="twitter:card" />
-    <meta content="on" name="twitter:dnt" />
+    <meta property="og:site_name" content="hogumachu tech" />
+    <meta property="og:title" content="Career" />
+    <meta name="twitter:title" content="Career" />
+    <meta property="og:url" content="https://hogumachu.github.io/career-page" />
+    <meta name="twitter:domain" content="hogumachu.github.io" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:dnt" content="on" />
   </head>
-  <body class="container px-3" style="padding-bottom: 70px; padding-top: 70px">
-    <header>
-      <nav class="fixed-top navbar navbar-expand-md px-3" style="background-color: rgb(0 0 0 / 70%); border-radius: 16px" data-bs-theme="dark">
-        <div class="container">
-          <a href="/" class="link-underline link-underline-opacity-100 link-underline-opacity-100-hover navbar-brand"><h4 style="font-weight: 400">hogumachu tech</h4></a>
-          <button type="button" class="btn navbar-toggler" data-bs-target="#navbarCollapse" data-bs-toggle="collapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-          <div id="navbarCollapse" class="collapse navbar-collapse">
-            <ul class="col justify-content-end mb-2 mb-md-0 navbar-nav">
-              <li class="nav-item"><a href="/blog-page" class="link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover nav-link"><p>Blog</p></a></li>
-              <li class="nav-item"><a href="/service-page" class="link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover nav-link"><p>Service</p></a></li>
-              <li class="nav-item"><a href="/career-page" class="active link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover nav-link" aria-current="page"><p>Career</p></a></li>
-              <li class="dropdown nav-item" data-bs-theme="light"><a href="#" role="button" class="dropdown dropdown-toggle link-underline link-underline-opacity-100 link-underline-opacity-100-hover nav-link" data-bs-toggle="dropdown" aria-expanded="false">More</a>
-                <ul class="dropdown dropdown-menu">
-                  <li><a href="https://github.com/hogumachu" class="dropdown-item link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover"><p>GitHub</p></a></li>
-                  <li><a href="https://hogumachu.tistory.com" class="dropdown-item link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover"><p>Tistory</p></a></li>
-                </ul></li>
-            </ul>
+  <body class="container">
+    <div style="padding-bottom: 80px">
+      <header>
+        <nav class="fixed-top px-3 navbar navbar-expand-md" style="background-color: rgb(0 0 0 / 70%); border-radius: 16px" data-bs-theme="dark">
+          <div class="container">
+            <a href="/" class="navbar-brand link-underline link-underline-opacity-100 link-underline-opacity-100-hover"><h4 class="mb-0" style="font-weight: 400">hogumachu tech</h4></a>
+            <button type="button" class="navbar-toggler btn" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div id="navbarCollapse" class="collapse navbar-collapse">
+              <ul class="navbar-nav mb-2 mb-md-0 col justify-content-end">
+                <li class="nav-item"><a href="/blog-page" class="nav-link link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover"><p class="mb-0">Blog</p></a></li>
+                <li class="nav-item"><a href="/service-page" class="nav-link link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover"><p class="mb-0">Service</p></a></li>
+                <li class="nav-item"><a href="/career-page" class="nav-link active link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover" aria-current="page"><p class="mb-0">Career</p></a></li>
+                <li class="nav-item dropdown"><a role="button" href="#" class="dropdown-toggle nav-link dropdown link-underline link-underline-opacity-100 link-underline-opacity-100-hover" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div style="display: inline">
+                      More
+                    </div></a>
+                  <ul class="dropdown-menu dropdown">
+                    <li><a href="https://github.com/hogumachu" class="dropdown-item link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover"><p>GitHub</p></a></li>
+                    <li><a href="https://hogumachu.tistory.com" class="dropdown-item link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover"><p>Tistory</p></a></li>
+                  </ul></li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </nav>
-    </header>
+        </nav>
+      </header>
+    </div>
     <div>
-      <h1 class="pt-3 text-start" style="font-weight: 700">iOS 개발자 홍성준</h1>
-      <h4 class="pt-3 text-start" style="font-weight: 600">좋은 제품을 만드는 것을 최우선으로 목표하고 있어요.</h4>
-      <p class="pb-5 pt-3" style="font-weight: 400">개발뿐만 아니라 여러 실험을 통해 개선하며, 동료와 적극적으로 커뮤니케이션하기를 목표로 해요.<br />사용자 경험을 개선하고 더 좋은 제품을 만드는 것에 많은 만족감을 느껴요.<br />함께 같은 목표를 향해 달릴 수 있는 사람이 되려고 많은 노력을 해요.</p>
+      <h1 class="text-start pt-3" style="font-weight: 700">iOS 개발자 홍성준</h1>
+      <h4 class="text-start pt-3" style="font-weight: 600">좋은 제품을 만드는 것을 최우선으로 목표하고 있어요.</h4>
+      <p class="pt-3 pb-5" style="font-weight: 400">개발뿐만 아니라 여러 실험을 통해 개선하며, 동료와 적극적으로 커뮤니케이션하기를 목표로 해요.<br />사용자 경험을 개선하고 더 좋은 제품을 만드는 것에 많은 만족감을 느껴요.<br />함께 같은 목표를 향해 달릴 수 있는 사람이 되려고 많은 노력을 해요.</p>
       <hr />
       <h2 class="py-5" style="font-weight: 600">링크</h2>
       <p class="py-5" style="font-weight: 400"><a href="https://github.com/hogumachu" class="link-light link-underline link-underline-opacity-0 link-underline-opacity-75-hover"></a></p>
@@ -112,13 +109,13 @@
         <h3 class="sticky-top" style="font-weight: 600; padding-top: 80px"><a href="https://intro.doctorvice.co.kr" class="link-light link-underline link-underline-opacity-0 link-underline-opacity-75-hover"><p style="color: rgb(255 255 255 / 100%)">아이쿱 <i class="bi-link"></i></p></a></h3>
         <p class="sticky-top" style="font-weight: 400; padding-top: 80px">iOS 개발자 | 2024.05-재직 중</p>
         <p class="sticky-top" style="font-weight: 400; padding-top: 80px">환자를 위한 맞춤형 건강관리 앱 닥터바이스 서비스 스타트업</p>
-        <span class="badge mb-2 me-2 rounded-pill sticky-top text-bg-dark" style="padding-top: 80px">SwiftUI</span>
-        <span class="badge mb-2 me-2 rounded-pill sticky-top text-bg-dark" style="padding-top: 80px">TCA</span>
-        <span class="badge mb-2 me-2 rounded-pill sticky-top text-bg-dark" style="padding-top: 80px">Tuist</span>
-        <span class="badge mb-2 me-2 rounded-pill sticky-top text-bg-dark" style="padding-top: 80px">Clean Architecture</span>
-        <span class="badge mb-2 me-2 rounded-pill sticky-top text-bg-dark" style="padding-top: 80px">XCTest</span>
-        <span class="badge mb-2 me-2 rounded-pill sticky-top text-bg-dark" style="padding-top: 80px">SnapshotTesting</span>
-        <span class="badge mb-2 me-2 rounded-pill sticky-top text-bg-dark" style="padding-top: 80px">Google Analytics</span>
+        <span class="me-2 mb-2 sticky-top badge text-bg-dark rounded-pill" style="padding-top: 80px">SwiftUI</span>
+        <span class="me-2 mb-2 sticky-top badge text-bg-dark rounded-pill" style="padding-top: 80px">TCA</span>
+        <span class="me-2 mb-2 sticky-top badge text-bg-dark rounded-pill" style="padding-top: 80px">Tuist</span>
+        <span class="me-2 mb-2 sticky-top badge text-bg-dark rounded-pill" style="padding-top: 80px">Clean Architecture</span>
+        <span class="me-2 mb-2 sticky-top badge text-bg-dark rounded-pill" style="padding-top: 80px">XCTest</span>
+        <span class="me-2 mb-2 sticky-top badge text-bg-dark rounded-pill" style="padding-top: 80px">SnapshotTesting</span>
+        <span class="me-2 mb-2 sticky-top badge text-bg-dark rounded-pill" style="padding-top: 80px">Google Analytics</span>
         <h5 class="pt-5" style="font-weight: 600">신규 서비스 개발</h5>
         <p class="pt-5">SwiftUI와 TCA를 활용하여 신규 서비스인 닥터바이스 앱을 개발했어요.<br /></p>
         <p class="pt-5">환자를 위한 문진, 건강 기록 등 기능을 개발했으며, 앱에 필수적인 로그인, FCM 등 여러 기능을 개발했어요.</p>
@@ -138,13 +135,13 @@
         <h3 class="sticky-top" style="font-weight: 600; padding-top: 80px"><a href="https://orwell.distancing.im/about-orwell-health" class="link-light link-underline link-underline-opacity-0 link-underline-opacity-75-hover"><p style="color: rgb(255 255 255 / 100%)">오웰헬스 <i class="bi-link"></i></p></a></h3>
         <p class="sticky-top" style="font-weight: 400; padding-top: 80px">iOS 개발자 | 2021.12-2022.11</p>
         <p class="sticky-top" style="font-weight: 400; padding-top: 80px">비대면 상담 및 디지털 헬스케어 앱 inside 서비스 스타트업</p>
-        <span class="badge mb-2 me-2 rounded-pill sticky-top text-bg-dark" style="padding-top: 80px">UIKit</span>
-        <span class="badge mb-2 me-2 rounded-pill sticky-top text-bg-dark" style="padding-top: 80px">SnapKit</span>
-        <span class="badge mb-2 me-2 rounded-pill sticky-top text-bg-dark" style="padding-top: 80px">RxSwift</span>
-        <span class="badge mb-2 me-2 rounded-pill sticky-top text-bg-dark" style="padding-top: 80px">Fastlane</span>
-        <span class="badge mb-2 me-2 rounded-pill sticky-top text-bg-dark" style="padding-top: 80px">GitHub Actions</span>
-        <span class="badge mb-2 me-2 rounded-pill sticky-top text-bg-dark" style="padding-top: 80px">Mixpanel</span>
-        <span class="badge mb-2 me-2 rounded-pill sticky-top text-bg-dark" style="padding-top: 80px">Google Analytics</span>
+        <span class="me-2 mb-2 sticky-top badge text-bg-dark rounded-pill" style="padding-top: 80px">UIKit</span>
+        <span class="me-2 mb-2 sticky-top badge text-bg-dark rounded-pill" style="padding-top: 80px">SnapKit</span>
+        <span class="me-2 mb-2 sticky-top badge text-bg-dark rounded-pill" style="padding-top: 80px">RxSwift</span>
+        <span class="me-2 mb-2 sticky-top badge text-bg-dark rounded-pill" style="padding-top: 80px">Fastlane</span>
+        <span class="me-2 mb-2 sticky-top badge text-bg-dark rounded-pill" style="padding-top: 80px">GitHub Actions</span>
+        <span class="me-2 mb-2 sticky-top badge text-bg-dark rounded-pill" style="padding-top: 80px">Mixpanel</span>
+        <span class="me-2 mb-2 sticky-top badge text-bg-dark rounded-pill" style="padding-top: 80px">Google Analytics</span>
         <h5 class="pt-5" style="font-weight: 600">아키텍처 개선</h5>
         <p class="pt-5">RxSwift 및 MVVM 아키텍처 구조로 개선했어요.<br /></p>
         <p class="pt-5">Protocol을 활용하여 테스트 가능한 구조로 개선했어요.</p>
@@ -165,20 +162,20 @@
       <h3 class="pb-4 py-5" style="font-weight: 600"><a href="https://github.com/hogumachu/hogumachu.github.io" class="link-light link-underline link-underline-opacity-0 link-underline-opacity-75-hover"><p style="color: rgb(255 255 255 / 100%)">Blog <i class="bi-link"></i></p></a></h3>
       <p class="pb-4 py-5" style="font-weight: 400">개인 프로젝트 | 2025.01-현재</p>
       <p class="pb-4 py-5" style="font-weight: 400">Swift, Ignite를 활용한 블로그</p>
-      <span class="badge mb-2 me-2 pb-4 py-5 rounded-pill text-bg-dark">Swift</span>
-      <span class="badge mb-2 me-2 pb-4 py-5 rounded-pill text-bg-dark">Ignite</span>
-      <span class="badge mb-2 me-2 pb-4 py-5 rounded-pill text-bg-dark">GitHub Actions</span>
-      <h5 class="pb-2 pb-4 py-4 py-5" style="font-weight: 600">■ Swift를 활용한 블로그</h5>
-      <p class="pb-4 py-4 py-5">Swift와 Ignite를 활용하여 블로그를 구현했어요.<br /></p>
-      <p class="pb-4 py-4 py-5">Swift에 대한 인사이트를 더 얻고 싶어 선택했어요.<br /></p>
-      <p class="pb-4 py-4 py-5">GitHub Actions을 활용하여 빌드 자동화를 구현했어요.</p>
+      <span class="me-2 mb-2 pb-4 py-5 badge text-bg-dark rounded-pill">Swift</span>
+      <span class="me-2 mb-2 pb-4 py-5 badge text-bg-dark rounded-pill">Ignite</span>
+      <span class="me-2 mb-2 pb-4 py-5 badge text-bg-dark rounded-pill">GitHub Actions</span>
+      <h5 class="pb-2 py-4 pb-4 py-5" style="font-weight: 600">■ Swift를 활용한 블로그</h5>
+      <p class="py-4 pb-4 py-5">Swift와 Ignite를 활용하여 블로그를 구현했어요.<br /></p>
+      <p class="py-4 pb-4 py-5">Swift에 대한 인사이트를 더 얻고 싶어 선택했어요.<br /></p>
+      <p class="py-4 pb-4 py-5">GitHub Actions을 활용하여 빌드 자동화를 구현했어요.</p>
       <h3 class="py-5" style="font-weight: 600"><a href="https://github.com/hogumachu/SimpleNote" class="link-light link-underline link-underline-opacity-0 link-underline-opacity-75-hover"><p style="color: rgb(255 255 255 / 100%)">SimpleNote <i class="bi-link"></i></p></a></h3>
       <p class="py-5" style="font-weight: 400">개인 프로젝트 | 2024.04-2024.04</p>
       <p class="py-5" style="font-weight: 400">멀티 플랫폼 투두 리스트</p>
-      <span class="badge mb-2 me-2 py-5 rounded-pill text-bg-dark">SwiftUI</span>
-      <span class="badge mb-2 me-2 py-5 rounded-pill text-bg-dark">TCA</span>
-      <span class="badge mb-2 me-2 py-5 rounded-pill text-bg-dark">SwiftData</span>
-      <span class="badge mb-2 me-2 py-5 rounded-pill text-bg-dark">CloudKit</span>
+      <span class="me-2 mb-2 py-5 badge text-bg-dark rounded-pill">SwiftUI</span>
+      <span class="me-2 mb-2 py-5 badge text-bg-dark rounded-pill">TCA</span>
+      <span class="me-2 mb-2 py-5 badge text-bg-dark rounded-pill">SwiftData</span>
+      <span class="me-2 mb-2 py-5 badge text-bg-dark rounded-pill">CloudKit</span>
       <h5 class="pb-2 py-4 py-5" style="font-weight: 600">■ 빠른 속도</h5>
       <p class="py-4 py-5">SwiftUI를 활용하여 MVP로 빠르게 개발한 서비스에요.<br /></p>
       <p class="py-4 py-5">7일 만에 개발하여 배포했어요.</p>
@@ -188,10 +185,10 @@
       <h3 class="py-5" style="font-weight: 600"><a href="/heat-pick-page" class="link-light link-underline link-underline-opacity-0 link-underline-opacity-75-hover"><p style="color: rgb(255 255 255 / 100%)">HeatPick <i class="bi-link"></i></p></a></h3>
       <p class="py-5" style="font-weight: 400">네이버 커넥트재단 부스트캠프 | 2023.11-2023.12</p>
       <p class="py-5" style="font-weight: 400">지도 기반 SNS 서비스</p>
-      <span class="badge mb-2 me-2 py-5 rounded-pill text-bg-dark">UIKit</span>
-      <span class="badge mb-2 me-2 py-5 rounded-pill text-bg-dark">RIBs</span>
-      <span class="badge mb-2 me-2 py-5 rounded-pill text-bg-dark">Tuist</span>
-      <span class="badge mb-2 me-2 py-5 rounded-pill text-bg-dark">Clean Architecture</span>
+      <span class="me-2 mb-2 py-5 badge text-bg-dark rounded-pill">UIKit</span>
+      <span class="me-2 mb-2 py-5 badge text-bg-dark rounded-pill">RIBs</span>
+      <span class="me-2 mb-2 py-5 badge text-bg-dark rounded-pill">Tuist</span>
+      <span class="me-2 mb-2 py-5 badge text-bg-dark rounded-pill">Clean Architecture</span>
       <h5 class="pb-2 py-4 py-5" style="font-weight: 600">■ 프로젝트 리딩</h5>
       <p class="py-4 py-5">전체적인 프로젝트 기획을 했어요.<br /></p>
       <p class="py-4 py-5">팀 빌딩, 일정 관리 그리고 디자인까지 지속적으로 팀원에게 피드백을 받으며 작업했어요.</p>
@@ -203,33 +200,33 @@
       <p class="py-4 py-5">물리적으로 기능을 분리하여 더욱 안전하게 코드를 작성할 수 있도록 만들었어요.</p>
       <hr />
       <h2 class="py-5" style="font-weight: 600">기술</h2>
-      <h5 class="py-4 py-5" style="color: rgb(150 185 248 / 100%); font-weight: 600">Swift</h5>
+      <h5 class="py-4 py-5" style="font-weight: 600; color: rgb(150 185 248 / 100%)">Swift</h5>
       <ul class="py-4 py-5">
         <li>UIKit, SwiftUI 모두 익숙하게 사용해요.</li>
         <li>Swift 5.x에서 Swift 6으로 마이레이션한 경험이 있어요.</li>
       </ul>
-      <h5 class="py-4 py-5" style="color: rgb(150 185 248 / 100%); font-weight: 600">Concurrency</h5>
+      <h5 class="py-4 py-5" style="font-weight: 600; color: rgb(150 185 248 / 100%)">Concurrency</h5>
       <ul class="py-4 py-5">
         <li>RxSwift, Combine 모두 프로덕션에서 활용한 경험이 있어요.</li>
         <li>최근에는 Async Await을 많이 활용하여 해당 문법에 익숙해요.</li>
       </ul>
-      <h5 class="py-4 py-5" style="color: rgb(150 185 248 / 100%); font-weight: 600">Architecture</h5>
+      <h5 class="py-4 py-5" style="font-weight: 600; color: rgb(150 185 248 / 100%)">Architecture</h5>
       <ul class="py-4 py-5">
         <li>MVVM, MVI, RIBs 등 많은 아키텍처를 경험했어요.</li>
         <li>ReactorKit, TCA, RIBs 등 프로덕션에서 사용한 경험이 있어요.</li>
       </ul>
-      <h5 class="py-4 py-5" style="color: rgb(150 185 248 / 100%); font-weight: 600">Modularization</h5>
+      <h5 class="py-4 py-5" style="font-weight: 600; color: rgb(150 185 248 / 100%)">Modularization</h5>
       <ul class="py-4 py-5">
         <li>SPM, Tuist를 활용하여 모듈화를 진행한 경험이 있어요.</li>
         <li>Clean Architecture, Microfeatures Architecture 등 상황에 적합한 아키텍처를 활용하고 있어요.</li>
       </ul>
-      <h5 class="py-4 py-5" style="color: rgb(150 185 248 / 100%); font-weight: 600">Test</h5>
+      <h5 class="py-4 py-5" style="font-weight: 600; color: rgb(150 185 248 / 100%)">Test</h5>
       <ul class="py-4 py-5">
         <li>XCTest를 주로 사용했어요.</li>
         <li>Quick, Nimble을 활용하여 주로 BDD로 테스트를 작성했어요.</li>
         <li>최근에는 새로운 테스트 코드는 Testing을 활용하여 작성하고 있어요.</li>
       </ul>
-      <h5 class="py-4 py-5" style="color: rgb(150 185 248 / 100%); font-weight: 600">DevOps</h5>
+      <h5 class="py-4 py-5" style="font-weight: 600; color: rgb(150 185 248 / 100%)">DevOps</h5>
       <ul class="py-4 py-5">
         <li>Fastlane과 GitHub Actions를 활용하여 CI/CD 구축한 경험이 있어요.</li>
       </ul>
@@ -249,7 +246,6 @@
       </ul>
     </div>
     <script src="/js/bootstrap.bundle.min.js"></script>
-    <script src="/js/syntax-highlighting.js"></script>
     <script src="/js/ignite-core.js"></script>
   </body>
 </html>

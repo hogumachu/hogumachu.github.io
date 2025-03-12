@@ -1,15 +1,6 @@
 {
-  "originHash" : "45b71986ed68ad59aa6b04cbcb4f3e728676f350c4d434f224301d5236a30fe4",
+  "originHash" : "70ea5414ee384103f41a6f37ba7e05a39965465e2ee818b300235c5e9432c1a5",
   "pins" : [
-    {
-      "identity" : "ignite",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/hogumachu/Ignite",
-      "state" : {
-        "branch" : "main",
-        "revision" : "8ebe768590ad79baef08f9313961081eb1f2f9b0"
-      }
-    },
     {
       "identity" : "swift-argument-parser",
       "kind" : "remoteSourceControl",
@@ -51,8 +42,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/scinfu/SwiftSoup.git",
       "state" : {
-        "revision" : "6b4930da67b462d3f200472c902dd016d37a554d",
-        "version" : "2.7.7"
+        "revision" : "c63bd113ab3b016c2396c87e519f568b011a5aa8",
+        "version" : "2.8.6"
       }
     }
   ],

@@ -1,8 +1,8 @@
 import Foundation
 @preconcurrency import Ignite
 
-struct HomePage: StaticLayout {
-  @Environment(\.content) var content
+struct HomePage: StaticPage {
+  @Environment(\.articles) var articles
   
   let title = "Home"
   
@@ -51,7 +51,7 @@ struct HomePage: StaticLayout {
         .font(.body)
         .fontWeight(.regular)
     }
-    .horizontalAlignment(.center)
+    .frame(alignment: .center)
   }
   
   private var pageDescriptionCarousel: some HTML {
@@ -80,7 +80,7 @@ struct HomePage: StaticLayout {
   }
   
   private func pageDescriptionSlide(
-    target: any StaticLayout,
+    target: any StaticPage,
     resource: ImageResource,
     title: String,
     description: String
@@ -118,34 +118,30 @@ struct HomePage: StaticLayout {
         .font(.body)
         .fontWeight(.regular)
     }
-    .horizontalAlignment(.center)
+    .frame(alignment: .center)
   }
   
   private var recentBlogSection: some HTML {
     Grid {
-      ForEach(recentBlogContents(content)) { index, item in
-        ContentPreview(for: item)
-          .contentPreviewStyle(BlogPreviewStyle(index: index))
+      ForEach(articles.all.sorted {
+        $0.date > $1.date
       }
+        .prefix(3)
+        .map { $0 }
+        .enumerated()) { index, item in
+          ArticlePreview(for: item)
+            .articlePreviewStyle(BlogPreviewStyle(index: index))
+        }
     }
     .columns(3)
   }
-  
-  private func recentBlogContents(_ content: ContentLoader) -> EnumeratedSequence<[Content]> {
-    content.typed("blog").sorted {
-      $0.date > $1.date
-    }
-    .prefix(3)
-    .map { $0 }
-    .enumerated()
-  }
 }
 
-private struct BlogPreviewStyle: @preconcurrency ContentPreviewStyle {
+private struct BlogPreviewStyle: @preconcurrency ArticlePreviewStyle {
   let index: Int
   
   @MainActor
-  func body(content: Content) -> any BlockHTML {
+  func body(content: Article) -> any HTML {
     Group {
       Image(contentIndex: index)
         .resizable()
