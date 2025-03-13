@@ -3,6 +3,7 @@ author: hogumachu
 description: 왜 우리는 시간을 들여 테스트를 작성해야 하는가
 date: 2025-01-15 20:00
 tags: Blog, Swift, Test
+image: /images/contents/background/perplex-background.jpg
 published: true
 ---
 

@@ -8,7 +8,7 @@
 import Foundation
 import Ignite
 
-enum ImageResource: String {
+public enum ImageResource: String {
   case cool
   case robot
   case student

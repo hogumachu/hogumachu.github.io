@@ -3,6 +3,7 @@ author: hogumachu
 description: 모듈화가 필요한 이유에 대한 설명
 date: 2025-01-12 12:00
 tags: Blog, Swift, Modularization
+image: /images/contents/background/party-background.jpg
 published: true
 ---
 

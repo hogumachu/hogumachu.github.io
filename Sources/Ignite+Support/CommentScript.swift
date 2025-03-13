@@ -9,9 +9,9 @@ import Foundation
 import Ignite
 
 extension Script {
-  static let comment = Script(file: "https://utteranc.es/client.js")
-//    .customAttribute(name: "repo", value: "hogumachu/hogumachu.github.io")
-//    .customAttribute(name: "issue-term", value: "pathname")
-//    .customAttribute(name: "theme", value: "github-dark")
-//    .customAttribute(name: "crossorigin", value: "anonymous")
+  static let comment: some HTML = Script(file: "https://utteranc.es/client.js")
+    .attribute("repo", "hogumachu/hogumachu.github.io")
+    .attribute("issue-term", "pathname")
+    .attribute("theme", "github-dark") // TODO: - Theme에 맞는 색상 입히기
+    .attribute("crossorigin", "anonymous")
 }

@@ -3,6 +3,7 @@ author: hogumachu
 description: 2024년에 겪었던 일과 이에 대한 회고
 date: 2024-12-29 14:41
 tags: Blog, Mobile, Communication
+image: /images/contents/background/fire-background.jpg
 published: true
 ---
 

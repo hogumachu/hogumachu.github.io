@@ -3,6 +3,7 @@ author: hogumachu
 description: 블로그를 이전하는 이유에 대한 설명
 date: 2025-01-07 10:00
 tags: Blog, Swift, Web
+image: /images/contents/background/strawberry-background.jpg
 published: true
 ---
 
