@@ -11,29 +11,32 @@ extension Career {
   @MainActor
   var element: some HTML {
     Section {
-      Group {
-        Text {
-          Link.withImage(url: link.url, name: link.name)
-        }
-        .font(.title3)
-        .fontWeight(.semibold)
-        
-        Text {
-          role + " | " + "\(start)-\(end)"
-        }
-        .font(.body)
-        .fontWeight(.regular)
-        
-        Text(summary)
+      VStack {
+        Group {
+          Text {
+            Link.withImage(url: link.url, name: link.name)
+          }
+          .font(.title3)
+          .fontWeight(.semibold)
+          
+          Text {
+            role + " | " + "\(start)-\(end)"
+          }
           .font(.body)
           .fontWeight(.regular)
-        
-        ForEach(skills) {
-          Badge($0)
-            .badgeStyle(.default)
-            .role(.dark)
-            .margin(.trailing, .small)
-            .margin(.bottom, .small)
+          
+          Text(summary)
+            .font(.body)
+            .fontWeight(.regular)
+          
+          Text {
+            ForEach(skills) {
+              Badge($0)
+                .badgeStyle(.default)
+                .role(.dark)
+                .margin(.trailing, 8)
+            }
+          }
         }
       }
       .position(.stickyTop)

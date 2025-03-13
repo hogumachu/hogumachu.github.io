@@ -11,9 +11,10 @@ import Ignite
 struct CareerPage: StaticPage {
   let title = "Career"
   
+  
   var body: some HTML {
     header
-      .padding(.top, .medium)
+      .padding(.top, .xLarge)
     
     introduce
       .padding(.bottom, .xLarge)
@@ -45,22 +46,24 @@ struct CareerPage: StaticPage {
   }
   
   private var header: some HTML {
-    Group {
+    VStack {
       Text("iOS 개발자 홍성준")
         .horizontalAlignment(.leading)
         .font(.title1)
         .fontWeight(.bold)
+        .foregroundStyle(.bodyEmphasis)
       
       Text("좋은 제품을 만드는 것을 최우선으로 목표하고 있어요.")
         .horizontalAlignment(.leading)
         .font(.title4)
-        .fontWeight(.semibold)
+        .fontWeight(.regular)
+        .foregroundStyle(.secondary)
         .padding(.top, .medium)
     }
   }
   
   private var introduce: some HTML {
-    Group {
+    VStack {
       Text {
         "개발뿐만 아니라 여러 실험을 통해 개선하며, 동료와 적극적으로 커뮤니케이션하기를 목표로 해요.".br
         "사용자 경험을 개선하고 더 좋은 제품을 만드는 것에 많은 만족감을 느껴요.".br
@@ -73,17 +76,20 @@ struct CareerPage: StaticPage {
   }
   
   private var links: some HTML {
-    Group {
+    VStack {
       sectionTitle("링크")
       
-      linkComponent(url: "https://github.com/hogumachu", name: "GitHub", image: .github)
-      linkComponent(url: "https://www.linkedin.com/in/hogumachu", name: "Linkedin", image: .linkedin)
-      linkComponent(url: "mailto:hogumachu@gmail.com", name: "E-mail", image: .mailbox)
+      Grid {
+        linkComponent(url: "https://github.com/hogumachu", name: "GitHub", image: .github)
+        linkComponent(url: "https://www.linkedin.com/in/hogumachu", name: "Linkedin", image: .linkedin)
+        linkComponent(url: "mailto:hogumachu@gmail.com", name: "E-mail", image: .mailbox)
+      }
+      .columns(3)
     }
   }
   
   private var career: some HTML {
-    Group {
+    VStack {
       sectionTitle("경력")
       
       Career.ikoob.element
@@ -231,16 +237,18 @@ struct CareerPage: StaticPage {
   }
   
   private func linkComponent(url: String, name: String, image: BootstrapImageResource) -> some HTML {
-    Text {
-      Link.withImage(
-        url: url,
-        name: name,
-        image: image,
-        order: .left,
-        foregroundStyle: .gray100
-      )
+    Link(target: url) {
+      VStack {
+        Image(bootstrap: image)
+        
+        Text(name)
+      }
+      .frame(alignment: .center)
+      .padding()
+      .cornerRadius(16)
+      .background(.ultraThickMaterial)
+      .addHoverAction()
     }
-    .font(.body)
-    .fontWeight(.regular)
+    .padding()
   }
 }

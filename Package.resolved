@@ -1,6 +1,15 @@
 {
-  "originHash" : "26841fba2c53d88d122cc710071fc275dc14e64ab7102bd3d9859ebc10c2601f",
+  "originHash" : "afb76ab93f19954b918ab8a5602f60963fa2323d72cfa22584faa8fb93cc071e",
   "pins" : [
+    {
+      "identity" : "ignite",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/hogumachu/Ignite",
+      "state" : {
+        "branch" : "main",
+        "revision" : "05cf56a256553ed916d73aeecdc75e2aec1af1ae"
+      }
+    },
     {
       "identity" : "swift-argument-parser",
       "kind" : "remoteSourceControl",

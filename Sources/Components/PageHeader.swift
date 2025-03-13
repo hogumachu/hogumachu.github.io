@@ -18,13 +18,13 @@ struct PageHeader: HTML {
       Text(title)
         .horizontalAlignment(.center)
         .font(.title1)
-        .fontWeight(.bold)
-        .foregroundStyle(.primary)
+        .fontWeight(.semibold)
+        .foregroundStyle(.bodyEmphasis)
       
       Text(subtitle)
         .horizontalAlignment(.center)
         .font(.title4)
-        .fontWeight(.semibold)
+        .fontWeight(.thin)
         .foregroundStyle(.secondary)
         .padding(.top, .medium)
     }

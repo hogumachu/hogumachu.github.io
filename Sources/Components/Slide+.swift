@@ -21,12 +21,12 @@ public extension Slide {
         Text(title)
           .font(.title4)
           .fontWeight(.semibold)
-          .foregroundStyle(.primary)
+          .foregroundStyle(.bodyEmphasis)
         
         Text(description)
           .font(.body)
           .fontWeight(.regular)
-          .foregroundStyle(.secondary)
+          .foregroundStyle(.body)
           .padding(.top, .small)
         
         Text {

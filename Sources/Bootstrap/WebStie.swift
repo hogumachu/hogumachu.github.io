@@ -17,11 +17,6 @@ struct WebStie: Site {
   let author = "Hogumachu"
   var homePage = HomePage()
   var layout = MainLayout()
-  var lightTheme = BlogDarkTheme()
-  var darkTheme = BlogDarkTheme()
-  var alternateThemes: [any Theme] = [
-    BlogDarkTheme()
-  ]
   let staticPages: [any StaticPage] = [
     BlogPage(),
     ServicePage(),
@@ -31,5 +26,5 @@ struct WebStie: Site {
   let articlePages: [any ArticlePage] = [
     BlogContentLayout()
   ]
-  let syntaxHighlighters: [HighlighterLanguage] = [.swift]
+  let syntaxHighlighterConfiguration: SyntaxHighlighterConfiguration = .init(languages: [.swift])
 }

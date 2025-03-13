@@ -16,20 +16,42 @@ struct LargeArticlePreviewStyle: @preconcurrency ArticlePreviewStyle {
       VStack {
         image(content: content)
           .resizable()
-          .cornerRadius(16)
+          .cornerRadius(32)
         
         Text(content.title)
           .font(.title3)
           .fontWeight(.semibold)
           .foregroundStyle(.bodyEmphasis)
-          .padding(.top, .medium)
+          .padding(.top, .large)
         
         Text(content.description)
-          .font(.body)
-          .foregroundStyle(.body)
+          .font(.lead)
+          .foregroundStyle(.secondary)
           .fontWeight(.regular)
-          .padding(.top, .small)
+          .padding(.top, .medium)
+        
+        Text(content.dateString)
+          .font(.body)
+          .foregroundStyle(.tertiary)
+          .fontWeight(.thin)
+          .padding(.top, .xSmall)
+        
+        if let tags = content.tags, !tags.isEmpty {
+          Text {
+            ForEach(tags) {
+              Badge($0)
+                .badgeStyle(.default)
+                .role(.dark)
+                .fontWeight(.thin)
+                .margin(.trailing, 8)
+            }
+          }
+          .padding(.top, .medium)
+        }
       }
+      .padding(30)
+      .background(.ultraThickMaterial)
+      .cornerRadius(16)
       .addHoverAction()
     }
   }

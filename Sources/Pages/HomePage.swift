@@ -16,6 +16,8 @@ struct HomePage: StaticPage {
       title: "호구마츄테크,",
       subtitle: "Swift, iOS 이야기를 주로 해요"
     )
+    .padding(.top, .xLarge)
+    .padding(.bottom, .xLarge)
     
     SectionHeader(
       category: "공유하는 것",
@@ -26,6 +28,7 @@ struct HomePage: StaticPage {
     
     pageDescriptionCarousel
       .padding(.top, .xLarge)
+      .padding(.bottom, .xLarge)
     
     SectionHeader(
       category: "최근 게시글",
@@ -38,10 +41,11 @@ struct HomePage: StaticPage {
       ForEach(blogArticles) {
         ArticlePreview(for: $0)
           .previewStyle(.small)
+          .padding()
       }
     }
     .columns(Constants.contentCount)
-    .padding(.top, .xLarge)
+    .padding(.top, .medium)
   }
   
   private var pageDescriptionCarousel: some HTML {

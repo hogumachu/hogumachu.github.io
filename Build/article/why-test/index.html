@@ -8,6 +8,9 @@
     <meta name="generator" content="Ignite v0.5.0" />
     <title>테스트를 작성해야 하는 이유 - hogumachu tech</title>
     <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/prism-xcode-dark.css" rel="stylesheet" data-highlight-theme="xcode-dark" />
+    <link href="/css/prism-xcode-light.css" rel="stylesheet" data-highlight-theme="xcode-light" />
+    <link href="/css/prism-plugins.css" rel="stylesheet" />
     <link href="/css/bootstrap-icons.min.css" rel="stylesheet" />
     <link href="/css/ignite-core.min.css" rel="stylesheet" />
     <link href="https://hogumachu.github.io/article/why-test" rel="canonical" />
@@ -70,46 +73,46 @@
   <body class="container">
     <div style="padding-bottom: 80px">
       <header>
-        <nav class="fixed-top px-3 navbar navbar-expand-md" style="background-color: rgb(0 0 0 / 70%)" data-bs-theme="dark">
+        <nav class="fixed-top px-3 material-regular navbar navbar-expand-md" data-bs-theme="dark">
           <div class="container">
-            <a href="/" class="navbar-brand link-underline link-underline-opacity-100 link-underline-opacity-100-hover"><h4 id="lsorfzauyifvhyfi" class="text-primary-emphasis mb-0" style="font-weight: 400" onmouseover="const lsorfzauyifvhyfiOpacity = document.getElementById('lsorfzauyifvhyfi');
-lsorfzauyifvhyfiOpacity.style.opacity = 0.8;; const lsorfzauyifvhyfiScale = document.getElementById('lsorfzauyifvhyfi');
-lsorfzauyifvhyfiScale.style.transform = 'scale(0.997';" onmouseout="const lsorfzauyifvhyfiOpacity = document.getElementById('lsorfzauyifvhyfi');
-lsorfzauyifvhyfiOpacity.style.opacity = 1;; const lsorfzauyifvhyfiScale = document.getElementById('lsorfzauyifvhyfi');
-lsorfzauyifvhyfiScale.style.transform = 'scale(1';">hogumachu tech</h4></a>
+            <a href="/" class="navbar-brand link-underline link-underline-opacity-100 link-underline-opacity-100-hover"><h4 id="fsjyephgbjyzkknm" class="text-primary-emphasis mb-0" style="font-weight: 400" onmouseover="const fsjyephgbjyzkknmOpacity = document.getElementById('fsjyephgbjyzkknm');
+fsjyephgbjyzkknmOpacity.style.opacity = 0.8;; const fsjyephgbjyzkknmScale = document.getElementById('fsjyephgbjyzkknm');
+fsjyephgbjyzkknmScale.style.transform = 'scale(0.997';" onmouseout="const fsjyephgbjyzkknmOpacity = document.getElementById('fsjyephgbjyzkknm');
+fsjyephgbjyzkknmOpacity.style.opacity = 1;; const fsjyephgbjyzkknmScale = document.getElementById('fsjyephgbjyzkknm');
+fsjyephgbjyzkknmScale.style.transform = 'scale(1';">hogumachu tech</h4></a>
             <button type="button" class="navbar-toggler btn" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div id="navbarCollapse" class="collapse navbar-collapse">
               <ul class="navbar-nav mb-2 mb-md-0 col justify-content-end">
-                <li class="nav-item"><a href="/blog-page" class="nav-link link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover"><p id="dopfdgviltsoqzqo" class="text-body mb-0" onmouseover="const dopfdgviltsoqzqoOpacity = document.getElementById('dopfdgviltsoqzqo');
-dopfdgviltsoqzqoOpacity.style.opacity = 0.8;; const dopfdgviltsoqzqoScale = document.getElementById('dopfdgviltsoqzqo');
-dopfdgviltsoqzqoScale.style.transform = 'scale(0.97';" onmouseout="const dopfdgviltsoqzqoOpacity = document.getElementById('dopfdgviltsoqzqo');
-dopfdgviltsoqzqoOpacity.style.opacity = 1;; const dopfdgviltsoqzqoScale = document.getElementById('dopfdgviltsoqzqo');
-dopfdgviltsoqzqoScale.style.transform = 'scale(1';">Blog</p></a></li>
-                <li class="nav-item"><a href="/service-page" class="nav-link link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover"><p id="jwldbkhzghghqwku" class="text-body mb-0" onmouseover="const jwldbkhzghghqwkuOpacity = document.getElementById('jwldbkhzghghqwku');
-jwldbkhzghghqwkuOpacity.style.opacity = 0.8;; const jwldbkhzghghqwkuScale = document.getElementById('jwldbkhzghghqwku');
-jwldbkhzghghqwkuScale.style.transform = 'scale(0.97';" onmouseout="const jwldbkhzghghqwkuOpacity = document.getElementById('jwldbkhzghghqwku');
-jwldbkhzghghqwkuOpacity.style.opacity = 1;; const jwldbkhzghghqwkuScale = document.getElementById('jwldbkhzghghqwku');
-jwldbkhzghghqwkuScale.style.transform = 'scale(1';">Service</p></a></li>
-                <li class="nav-item"><a href="/career-page" class="nav-link link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover"><p id="eudlgkuqaptgleqr" class="text-body mb-0" onmouseover="const eudlgkuqaptgleqrOpacity = document.getElementById('eudlgkuqaptgleqr');
-eudlgkuqaptgleqrOpacity.style.opacity = 0.8;; const eudlgkuqaptgleqrScale = document.getElementById('eudlgkuqaptgleqr');
-eudlgkuqaptgleqrScale.style.transform = 'scale(0.97';" onmouseout="const eudlgkuqaptgleqrOpacity = document.getElementById('eudlgkuqaptgleqr');
-eudlgkuqaptgleqrOpacity.style.opacity = 1;; const eudlgkuqaptgleqrScale = document.getElementById('eudlgkuqaptgleqr');
-eudlgkuqaptgleqrScale.style.transform = 'scale(1';">Career</p></a></li>
+                <li class="nav-item"><a href="/blog-page" class="nav-link link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover"><p id="kjzfffxoiraphxsp" class="text-body mb-0" onmouseover="const kjzfffxoiraphxspOpacity = document.getElementById('kjzfffxoiraphxsp');
+kjzfffxoiraphxspOpacity.style.opacity = 0.8;; const kjzfffxoiraphxspScale = document.getElementById('kjzfffxoiraphxsp');
+kjzfffxoiraphxspScale.style.transform = 'scale(0.97';" onmouseout="const kjzfffxoiraphxspOpacity = document.getElementById('kjzfffxoiraphxsp');
+kjzfffxoiraphxspOpacity.style.opacity = 1;; const kjzfffxoiraphxspScale = document.getElementById('kjzfffxoiraphxsp');
+kjzfffxoiraphxspScale.style.transform = 'scale(1';">Blog</p></a></li>
+                <li class="nav-item"><a href="/service-page" class="nav-link link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover"><p id="ndxurmzvujfdkdbq" class="text-body mb-0" onmouseover="const ndxurmzvujfdkdbqOpacity = document.getElementById('ndxurmzvujfdkdbq');
+ndxurmzvujfdkdbqOpacity.style.opacity = 0.8;; const ndxurmzvujfdkdbqScale = document.getElementById('ndxurmzvujfdkdbq');
+ndxurmzvujfdkdbqScale.style.transform = 'scale(0.97';" onmouseout="const ndxurmzvujfdkdbqOpacity = document.getElementById('ndxurmzvujfdkdbq');
+ndxurmzvujfdkdbqOpacity.style.opacity = 1;; const ndxurmzvujfdkdbqScale = document.getElementById('ndxurmzvujfdkdbq');
+ndxurmzvujfdkdbqScale.style.transform = 'scale(1';">Service</p></a></li>
+                <li class="nav-item"><a href="/career-page" class="nav-link link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover"><p id="jprjzusupuqwvcgz" class="text-body mb-0" onmouseover="const jprjzusupuqwvcgzOpacity = document.getElementById('jprjzusupuqwvcgz');
+jprjzusupuqwvcgzOpacity.style.opacity = 0.8;; const jprjzusupuqwvcgzScale = document.getElementById('jprjzusupuqwvcgz');
+jprjzusupuqwvcgzScale.style.transform = 'scale(0.97';" onmouseout="const jprjzusupuqwvcgzOpacity = document.getElementById('jprjzusupuqwvcgz');
+jprjzusupuqwvcgzOpacity.style.opacity = 1;; const jprjzusupuqwvcgzScale = document.getElementById('jprjzusupuqwvcgz');
+jprjzusupuqwvcgzScale.style.transform = 'scale(1';">Career</p></a></li>
                 <li class="nav-item dropdown"><a role="button" href="#" class="dropdown-toggle nav-link dropdown link-underline link-underline-opacity-100 link-underline-opacity-100-hover" data-bs-toggle="dropdown" aria-expanded="false">
                     <div style="display: inline">
                       More
                     </div></a>
                   <ul class="dropdown-menu dropdown">
-                    <li><a href="https://github.com/hogumachu" class="dropdown-item link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover"><p id="iwdoitwruedkxrwy" onmouseover="const iwdoitwruedkxrwyOpacity = document.getElementById('iwdoitwruedkxrwy');
-iwdoitwruedkxrwyOpacity.style.opacity = 0.8;; const iwdoitwruedkxrwyScale = document.getElementById('iwdoitwruedkxrwy');
-iwdoitwruedkxrwyScale.style.transform = 'scale(0.97';" onmouseout="const iwdoitwruedkxrwyOpacity = document.getElementById('iwdoitwruedkxrwy');
-iwdoitwruedkxrwyOpacity.style.opacity = 1;; const iwdoitwruedkxrwyScale = document.getElementById('iwdoitwruedkxrwy');
-iwdoitwruedkxrwyScale.style.transform = 'scale(1';">GitHub</p></a></li>
-                    <li><a href="https://hogumachu.tistory.com" class="dropdown-item link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover"><p id="uxxclqcwhsnpqhgt" onmouseover="const uxxclqcwhsnpqhgtOpacity = document.getElementById('uxxclqcwhsnpqhgt');
-uxxclqcwhsnpqhgtOpacity.style.opacity = 0.8;; const uxxclqcwhsnpqhgtScale = document.getElementById('uxxclqcwhsnpqhgt');
-uxxclqcwhsnpqhgtScale.style.transform = 'scale(0.97';" onmouseout="const uxxclqcwhsnpqhgtOpacity = document.getElementById('uxxclqcwhsnpqhgt');
-uxxclqcwhsnpqhgtOpacity.style.opacity = 1;; const uxxclqcwhsnpqhgtScale = document.getElementById('uxxclqcwhsnpqhgt');
-uxxclqcwhsnpqhgtScale.style.transform = 'scale(1';">Tistory</p></a></li>
+                    <li><a href="https://github.com/hogumachu" class="dropdown-item link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover"><p id="ylqbyopqrvgcubne" onmouseover="const ylqbyopqrvgcubneOpacity = document.getElementById('ylqbyopqrvgcubne');
+ylqbyopqrvgcubneOpacity.style.opacity = 0.8;; const ylqbyopqrvgcubneScale = document.getElementById('ylqbyopqrvgcubne');
+ylqbyopqrvgcubneScale.style.transform = 'scale(0.97';" onmouseout="const ylqbyopqrvgcubneOpacity = document.getElementById('ylqbyopqrvgcubne');
+ylqbyopqrvgcubneOpacity.style.opacity = 1;; const ylqbyopqrvgcubneScale = document.getElementById('ylqbyopqrvgcubne');
+ylqbyopqrvgcubneScale.style.transform = 'scale(1';">GitHub</p></a></li>
+                    <li><a href="https://hogumachu.tistory.com" class="dropdown-item link-plain link-underline link-underline-opacity-100 link-underline-opacity-100-hover"><p id="zvfexazvhjaovace" onmouseover="const zvfexazvhjaovaceOpacity = document.getElementById('zvfexazvhjaovace');
+zvfexazvhjaovaceOpacity.style.opacity = 0.8;; const zvfexazvhjaovaceScale = document.getElementById('zvfexazvhjaovace');
+zvfexazvhjaovaceScale.style.transform = 'scale(0.97';" onmouseout="const zvfexazvhjaovaceOpacity = document.getElementById('zvfexazvhjaovace');
+zvfexazvhjaovaceOpacity.style.opacity = 1;; const zvfexazvhjaovaceScale = document.getElementById('zvfexazvhjaovace');
+zvfexazvhjaovaceScale.style.transform = 'scale(1';">Tistory</p></a></li>
                   </ul></li>
               </ul>
             </div>
@@ -173,6 +176,7 @@ uxxclqcwhsnpqhgtScale.style.transform = 'scale(1';">Tistory</p></a></li>
       <script repo="hogumachu/hogumachu.github.io" issue-term="pathname" theme="github-dark" crossorigin="anonymous" src="https://utteranc.es/client.js"></script>
     </div>
     <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/syntax-highlighting.js"></script>
     <script src="/js/ignite-core.js"></script>
   </body>
 </html>

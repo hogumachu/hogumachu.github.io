@@ -16,21 +16,25 @@ struct SmallArticlePreviewStyle: @preconcurrency ArticlePreviewStyle {
       VStack {
         image(content: content)
           .resizable()
-          .cornerRadius(8)
+          .cornerRadius(16)
         
         Text(content.title)
           .horizontalAlignment(.center)
-          .font(.title5)
-          .fontWeight(.semibold)
-          .foregroundStyle(.primary)
-          .padding(.top, .small)
+          .font(.title4)
+          .fontWeight(.regular)
+          .foregroundStyle(.bodyEmphasis)
+          .padding(.top, .large)
         
         Text(content.description)
           .horizontalAlignment(.center)
-          .font(.body)
+          .font(.lead)
           .fontWeight(.regular)
           .foregroundStyle(.secondary)
+          .padding(.top, .small)
       }
+      .padding(30)
+      .background(.ultraThickMaterial)
+      .cornerRadius(16)
       .addHoverAction()
     }
   }

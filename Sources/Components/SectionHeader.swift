@@ -24,7 +24,7 @@ struct SectionHeader: HTML {
       Text(title)
         .font(.title2)
         .fontWeight(.semibold)
-        .foregroundStyle(.primary)
+        .foregroundStyle(.bodyEmphasis)
         .padding(.top, .medium)
       
       Text(subtitle)

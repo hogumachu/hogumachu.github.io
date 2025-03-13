@@ -22,7 +22,7 @@ struct NavigationBarComponent: HTML {
     .navigationItemAlignment(.trailing)
     .position(.fixedTop)
     .padding(.horizontal, .medium)
-    .background(.black.opacity(0.7)) // TODO: - Theme 설정
+    .background(.regularMaterial)
   }
   
   private var logo: some InlineElement {
