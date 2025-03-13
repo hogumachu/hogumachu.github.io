@@ -34,12 +34,4 @@ struct SmallArticlePreviewStyle: @preconcurrency ArticlePreviewStyle {
       .addHoverAction()
     }
   }
-  
-  private func image(content: Article) -> Image {
-    if let image = content.image {
-      return Image(image)
-    } else {
-      return Image(background: .robot) // TODO: - Setup default background image
-    }
-  }
 }

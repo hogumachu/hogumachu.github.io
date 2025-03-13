@@ -28,43 +28,13 @@ struct BlogPage: StaticPage {
         .padding(.bottom, .xLarge)
       
       Grid {
-        ForEach(
-          articles.all.sorted(by: { $0.date > $1.date }).enumerated()
-        ) { index, article in
-          ArticlePreview(for: article)
-            .articlePreviewStyle(PreviewStyle(index: index))
+        ForEach(articles.all.sorted(by: { $0.date > $1.date })) {
+          ArticlePreview(for: $0)
+            .previewStyle(.large)
             .padding()
         }
       }
       .columns(2)
-    }
-  }
-}
-
-private struct PreviewStyle: @preconcurrency ArticlePreviewStyle {
-  let index: Int
-  
-  @MainActor
-  func body(content: Article) -> any HTML {
-    Link(target: content.path) {
-      VStack {
-        Image(contentIndex: index)
-          .resizable()
-          .cornerRadius(16)
-        
-        Text(content.title)
-          .font(.title3)
-          .fontWeight(.semibold)
-          .foregroundStyle(.bodyEmphasis)
-          .padding(.top, .medium)
-        
-        Text(content.description)
-          .font(.body)
-          .foregroundStyle(.body)
-          .fontWeight(.regular)
-          .padding(.top, .small)
-      }
-      .addHoverAction()
     }
   }
 }

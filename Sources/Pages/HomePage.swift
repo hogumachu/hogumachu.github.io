@@ -2,6 +2,11 @@ import Foundation
 @preconcurrency import Ignite
 
 struct HomePage: StaticPage {
+  
+  private enum Constants {
+    static let contentCount = 3
+  }
+  
   @Environment(\.articles) var articles
   
   let title = "Home"
@@ -28,7 +33,13 @@ struct HomePage: StaticPage {
     )
     .padding(.top, .xLarge)
     
-    recentBlogSection
+    Grid {
+      ForEach(blogArticles) {
+        ArticlePreview(for: $0)
+          .previewStyle(.small)
+      }
+    }
+    .columns(Constants.contentCount)
   }
   
   private var pageDescriptionCarousel: some HTML {
@@ -56,17 +67,11 @@ struct HomePage: StaticPage {
     }
   }
   
-  private var recentBlogSection: some HTML {
-    Grid {
-      ForEach(
-        articles.all.sorted { $0.date > $1.date }.prefix(3)
-          .map { $0 }
-          .enumerated()
-      ) { index, item in
-        ArticlePreview(for: item)
-          .articlePreviewStyle(SmallArticlePreviewStyle())
-      }
-    }
-    .columns(3)
+  private var blogArticles: [Article] {
+    articles
+      .all
+      .sorted { $0.date > $1.date }
+      .prefix(Constants.contentCount)
+      .map { $0 }
   }
 }
