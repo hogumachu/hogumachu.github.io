@@ -17,20 +17,28 @@ public extension Slide {
     description: String
   ) {
     self = .init(background: resource.path) {
-      Text(title)
-        .font(.title4)
-        .fontWeight(.semibold)
-      
-      Text(description)
-        .font(.body)
-        .fontWeight(.regular)
-      
-      Text {
-        Link("보러가기", target: target)
-          .linkStyle(.button)
-          .buttonSize(.medium)
-          .role(.primary)
+      VStack {
+        Text(title)
+          .font(.title4)
+          .fontWeight(.semibold)
+          .foregroundStyle(.primary)
+        
+        Text(description)
+          .font(.body)
+          .fontWeight(.regular)
+          .foregroundStyle(.secondary)
+          .padding(.top, .small)
+        
+        Text {
+          Link("보러가기", target: target)
+            .linkStyle(.button)
+            .buttonSize(.medium)
+            .role(.primary)
+        }
+        .padding(.top, .medium)
       }
+      .padding()
     }
+      .backgroundOpacity(0.3)
   }
 }

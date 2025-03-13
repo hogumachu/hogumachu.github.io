@@ -13,7 +13,7 @@ extension ArticlePreviewStyle {
   @MainActor
   func image(content: Article) -> Image {
     if let image = content.image {
-      return Image(image)
+      return Image(image, description: "This is article image.")
     } else {
       return Image(background: .robot) // TODO: - Setup default background image
     }

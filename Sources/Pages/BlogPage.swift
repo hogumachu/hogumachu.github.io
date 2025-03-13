@@ -13,19 +13,11 @@ struct BlogPage: StaticPage {
   let title = "Blog"
   
   var body: some HTML {
-    Group {
-      Text("Blog")
-        .horizontalAlignment(.center)
-        .font(.title1)
-        .fontWeight(.bold)
-      
-      Text("좋은 제품을 만들기 위해 했던 노력을 공유해요.")
-        .horizontalAlignment(.center)
-        .font(.title4)
-        .fontWeight(.semibold)
-        .foregroundStyle(.bodyEmphasis)
-        .padding(.top, .medium)
-        .padding(.bottom, .xLarge)
+    VStack {
+      PageHeader(
+        title: "블로그",
+        subtitle: "좋은 제품을 만들기 위해 했던 노력을 공유해요."
+      )
       
       Grid {
         ForEach(articles.all.sorted(by: { $0.date > $1.date })) {
@@ -35,6 +27,7 @@ struct BlogPage: StaticPage {
         }
       }
       .columns(2)
+      .padding(.top, .xLarge)
     }
   }
 }

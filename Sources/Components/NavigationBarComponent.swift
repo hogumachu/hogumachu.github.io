@@ -9,6 +9,8 @@ import Foundation
 import Ignite
 
 struct NavigationBarComponent: HTML {
+  @Environment(\.page) var currentPage
+  
   var body: some HTML {
     NavigationBar(logo: logo) {
       linkComponent(BlogPage())
@@ -21,13 +23,14 @@ struct NavigationBarComponent: HTML {
     .position(.fixedTop)
     .padding(.horizontal, .medium)
     .background(.black.opacity(0.7)) // TODO: - Theme 설정
-    .cornerRadius(16)
   }
   
   private var logo: some InlineElement {
     Text("hogumachu tech")
       .font(.title4)
       .fontWeight(.regular)
+      .foregroundStyle(.primaryEmphasis)
+      .addHoverAction()
   }
   
   private var additionalLinks: some NavigationItem {
@@ -40,12 +43,17 @@ struct NavigationBarComponent: HTML {
   private func linkComponent(_ page: any StaticPage) -> Link {
     Link(page: page) {
       Text(page.title)
+        .foregroundStyle(
+          currentPage.url.path == page.path ? .primaryEmphasis : .body
+        )
+        .addHoverAction(scale: 0.97)
     }
   }
   
   private func linkComponent(_ title: String, target: String) -> Link {
     Link(target: target) {
       Text(title)
+        .addHoverAction(scale: 0.97)
     }
   }
 }

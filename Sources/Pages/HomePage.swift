@@ -25,6 +25,7 @@ struct HomePage: StaticPage {
     .padding(.top, .xLarge)
     
     pageDescriptionCarousel
+      .padding(.top, .xLarge)
     
     SectionHeader(
       category: "최근 게시글",
@@ -40,6 +41,7 @@ struct HomePage: StaticPage {
       }
     }
     .columns(Constants.contentCount)
+    .padding(.top, .xLarge)
   }
   
   private var pageDescriptionCarousel: some HTML {

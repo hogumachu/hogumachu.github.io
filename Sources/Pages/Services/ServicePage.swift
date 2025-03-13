@@ -12,52 +12,25 @@ struct ServicePage: StaticPage {
   let title = "Service"
   
   var body: some HTML {
-    header
-      .padding(.bottom, .xLarge)
+    PageHeader(
+      title: "서비스",
+      subtitle: "제가 참여한 여러 제품에 대해 소개해요."
+    )
+    .padding(.bottom, .xLarge)
     
-    projectTitle
-      .padding(.top, .xLarge)
-      .padding(.bottom, .xLarge)
+    SectionHeader(
+      category: "프로젝트",
+      title: "개인 또는 팀으로 진행했던 프로젝트에요",
+      subtitle: "어떤 고민이 있었고 어떻게 이를 해결했는지를 공유해요."
+    )
+    .padding(.top, .xLarge)
+    .padding(.bottom, .xLarge)
     
     heatPick
       .padding(.top, .xLarge)
       .padding(.bottom, .xLarge)
     
     Divider()
-  }
-  
-  private var header: some HTML {
-    Group {
-      Text("Service")
-        .horizontalAlignment(.center)
-        .font(.title1)
-        .fontWeight(.bold)
-      
-      Text("제가 참여한 여러 제품에 대해 소개해요.")
-        .horizontalAlignment(.center)
-        .font(.title4)
-        .fontWeight(.semibold)
-        .padding(.top, .medium)
-        .padding(.bottom, .xLarge)
-    }
-  }
-  
-  private var projectTitle: some HTML {
-    Group {
-      Text("프로젝트")
-        .font(.title6)
-        .fontWeight(.regular)
-      
-      Text("개인 또는 팀으로 진행했던 프로젝트에요")
-        .font(.title2)
-        .fontWeight(.semibold)
-      
-      Text("어떤 고민이 있었고 어떻게 이를 해결했는지를 공유해요.")
-        .font(.body)
-        .fontWeight(.regular)
-        .padding(.bottom, .xLarge)
-    }
-    .frame(alignment: .center)
   }
   
   private var heatPick: some HTML {

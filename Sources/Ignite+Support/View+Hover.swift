@@ -27,3 +27,23 @@ public extension HTML {
     }
   }
 }
+
+public extension InlineElement {
+  
+  func addHoverAction(
+    _ id: String = UniqueID().string,
+    opacity: Double = 0.8,
+    scale: Double = 0.997
+  ) -> some InlineElement {
+    self.id(id)
+    .onHover { isHovering in
+      if isHovering {
+        OpacityAction(id: id, opacity: opacity)
+        ScaleAction(id: id, scale: scale)
+      } else {
+        OpacityAction(id: id, opacity: 1)
+        ScaleAction(id: id, scale: 1)
+      }
+    }
+  }
+}
