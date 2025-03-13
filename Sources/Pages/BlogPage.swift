@@ -46,19 +46,25 @@ private struct PreviewStyle: @preconcurrency ArticlePreviewStyle {
   
   @MainActor
   func body(content: Article) -> any HTML {
-    Group {
-      Image(contentIndex: index)
-        .resizable()
-        .cornerRadius(16)
-      
-      Text(content.title)
-        .font(.title3)
-        .fontWeight(.semibold)
-        .padding(.top, .small)
-      
-      Text(content.description)
-        .font(.body)
-        .fontWeight(.regular)
+    Link(target: content.path) {
+      VStack {
+        Image(contentIndex: index)
+          .resizable()
+          .cornerRadius(16)
+        
+        Text(content.title)
+          .font(.title3)
+          .fontWeight(.semibold)
+          .foregroundStyle(.bodyEmphasis)
+          .padding(.top, .medium)
+        
+        Text(content.description)
+          .font(.body)
+          .foregroundStyle(.body)
+          .fontWeight(.regular)
+          .padding(.top, .small)
+      }
+      .addHoverAction()
     }
   }
 }
