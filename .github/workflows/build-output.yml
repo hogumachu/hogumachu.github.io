@@ -36,8 +36,8 @@ jobs:
 #      - name: Build Ignite site
 #        run: .build/release/HogumachuWeb
       
-      - name: Setup Google Search File
-        run: cp Includes/google6a751de03e3b3eb2.html Build/google6a751de03e3b3eb2.html
+      # - name: Setup Google Search File
+      #   run: cp Includes/google6a751de03e3b3eb2.html Build/google6a751de03e3b3eb2.html
       
       - name: Push changes to the Build folder
         run: |
