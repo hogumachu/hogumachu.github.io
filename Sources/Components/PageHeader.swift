@@ -18,7 +18,7 @@ struct PageHeader: HTML {
       Text(title)
         .horizontalAlignment(.center)
         .font(.title1)
-        .fontWeight(.semibold)
+        .fontWeight(.heavy)
         .foregroundStyle(.bodyEmphasis)
       
       Text(subtitle)

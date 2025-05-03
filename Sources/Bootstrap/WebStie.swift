@@ -17,10 +17,11 @@ struct WebStie: Site {
   let author = "Hogumachu"
   var homePage = HomePage()
   var layout = MainLayout()
+  var lightTheme: (any Theme)? = DarkTheme()
+  var darkTheme: (any Theme)? = DarkTheme()
   let staticPages: [any StaticPage] = [
     BlogPage(),
     ServicePage(),
-    CareerPage(),
     HeatPickPage()
   ]
   let articlePages: [any ArticlePage] = [

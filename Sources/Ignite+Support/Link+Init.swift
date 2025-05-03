@@ -34,7 +34,7 @@ extension Link {
     name: String,
     image: BootstrapImageResource = .link,
     order: LinkImageOrder = .right,
-    foregroundStyle: Color = .textColor
+    foregroundStyle: ForegroundStyle = .body
   ) -> Link {
     .init(target: url) {
       switch order {

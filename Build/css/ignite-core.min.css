@@ -1,71 +1,224 @@
 
 
+@font-face {
+    font-family: 'Pretendard';
+    src: url('/fonts/pretendard/Pretendard-ExtraLight.woff2');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('/fonts/pretendard/Pretendard-Thin.woff2');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('/fonts/pretendard/Pretendard-Light.woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('/fonts/pretendard/Pretendard-Regular.woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('/fonts/pretendard/Pretendard-Medium.woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('/fonts/pretendard/Pretendard-SemiBold.woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('/fonts/pretendard/Pretendard-Bold.woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('/fonts/pretendard/Pretendard-ExtraBold.woff2');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('/fonts/pretendard/Pretendard-Black.woff2');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('/fonts/pretendard/Pretendard-ExtraLight.woff2');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('/fonts/pretendard/Pretendard-Thin.woff2');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('/fonts/pretendard/Pretendard-Light.woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('/fonts/pretendard/Pretendard-Regular.woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('/fonts/pretendard/Pretendard-Medium.woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('/fonts/pretendard/Pretendard-SemiBold.woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('/fonts/pretendard/Pretendard-Bold.woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('/fonts/pretendard/Pretendard-ExtraBold.woff2');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('/fonts/pretendard/Pretendard-Black.woff2');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
-    --supports-light-theme: true;
-    --supports-dark-theme: true;
-    --light-theme-id: "light";
-    --dark-theme-id: "dark";
-    --bs-primary: rgb(76 236 139 / 100%);
-    --bs-primary-rgb: 76, 236, 139;
-    --bs-primary-text-emphasis: rgb(30 94 55 / 100%);
-    --bs-primary-bg-subtle: rgb(219 251 231 / 100%);
-    --bs-primary-border-subtle: rgb(147 243 185 / 100%);
-    --bs-secondary: rgb(221 243 78 / 100%);
-    --bs-secondary-rgb: 221, 243, 78;
-    --bs-secondary-text-emphasis: rgb(88 97 31 / 100%);
-    --bs-secondary-bg-subtle: rgb(248 252 219 / 100%);
-    --bs-secondary-border-subtle: rgb(234 247 148 / 100%);
-    --bs-success: rgb(22 255 113 / 100%);
-    --bs-success-rgb: 22, 255, 113;
-    --bs-success-text-emphasis: rgb(8 102 45 / 100%);
-    --bs-success-bg-subtle: rgb(208 255 226 / 100%);
-    --bs-success-border-subtle: rgb(115 255 169 / 100%);
-    --bs-info: rgb(230 230 230 / 100%);
-    --bs-info-rgb: 230, 230, 230;
-    --bs-info-text-emphasis: rgb(92 92 92 / 100%);
-    --bs-info-bg-subtle: rgb(250 250 250 / 100%);
-    --bs-info-border-subtle: rgb(240 240 240 / 100%);
+    --bs-primary: rgb(219 210 102 / 100%);
+    --bs-primary-rgb: 219, 210, 102;
+    --bs-primary-text-emphasis: rgb(233 228 163 / 100%);
+    --bs-primary-bg-subtle: rgb(43 41 20 / 100%);
+    --bs-primary-border-subtle: rgb(131 126 61 / 100%);
+    --bs-secondary: rgb(108 117 125 / 100%);
+    --bs-secondary-rgb: 108, 117, 125;
+    --bs-secondary-text-emphasis: rgb(166 172 177 / 100%);
+    --bs-secondary-bg-subtle: rgb(21 23 24 / 100%);
+    --bs-secondary-border-subtle: rgb(64 70 75 / 100%);
+    --bs-success: rgb(25 135 84 / 100%);
+    --bs-success-rgb: 25, 135, 84;
+    --bs-success-text-emphasis: rgb(117 183 152 / 100%);
+    --bs-success-bg-subtle: rgb(4 26 16 / 100%);
+    --bs-success-border-subtle: rgb(15 81 50 / 100%);
+    --bs-info: rgb(13 202 240 / 100%);
+    --bs-info-rgb: 13, 202, 240;
+    --bs-info-text-emphasis: rgb(109 223 246 / 100%);
+    --bs-info-bg-subtle: rgb(2 40 47 / 100%);
+    --bs-info-border-subtle: rgb(7 121 144 / 100%);
     --bs-warning: rgb(255 193 7 / 100%);
     --bs-warning-rgb: 255, 193, 7;
-    --bs-warning-text-emphasis: rgb(102 77 2 / 100%);
-    --bs-warning-bg-subtle: rgb(255 242 205 / 100%);
-    --bs-warning-border-subtle: rgb(255 217 106 / 100%);
+    --bs-warning-text-emphasis: rgb(255 217 106 / 100%);
+    --bs-warning-bg-subtle: rgb(50 38 1 / 100%);
+    --bs-warning-border-subtle: rgb(153 115 4 / 100%);
     --bs-danger: rgb(220 53 69 / 100%);
     --bs-danger-rgb: 220, 53, 69;
-    --bs-danger-text-emphasis: rgb(88 21 27 / 100%);
-    --bs-danger-bg-subtle: rgb(248 214 217 / 100%);
-    --bs-danger-border-subtle: rgb(234 133 143 / 100%);
-    --bs-light: rgb(248 249 250 / 100%);
-    --bs-light-rgb: 248, 249, 250;
-    --bs-light-text-emphasis: rgb(49 49 49 / 100%);
-    --bs-light-bg-subtle: rgb(253 253 254 / 100%);
-    --bs-light-border-subtle: rgb(198 199 200 / 100%);
-    --bs-dark: rgb(33 37 41 / 100%);
-    --bs-dark-rgb: 33, 37, 41;
-    --bs-dark-text-emphasis: rgb(13 14 16 / 100%);
-    --bs-dark-bg-subtle: rgb(210 211 212 / 100%);
-    --bs-dark-border-subtle: rgb(121 124 126 / 100%);
-    --bs-body-color: rgb(224 224 235 / 100%);
-    --bs-body-color-rgb: 224, 224, 235;
-    --bs-body-bg: rgb(0 0 0 / 100%);
-    --bs-body-bg-rgb: 0, 0, 0;
-    --bs-emphasis-color: rgb(251 251 251 / 100%);
-    --bs-emphasis-color-rgb: 251, 251, 251;
-    --bs-secondary-color: rgb(183 183 183 / 100%);
-    --bs-secondary-color-rgb: 183, 183, 183;
-    --bs-tertiary-color: rgb(97 97 97 / 100%);
-    --bs-tertiary-color-rgb: 97, 97, 97;
-    --bs-secondary-bg: rgb(21 21 22 / 100%);
-    --bs-secondary-bg-rgb: 21, 21, 22;
-    --bs-tertiary-bg: rgb(28 28 29 / 100%);
-    --bs-tertiary-bg-rgb: 28, 28, 29;
-    --bs-link-color: rgb(71 139 255 / 100%);
-    --bs-link-color-rgb: 71, 139, 255;
-    --bs-link-hover-color: rgb(45 115 233 / 100%);
-    --bs-link-hover-color-rgb: 45, 115, 233;
-    --bs-border-color: rgb(142 142 142 / 100%);
-    --bs-border-color-rgb: 142, 142, 142;
-    --syntax-highlight-theme: "xcode-light";
+    --bs-danger-text-emphasis: rgb(234 133 143 / 100%);
+    --bs-danger-bg-subtle: rgb(43 10 13 / 100%);
+    --bs-danger-border-subtle: rgb(132 31 41 / 100%);
+    --bs-light: rgb(252 243 223 / 100%);
+    --bs-light-rgb: 252, 243, 223;
+    --bs-light-text-emphasis: rgb(253 247 235 / 100%);
+    --bs-light-bg-subtle: rgb(50 48 44 / 100%);
+    --bs-light-border-subtle: rgb(100 97 89 / 100%);
+    --bs-dark: rgb(40 40 40 / 100%);
+    --bs-dark-rgb: 40, 40, 40;
+    --bs-dark-text-emphasis: rgb(212 212 212 / 100%);
+    --bs-dark-bg-subtle: rgb(7 7 7 / 100%);
+    --bs-dark-border-subtle: rgb(83 83 83 / 100%);
+    --bs-body-color: rgb(252 243 223 / 100%);
+    --bs-body-color-rgb: 252, 243, 223;
+    --bs-body-bg: rgb(40 40 40 / 100%);
+    --bs-body-bg-rgb: 40, 40, 40;
+    --bs-emphasis-color: rgb(252 243 223 / 100%);
+    --bs-emphasis-color-rgb: 252, 243, 223;
+    --bs-secondary-color: rgb(252 243 223 / 100%);
+    --bs-secondary-color-rgb: 252, 243, 223;
+    --bs-tertiary-color: rgb(252 243 223 / 100%);
+    --bs-tertiary-color-rgb: 252, 243, 223;
+    --bs-secondary-bg: rgb(44 44 44 / 100%);
+    --bs-secondary-bg-rgb: 44, 44, 44;
+    --bs-tertiary-bg: rgb(47 47 47 / 100%);
+    --bs-tertiary-bg-rgb: 47, 47, 47;
+    --bs-link-color: rgb(110 168 254 / 100%);
+    --bs-link-color-rgb: 110, 168, 254;
+    --bs-link-hover-color: rgb(158 197 254 / 100%);
+    --bs-link-hover-color-rgb: 158, 197, 254;
+    --bs-border-color: rgb(73 80 87 / 100%);
+    --bs-border-color-rgb: 73, 80, 87;
+    --bs-body-font-family: Pretendard;
+    --bs-root-font-size: 1.0em;
+    --code-block-font-size: 1.0em;
+    --bs-body-line-height: 1.5em;
+    --bs-paragraph-margin-bottom: 1.5em;
+    --theme-container-md: 1000px;
+    --theme-container-lg: 1000px;
+    --theme-container-xl: 1000px;
+    --theme-container-xxl: 1000px;
+    --bs-breakpoint-md: 1000px;
+    --bs-breakpoint-lg: 1000px;
+    --bs-breakpoint-xl: 1000px;
+    --bs-breakpoint-xxl: 1000px;
+    --syntax-highlight-theme: "xcode-dark";
 }
 
 @media (min-width: 540px) {
@@ -74,27 +227,27 @@
 }
 }
 
-@media (min-width: 720px) {
+@media (min-width: 1000px) {
     .container {
-    max-width: 720px;
+    max-width: 1000px;
 }
 }
 
-@media (min-width: 960px) {
+@media (min-width: 1000px) {
     .container {
-    max-width: 960px;
+    max-width: 1000px;
 }
 }
 
-@media (min-width: 1140px) {
+@media (min-width: 1000px) {
     .container {
-    max-width: 1140px;
+    max-width: 1000px;
 }
 }
 
-@media (min-width: 1320px) {
+@media (min-width: 1000px) {
     .container {
-    max-width: 1320px;
+    max-width: 1000px;
 }
 }
 
@@ -502,155 +655,104 @@ code, pre {
 }
 
 
-[data-bs-theme="light"] {
-    --bs-primary: rgb(76 236 139 / 100%);
-    --bs-primary-rgb: 76, 236, 139;
-    --bs-primary-text-emphasis: rgb(30 94 55 / 100%);
-    --bs-primary-bg-subtle: rgb(219 251 231 / 100%);
-    --bs-primary-border-subtle: rgb(147 243 185 / 100%);
-    --bs-secondary: rgb(221 243 78 / 100%);
-    --bs-secondary-rgb: 221, 243, 78;
-    --bs-secondary-text-emphasis: rgb(88 97 31 / 100%);
-    --bs-secondary-bg-subtle: rgb(248 252 219 / 100%);
-    --bs-secondary-border-subtle: rgb(234 247 148 / 100%);
-    --bs-success: rgb(22 255 113 / 100%);
-    --bs-success-rgb: 22, 255, 113;
-    --bs-success-text-emphasis: rgb(8 102 45 / 100%);
-    --bs-success-bg-subtle: rgb(208 255 226 / 100%);
-    --bs-success-border-subtle: rgb(115 255 169 / 100%);
-    --bs-info: rgb(230 230 230 / 100%);
-    --bs-info-rgb: 230, 230, 230;
-    --bs-info-text-emphasis: rgb(92 92 92 / 100%);
-    --bs-info-bg-subtle: rgb(250 250 250 / 100%);
-    --bs-info-border-subtle: rgb(240 240 240 / 100%);
+[data-bs-theme="dark"] {
+    --bs-primary: rgb(219 210 102 / 100%);
+    --bs-primary-rgb: 219, 210, 102;
+    --bs-primary-text-emphasis: rgb(233 228 163 / 100%);
+    --bs-primary-bg-subtle: rgb(43 41 20 / 100%);
+    --bs-primary-border-subtle: rgb(131 126 61 / 100%);
+    --bs-secondary: rgb(108 117 125 / 100%);
+    --bs-secondary-rgb: 108, 117, 125;
+    --bs-secondary-text-emphasis: rgb(166 172 177 / 100%);
+    --bs-secondary-bg-subtle: rgb(21 23 24 / 100%);
+    --bs-secondary-border-subtle: rgb(64 70 75 / 100%);
+    --bs-success: rgb(25 135 84 / 100%);
+    --bs-success-rgb: 25, 135, 84;
+    --bs-success-text-emphasis: rgb(117 183 152 / 100%);
+    --bs-success-bg-subtle: rgb(4 26 16 / 100%);
+    --bs-success-border-subtle: rgb(15 81 50 / 100%);
+    --bs-info: rgb(13 202 240 / 100%);
+    --bs-info-rgb: 13, 202, 240;
+    --bs-info-text-emphasis: rgb(109 223 246 / 100%);
+    --bs-info-bg-subtle: rgb(2 40 47 / 100%);
+    --bs-info-border-subtle: rgb(7 121 144 / 100%);
     --bs-warning: rgb(255 193 7 / 100%);
     --bs-warning-rgb: 255, 193, 7;
-    --bs-warning-text-emphasis: rgb(102 77 2 / 100%);
-    --bs-warning-bg-subtle: rgb(255 242 205 / 100%);
-    --bs-warning-border-subtle: rgb(255 217 106 / 100%);
+    --bs-warning-text-emphasis: rgb(255 217 106 / 100%);
+    --bs-warning-bg-subtle: rgb(50 38 1 / 100%);
+    --bs-warning-border-subtle: rgb(153 115 4 / 100%);
     --bs-danger: rgb(220 53 69 / 100%);
     --bs-danger-rgb: 220, 53, 69;
-    --bs-danger-text-emphasis: rgb(88 21 27 / 100%);
-    --bs-danger-bg-subtle: rgb(248 214 217 / 100%);
-    --bs-danger-border-subtle: rgb(234 133 143 / 100%);
-    --bs-light: rgb(248 249 250 / 100%);
-    --bs-light-rgb: 248, 249, 250;
-    --bs-light-text-emphasis: rgb(49 49 49 / 100%);
-    --bs-light-bg-subtle: rgb(253 253 254 / 100%);
-    --bs-light-border-subtle: rgb(198 199 200 / 100%);
-    --bs-dark: rgb(33 37 41 / 100%);
-    --bs-dark-rgb: 33, 37, 41;
-    --bs-dark-text-emphasis: rgb(13 14 16 / 100%);
-    --bs-dark-bg-subtle: rgb(210 211 212 / 100%);
-    --bs-dark-border-subtle: rgb(121 124 126 / 100%);
-    --bs-body-color: rgb(224 224 235 / 100%);
-    --bs-body-color-rgb: 224, 224, 235;
-    --bs-body-bg: rgb(0 0 0 / 100%);
-    --bs-body-bg-rgb: 0, 0, 0;
-    --bs-emphasis-color: rgb(251 251 251 / 100%);
-    --bs-emphasis-color-rgb: 251, 251, 251;
-    --bs-secondary-color: rgb(183 183 183 / 100%);
-    --bs-secondary-color-rgb: 183, 183, 183;
-    --bs-tertiary-color: rgb(97 97 97 / 100%);
-    --bs-tertiary-color-rgb: 97, 97, 97;
-    --bs-secondary-bg: rgb(21 21 22 / 100%);
-    --bs-secondary-bg-rgb: 21, 21, 22;
-    --bs-tertiary-bg: rgb(28 28 29 / 100%);
-    --bs-tertiary-bg-rgb: 28, 28, 29;
-    --bs-link-color: rgb(71 139 255 / 100%);
-    --bs-link-color-rgb: 71, 139, 255;
-    --bs-link-hover-color: rgb(45 115 233 / 100%);
-    --bs-link-hover-color-rgb: 45, 115, 233;
-    --bs-border-color: rgb(142 142 142 / 100%);
-    --bs-border-color-rgb: 142, 142, 142;
-    --syntax-highlight-theme: "xcode-light";
-}
-
-[data-bs-theme="auto"] {
-    --bs-primary: rgb(76 236 139 / 100%);
-    --bs-primary-rgb: 76, 236, 139;
-    --bs-primary-text-emphasis: rgb(30 94 55 / 100%);
-    --bs-primary-bg-subtle: rgb(219 251 231 / 100%);
-    --bs-primary-border-subtle: rgb(147 243 185 / 100%);
-    --bs-secondary: rgb(221 243 78 / 100%);
-    --bs-secondary-rgb: 221, 243, 78;
-    --bs-secondary-text-emphasis: rgb(88 97 31 / 100%);
-    --bs-secondary-bg-subtle: rgb(248 252 219 / 100%);
-    --bs-secondary-border-subtle: rgb(234 247 148 / 100%);
-    --bs-success: rgb(22 255 113 / 100%);
-    --bs-success-rgb: 22, 255, 113;
-    --bs-success-text-emphasis: rgb(8 102 45 / 100%);
-    --bs-success-bg-subtle: rgb(208 255 226 / 100%);
-    --bs-success-border-subtle: rgb(115 255 169 / 100%);
-    --bs-info: rgb(230 230 230 / 100%);
-    --bs-info-rgb: 230, 230, 230;
-    --bs-info-text-emphasis: rgb(92 92 92 / 100%);
-    --bs-info-bg-subtle: rgb(250 250 250 / 100%);
-    --bs-info-border-subtle: rgb(240 240 240 / 100%);
-    --bs-warning: rgb(255 193 7 / 100%);
-    --bs-warning-rgb: 255, 193, 7;
-    --bs-warning-text-emphasis: rgb(102 77 2 / 100%);
-    --bs-warning-bg-subtle: rgb(255 242 205 / 100%);
-    --bs-warning-border-subtle: rgb(255 217 106 / 100%);
-    --bs-danger: rgb(220 53 69 / 100%);
-    --bs-danger-rgb: 220, 53, 69;
-    --bs-danger-text-emphasis: rgb(88 21 27 / 100%);
-    --bs-danger-bg-subtle: rgb(248 214 217 / 100%);
-    --bs-danger-border-subtle: rgb(234 133 143 / 100%);
-    --bs-light: rgb(248 249 250 / 100%);
-    --bs-light-rgb: 248, 249, 250;
-    --bs-light-text-emphasis: rgb(49 49 49 / 100%);
-    --bs-light-bg-subtle: rgb(253 253 254 / 100%);
-    --bs-light-border-subtle: rgb(198 199 200 / 100%);
-    --bs-dark: rgb(33 37 41 / 100%);
-    --bs-dark-rgb: 33, 37, 41;
-    --bs-dark-text-emphasis: rgb(13 14 16 / 100%);
-    --bs-dark-bg-subtle: rgb(210 211 212 / 100%);
-    --bs-dark-border-subtle: rgb(121 124 126 / 100%);
-    --bs-body-color: rgb(224 224 235 / 100%);
-    --bs-body-color-rgb: 224, 224, 235;
-    --bs-body-bg: rgb(0 0 0 / 100%);
-    --bs-body-bg-rgb: 0, 0, 0;
-    --bs-emphasis-color: rgb(251 251 251 / 100%);
-    --bs-emphasis-color-rgb: 251, 251, 251;
-    --bs-secondary-color: rgb(183 183 183 / 100%);
-    --bs-secondary-color-rgb: 183, 183, 183;
-    --bs-tertiary-color: rgb(97 97 97 / 100%);
-    --bs-tertiary-color-rgb: 97, 97, 97;
-    --bs-secondary-bg: rgb(21 21 22 / 100%);
-    --bs-secondary-bg-rgb: 21, 21, 22;
-    --bs-tertiary-bg: rgb(28 28 29 / 100%);
-    --bs-tertiary-bg-rgb: 28, 28, 29;
-    --bs-link-color: rgb(71 139 255 / 100%);
-    --bs-link-color-rgb: 71, 139, 255;
-    --bs-link-hover-color: rgb(45 115 233 / 100%);
-    --bs-link-hover-color-rgb: 45, 115, 233;
-    --bs-border-color: rgb(142 142 142 / 100%);
-    --bs-border-color-rgb: 142, 142, 142;
-    --syntax-highlight-theme: "xcode-light";
+    --bs-danger-text-emphasis: rgb(234 133 143 / 100%);
+    --bs-danger-bg-subtle: rgb(43 10 13 / 100%);
+    --bs-danger-border-subtle: rgb(132 31 41 / 100%);
+    --bs-light: rgb(252 243 223 / 100%);
+    --bs-light-rgb: 252, 243, 223;
+    --bs-light-text-emphasis: rgb(253 247 235 / 100%);
+    --bs-light-bg-subtle: rgb(50 48 44 / 100%);
+    --bs-light-border-subtle: rgb(100 97 89 / 100%);
+    --bs-dark: rgb(40 40 40 / 100%);
+    --bs-dark-rgb: 40, 40, 40;
+    --bs-dark-text-emphasis: rgb(212 212 212 / 100%);
+    --bs-dark-bg-subtle: rgb(7 7 7 / 100%);
+    --bs-dark-border-subtle: rgb(83 83 83 / 100%);
+    --bs-body-color: rgb(252 243 223 / 100%);
+    --bs-body-color-rgb: 252, 243, 223;
+    --bs-body-bg: rgb(40 40 40 / 100%);
+    --bs-body-bg-rgb: 40, 40, 40;
+    --bs-emphasis-color: rgb(252 243 223 / 100%);
+    --bs-emphasis-color-rgb: 252, 243, 223;
+    --bs-secondary-color: rgb(252 243 223 / 100%);
+    --bs-secondary-color-rgb: 252, 243, 223;
+    --bs-tertiary-color: rgb(252 243 223 / 100%);
+    --bs-tertiary-color-rgb: 252, 243, 223;
+    --bs-secondary-bg: rgb(44 44 44 / 100%);
+    --bs-secondary-bg-rgb: 44, 44, 44;
+    --bs-tertiary-bg: rgb(47 47 47 / 100%);
+    --bs-tertiary-bg-rgb: 47, 47, 47;
+    --bs-link-color: rgb(110 168 254 / 100%);
+    --bs-link-color-rgb: 110, 168, 254;
+    --bs-link-hover-color: rgb(158 197 254 / 100%);
+    --bs-link-hover-color-rgb: 158, 197, 254;
+    --bs-border-color: rgb(73 80 87 / 100%);
+    --bs-border-color-rgb: 73, 80, 87;
+    --bs-body-font-family: Pretendard;
+    --bs-root-font-size: 1.0em;
+    --code-block-font-size: 1.0em;
+    --bs-body-line-height: 1.5em;
+    --bs-paragraph-margin-bottom: 1.5em;
+    --theme-container-md: 1000px;
+    --theme-container-lg: 1000px;
+    --theme-container-xl: 1000px;
+    --theme-container-xxl: 1000px;
+    --bs-breakpoint-md: 1000px;
+    --bs-breakpoint-lg: 1000px;
+    --bs-breakpoint-xl: 1000px;
+    --bs-breakpoint-xxl: 1000px;
+    --syntax-highlight-theme: "xcode-dark";
 }
 
 [data-bs-theme="dark"] {
-    --bs-primary: rgb(76 236 139 / 100%);
-    --bs-primary-rgb: 76, 236, 139;
-    --bs-primary-text-emphasis: rgb(147 243 185 / 100%);
-    --bs-primary-bg-subtle: rgb(15 47 27 / 100%);
-    --bs-primary-border-subtle: rgb(45 141 83 / 100%);
-    --bs-secondary: rgb(221 243 78 / 100%);
-    --bs-secondary-rgb: 221, 243, 78;
-    --bs-secondary-text-emphasis: rgb(234 247 148 / 100%);
-    --bs-secondary-bg-subtle: rgb(44 48 15 / 100%);
-    --bs-secondary-border-subtle: rgb(132 145 46 / 100%);
-    --bs-success: rgb(22 255 113 / 100%);
-    --bs-success-rgb: 22, 255, 113;
-    --bs-success-text-emphasis: rgb(115 255 169 / 100%);
-    --bs-success-bg-subtle: rgb(4 50 22 / 100%);
-    --bs-success-border-subtle: rgb(13 153 67 / 100%);
-    --bs-info: rgb(230 230 230 / 100%);
-    --bs-info-rgb: 230, 230, 230;
-    --bs-info-text-emphasis: rgb(240 240 240 / 100%);
-    --bs-info-bg-subtle: rgb(45 45 45 / 100%);
-    --bs-info-border-subtle: rgb(138 138 138 / 100%);
+    --bs-primary: rgb(219 210 102 / 100%);
+    --bs-primary-rgb: 219, 210, 102;
+    --bs-primary-text-emphasis: rgb(233 228 163 / 100%);
+    --bs-primary-bg-subtle: rgb(43 41 20 / 100%);
+    --bs-primary-border-subtle: rgb(131 126 61 / 100%);
+    --bs-secondary: rgb(108 117 125 / 100%);
+    --bs-secondary-rgb: 108, 117, 125;
+    --bs-secondary-text-emphasis: rgb(166 172 177 / 100%);
+    --bs-secondary-bg-subtle: rgb(21 23 24 / 100%);
+    --bs-secondary-border-subtle: rgb(64 70 75 / 100%);
+    --bs-success: rgb(25 135 84 / 100%);
+    --bs-success-rgb: 25, 135, 84;
+    --bs-success-text-emphasis: rgb(117 183 152 / 100%);
+    --bs-success-bg-subtle: rgb(4 26 16 / 100%);
+    --bs-success-border-subtle: rgb(15 81 50 / 100%);
+    --bs-info: rgb(13 202 240 / 100%);
+    --bs-info-rgb: 13, 202, 240;
+    --bs-info-text-emphasis: rgb(109 223 246 / 100%);
+    --bs-info-bg-subtle: rgb(2 40 47 / 100%);
+    --bs-info-border-subtle: rgb(7 121 144 / 100%);
     --bs-warning: rgb(255 193 7 / 100%);
     --bs-warning-rgb: 255, 193, 7;
     --bs-warning-text-emphasis: rgb(255 217 106 / 100%);
@@ -661,103 +763,50 @@ code, pre {
     --bs-danger-text-emphasis: rgb(234 133 143 / 100%);
     --bs-danger-bg-subtle: rgb(43 10 13 / 100%);
     --bs-danger-border-subtle: rgb(132 31 41 / 100%);
-    --bs-light: rgb(248 249 250 / 100%);
-    --bs-light-rgb: 248, 249, 250;
-    --bs-light-text-emphasis: rgb(250 251 252 / 100%);
-    --bs-light-bg-subtle: rgb(49 49 49 / 100%);
-    --bs-light-border-subtle: rgb(99 99 100 / 100%);
-    --bs-dark: rgb(33 37 41 / 100%);
-    --bs-dark-rgb: 33, 37, 41;
-    --bs-dark-text-emphasis: rgb(210 211 212 / 100%);
-    --bs-dark-bg-subtle: rgb(6 7 8 / 100%);
-    --bs-dark-border-subtle: rgb(77 80 83 / 100%);
-    --bs-body-color: rgb(224 224 235 / 100%);
-    --bs-body-color-rgb: 224, 224, 235;
-    --bs-body-bg: rgb(0 0 0 / 100%);
-    --bs-body-bg-rgb: 0, 0, 0;
-    --bs-emphasis-color: rgb(251 251 251 / 100%);
-    --bs-emphasis-color-rgb: 251, 251, 251;
-    --bs-secondary-color: rgb(183 183 183 / 100%);
-    --bs-secondary-color-rgb: 183, 183, 183;
-    --bs-tertiary-color: rgb(97 97 97 / 100%);
-    --bs-tertiary-color-rgb: 97, 97, 97;
-    --bs-secondary-bg: rgb(21 21 22 / 100%);
-    --bs-secondary-bg-rgb: 21, 21, 22;
-    --bs-tertiary-bg: rgb(28 28 29 / 100%);
-    --bs-tertiary-bg-rgb: 28, 28, 29;
-    --bs-link-color: rgb(71 139 255 / 100%);
-    --bs-link-color-rgb: 71, 139, 255;
-    --bs-link-hover-color: rgb(45 115 233 / 100%);
-    --bs-link-hover-color-rgb: 45, 115, 233;
-    --bs-border-color: rgb(142 142 142 / 100%);
-    --bs-border-color-rgb: 142, 142, 142;
+    --bs-light: rgb(252 243 223 / 100%);
+    --bs-light-rgb: 252, 243, 223;
+    --bs-light-text-emphasis: rgb(253 247 235 / 100%);
+    --bs-light-bg-subtle: rgb(50 48 44 / 100%);
+    --bs-light-border-subtle: rgb(100 97 89 / 100%);
+    --bs-dark: rgb(40 40 40 / 100%);
+    --bs-dark-rgb: 40, 40, 40;
+    --bs-dark-text-emphasis: rgb(212 212 212 / 100%);
+    --bs-dark-bg-subtle: rgb(7 7 7 / 100%);
+    --bs-dark-border-subtle: rgb(83 83 83 / 100%);
+    --bs-body-color: rgb(252 243 223 / 100%);
+    --bs-body-color-rgb: 252, 243, 223;
+    --bs-body-bg: rgb(40 40 40 / 100%);
+    --bs-body-bg-rgb: 40, 40, 40;
+    --bs-emphasis-color: rgb(252 243 223 / 100%);
+    --bs-emphasis-color-rgb: 252, 243, 223;
+    --bs-secondary-color: rgb(252 243 223 / 100%);
+    --bs-secondary-color-rgb: 252, 243, 223;
+    --bs-tertiary-color: rgb(252 243 223 / 100%);
+    --bs-tertiary-color-rgb: 252, 243, 223;
+    --bs-secondary-bg: rgb(44 44 44 / 100%);
+    --bs-secondary-bg-rgb: 44, 44, 44;
+    --bs-tertiary-bg: rgb(47 47 47 / 100%);
+    --bs-tertiary-bg-rgb: 47, 47, 47;
+    --bs-link-color: rgb(110 168 254 / 100%);
+    --bs-link-color-rgb: 110, 168, 254;
+    --bs-link-hover-color: rgb(158 197 254 / 100%);
+    --bs-link-hover-color-rgb: 158, 197, 254;
+    --bs-border-color: rgb(73 80 87 / 100%);
+    --bs-border-color-rgb: 73, 80, 87;
+    --bs-body-font-family: Pretendard;
+    --bs-root-font-size: 1.0em;
+    --code-block-font-size: 1.0em;
+    --bs-body-line-height: 1.5em;
+    --bs-paragraph-margin-bottom: 1.5em;
+    --theme-container-md: 1000px;
+    --theme-container-lg: 1000px;
+    --theme-container-xl: 1000px;
+    --theme-container-xxl: 1000px;
+    --bs-breakpoint-md: 1000px;
+    --bs-breakpoint-lg: 1000px;
+    --bs-breakpoint-xl: 1000px;
+    --bs-breakpoint-xxl: 1000px;
     --syntax-highlight-theme: "xcode-dark";
-}
-
-@media (prefers-color-scheme: dark) {
-    [data-bs-theme="auto"] {
-    --bs-primary: rgb(76 236 139 / 100%);
-    --bs-primary-rgb: 76, 236, 139;
-    --bs-primary-text-emphasis: rgb(147 243 185 / 100%);
-    --bs-primary-bg-subtle: rgb(15 47 27 / 100%);
-    --bs-primary-border-subtle: rgb(45 141 83 / 100%);
-    --bs-secondary: rgb(221 243 78 / 100%);
-    --bs-secondary-rgb: 221, 243, 78;
-    --bs-secondary-text-emphasis: rgb(234 247 148 / 100%);
-    --bs-secondary-bg-subtle: rgb(44 48 15 / 100%);
-    --bs-secondary-border-subtle: rgb(132 145 46 / 100%);
-    --bs-success: rgb(22 255 113 / 100%);
-    --bs-success-rgb: 22, 255, 113;
-    --bs-success-text-emphasis: rgb(115 255 169 / 100%);
-    --bs-success-bg-subtle: rgb(4 50 22 / 100%);
-    --bs-success-border-subtle: rgb(13 153 67 / 100%);
-    --bs-info: rgb(230 230 230 / 100%);
-    --bs-info-rgb: 230, 230, 230;
-    --bs-info-text-emphasis: rgb(240 240 240 / 100%);
-    --bs-info-bg-subtle: rgb(45 45 45 / 100%);
-    --bs-info-border-subtle: rgb(138 138 138 / 100%);
-    --bs-warning: rgb(255 193 7 / 100%);
-    --bs-warning-rgb: 255, 193, 7;
-    --bs-warning-text-emphasis: rgb(255 217 106 / 100%);
-    --bs-warning-bg-subtle: rgb(50 38 1 / 100%);
-    --bs-warning-border-subtle: rgb(153 115 4 / 100%);
-    --bs-danger: rgb(220 53 69 / 100%);
-    --bs-danger-rgb: 220, 53, 69;
-    --bs-danger-text-emphasis: rgb(234 133 143 / 100%);
-    --bs-danger-bg-subtle: rgb(43 10 13 / 100%);
-    --bs-danger-border-subtle: rgb(132 31 41 / 100%);
-    --bs-light: rgb(248 249 250 / 100%);
-    --bs-light-rgb: 248, 249, 250;
-    --bs-light-text-emphasis: rgb(250 251 252 / 100%);
-    --bs-light-bg-subtle: rgb(49 49 49 / 100%);
-    --bs-light-border-subtle: rgb(99 99 100 / 100%);
-    --bs-dark: rgb(33 37 41 / 100%);
-    --bs-dark-rgb: 33, 37, 41;
-    --bs-dark-text-emphasis: rgb(210 211 212 / 100%);
-    --bs-dark-bg-subtle: rgb(6 7 8 / 100%);
-    --bs-dark-border-subtle: rgb(77 80 83 / 100%);
-    --bs-body-color: rgb(224 224 235 / 100%);
-    --bs-body-color-rgb: 224, 224, 235;
-    --bs-body-bg: rgb(0 0 0 / 100%);
-    --bs-body-bg-rgb: 0, 0, 0;
-    --bs-emphasis-color: rgb(251 251 251 / 100%);
-    --bs-emphasis-color-rgb: 251, 251, 251;
-    --bs-secondary-color: rgb(183 183 183 / 100%);
-    --bs-secondary-color-rgb: 183, 183, 183;
-    --bs-tertiary-color: rgb(97 97 97 / 100%);
-    --bs-tertiary-color-rgb: 97, 97, 97;
-    --bs-secondary-bg: rgb(21 21 22 / 100%);
-    --bs-secondary-bg-rgb: 21, 21, 22;
-    --bs-tertiary-bg: rgb(28 28 29 / 100%);
-    --bs-tertiary-bg-rgb: 28, 28, 29;
-    --bs-link-color: rgb(71 139 255 / 100%);
-    --bs-link-color-rgb: 71, 139, 255;
-    --bs-link-hover-color: rgb(45 115 233 / 100%);
-    --bs-link-hover-color-rgb: 45, 115, 233;
-    --bs-border-color: rgb(142 142 142 / 100%);
-    --bs-border-color-rgb: 142, 142, 142;
-    --syntax-highlight-theme: "xcode-dark";
-}
 }
 
 

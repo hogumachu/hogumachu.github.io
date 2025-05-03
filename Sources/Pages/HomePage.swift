@@ -12,12 +12,8 @@ struct HomePage: StaticPage {
   let title = "Home"
   
   var body: some HTML {
-    PageHeader(
-      title: "호구마츄테크,",
-      subtitle: "Swift, iOS 이야기를 주로 해요"
-    )
-    .padding(.top, .xLarge)
-    .padding(.bottom, .xLarge)
+    header
+      .padding(100)
     
     SectionHeader(
       category: "공유하는 것",
@@ -48,29 +44,49 @@ struct HomePage: StaticPage {
     .padding(.top, .medium)
   }
   
+  private var header: some HTML {
+    Grid {
+      VStack {
+        Text("Mobile Developer")
+          .font(.title6)
+          .fontWeight(.thin)
+          .padding(.top, .medium)
+        
+        Text("hogumachu,<br>tech")
+          .horizontalAlignment(.center)
+          .font(.title1)
+          .fontWeight(.heavy)
+        
+        Text("iOS, Swift에 대한 이야기를 주로 해요.".br + "모바일 개발에 많은 흥미가 있어요.".br + "최근에는 Flutter와 오픈 소스에 관심이 많아요.")
+          .horizontalAlignment(.center)
+          .font(.body)
+          .fontWeight(.regular)
+          .padding(.top, .large)
+      }
+      
+      Image(local: .swiftLight)
+        .resizable()
+        .frame(width: 300, height: 300)
+    }
+    .columns(2)
+  }
+  
   private var pageDescriptionCarousel: some HTML {
-    Carousel {
-      Slide(
-        target: BlogPage(),
-        resource: .cool,
+    Grid {
+      HeroView(
+        style: .light,
         title: "블로그",
-        description: "Swift, iOS에 대한 이야기 이외에도 많은 내용을 공유해요.".br + "특히 일을 하다 겪은 일이나 인사이트 등 다양한 생각들을 정리하고 공유해요."
+        description: "모바일 개발에 대한 이야기를 주로 해요.".br + "일을 하다 겪은 일이나 인사이트 등 다양한 생각들을 정리하고 공유해요.",
+        page: BlogPage()
       )
-      
-      Slide(
-        target: ServicePage(),
-        resource: .robot,
+      HeroView(
+        style: .dark,
         title: "서비스",
-        description: "개발한 제품에 대해 공유해요.".br + "개인 프로젝트 뿐만 아니라 재직을 하며 개발했던 서비스를 공유해요."
-      )
-      
-      Slide(
-        target: CareerPage(),
-        resource: .student,
-        title: "경력",
-        description: "여태까지 개발자로 걸어온 길을 공유해요.</br>어떤 역할을 통해 어떤 성취를 이뤘는 지 공유해요."
+        description: "개발한 제품에 대해 공유해요.".br + "개인 프로젝트 뿐만 아니라 재직을 하며 개발했던 서비스를 공유해요.",
+        page: ServicePage()
       )
     }
+    .columns(3)
   }
   
   private var blogArticles: [Article] {

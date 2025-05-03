@@ -13,28 +13,22 @@ struct SmallArticlePreviewStyle: @preconcurrency ArticlePreviewStyle {
   
   func body(content: Article) -> any HTML {
     Link(target: content) {
-      VStack {
-        image(content: content)
-          .resizable()
-          .cornerRadius(16)
-        
+      VStack(alignment: .leading, spacing: 8) {
         Text(content.title)
-          .horizontalAlignment(.center)
-          .font(.title4)
-          .fontWeight(.regular)
-          .foregroundStyle(.bodyEmphasis)
-          .padding(.top, .large)
+          .horizontalAlignment(.leading)
+          .font(.title5)
+          .fontWeight(.semibold)
+          .foregroundStyle(.textColor)
         
         Text(content.description)
-          .horizontalAlignment(.center)
-          .font(.lead)
+          .horizontalAlignment(.leading)
+          .font(.body)
           .fontWeight(.regular)
-          .foregroundStyle(.secondary)
-          .padding(.top, .small)
+          .foregroundStyle(.textColor)
       }
       .padding(30)
-      .background(.ultraThickMaterial)
-      .cornerRadius(16)
+      .background(.secondaryBackground)
+      .cornerRadius(4)
       .addHoverAction()
     }
   }

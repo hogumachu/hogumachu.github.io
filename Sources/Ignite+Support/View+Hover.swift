@@ -33,7 +33,7 @@ public extension InlineElement {
   func addHoverAction(
     _ id: String = UniqueID().string,
     opacity: Double = 0.8,
-    scale: Double = 0.997
+    scale: Double = 0.99
   ) -> some InlineElement {
     self.id(id)
     .onHover { isHovering in

@@ -75,7 +75,7 @@ struct ServiceComponent: HTML {
           Link(model.navigationButtonText, target: model.target)
             .linkStyle(.button)
             .buttonSize(.large)
-            .role(.primary)
+            .role(.light)
         }
       }
       .frame(alignment: .center)

@@ -13,44 +13,42 @@ struct LargeArticlePreviewStyle: @preconcurrency ArticlePreviewStyle {
   
   func body(content: Article) -> any HTML {
     Link(target: content.path) {
-      VStack {
-        image(content: content)
-          .resizable()
-          .cornerRadius(32)
-        
-        Text(content.title)
-          .font(.title3)
-          .fontWeight(.semibold)
-          .foregroundStyle(.bodyEmphasis)
-          .padding(.top, .large)
+      VStack(alignment: .leading) {
+        HStack {
+          Text(content.title)
+            .horizontalAlignment(.leading)
+            .font(.title3)
+            .fontWeight(.bold)
+            .foregroundStyle(.body)
+          
+          Text(content.dateString)
+            .font(.body)
+            .foregroundStyle(.body)
+            .fontWeight(.thin)
+        }
         
         Text(content.description)
-          .font(.lead)
-          .foregroundStyle(.secondary)
-          .fontWeight(.regular)
-          .padding(.top, .medium)
-        
-        Text(content.dateString)
-          .font(.body)
-          .foregroundStyle(.tertiary)
-          .fontWeight(.thin)
-          .padding(.top, .xSmall)
+          .font(.title5)
+          .foregroundStyle(.body)
+          .fontWeight(.light)
+          .padding(.top, .small)
         
         if let tags = content.tags, !tags.isEmpty {
           Text {
             ForEach(tags) {
               Badge($0)
-                .badgeStyle(.default)
-                .role(.dark)
-                .fontWeight(.thin)
+                .badgeStyle(.subtleBordered)
+                .role(.light)
+                .fontWeight(.regular)
                 .margin(.trailing, 8)
             }
           }
           .padding(.top, .medium)
         }
       }
-      .padding(30)
-      .background(.ultraThickMaterial)
+      .padding(.horizontal, 30)
+      .padding(.vertical, 40)
+      .background(.secondaryBackground)
       .cornerRadius(16)
       .addHoverAction()
     }

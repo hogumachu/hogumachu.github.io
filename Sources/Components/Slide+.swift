@@ -33,7 +33,7 @@ public extension Slide {
           Link("보러가기", target: target)
             .linkStyle(.button)
             .buttonSize(.medium)
-            .role(.primary)
+            .role(.light)
         }
         .padding(.top, .medium)
       }

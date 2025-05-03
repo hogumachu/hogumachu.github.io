@@ -30,7 +30,7 @@ struct BlogPage: StaticPage {
             .padding()
         }
       }
-      .columns(2)
+      .columns(1)
       .padding(.top, .xLarge)
     }
   }

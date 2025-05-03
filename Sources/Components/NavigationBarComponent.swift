@@ -15,45 +15,39 @@ struct NavigationBarComponent: HTML {
     NavigationBar(logo: logo) {
       linkComponent(BlogPage())
       linkComponent(ServicePage())
-      linkComponent(CareerPage())
-      additionalLinks
-    }
-    .navigationBarStyle(.dark)
-    .navigationItemAlignment(.trailing)
-    .position(.fixedTop)
-    .padding(.horizontal, .medium)
-    .background(.regularMaterial)
-  }
-  
-  private var logo: some InlineElement {
-    Text("hogumachu tech")
-      .font(.title4)
-      .fontWeight(.regular)
-      .foregroundStyle(.primaryEmphasis)
-      .addHoverAction()
-  }
-  
-  private var additionalLinks: some NavigationItem {
-    Dropdown("More") {
       linkComponent("GitHub", target: "https://github.com/hogumachu")
       linkComponent("Tistory", target: "https://hogumachu.tistory.com")
     }
+    .navigationItemAlignment(.trailing)
+    .navigationBarStyle(.dark)
+    .background(.background)
+    .position(.fixedTop)
+    .padding(.horizontal, .medium)
+  }
+  
+  private var logo: some InlineElement {
+    Image(local: .logo)
+      .addHoverAction()
   }
   
   private func linkComponent(_ page: any StaticPage) -> Link {
     Link(page: page) {
       Text(page.title)
+        .font(.title6)
+        .fontWeight(currentPage.url.path == page.path ? .semibold : .regular)
         .foregroundStyle(
-          currentPage.url.path == page.path ? .primaryEmphasis : .body
+          currentPage.url.path == page.path ? .primary : .body
         )
-        .addHoverAction(scale: 0.97)
+        .addHoverAction()
     }
   }
   
   private func linkComponent(_ title: String, target: String) -> Link {
     Link(target: target) {
       Text(title)
-        .addHoverAction(scale: 0.97)
+        .font(.title6)
+        .fontWeight(.regular)
+        .addHoverAction()
     }
   }
 }
