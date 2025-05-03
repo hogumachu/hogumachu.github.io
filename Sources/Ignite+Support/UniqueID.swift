@@ -7,10 +7,11 @@
 
 import Foundation
 
-struct UniqueID {
-  let string: String
+public struct UniqueID {
   
-  init() {
+  public let string: String
+  
+  public init() {
     let alpha = (UnicodeScalar("a").value...UnicodeScalar("z").value)
       .compactMap { Unicode.Scalar($0) }
       .map { String($0) }

@@ -8,12 +8,11 @@
 import Foundation
 import Ignite
 
-typealias InlineElementBuilder = ElementBuilder<InlineElement>
 
 extension Link {
   init(
     page: any StaticPage,
-    @InlineElementBuilder content: () -> [any InlineElement]
+    @HTMLBuilder content: @escaping () -> some HTML
   ) {
     self.init(target: page.path, content: content)
   }
@@ -35,23 +34,26 @@ extension Link {
     name: String,
     image: BootstrapImageResource = .link,
     order: LinkImageOrder = .right,
-    foregroundStyle: Color = .textColor
+    foregroundStyle: ForegroundStyle = .body
   ) -> Link {
     .init(target: url) {
-      Text {
-        switch order {
-        case .left:
+      switch order {
+      case .left:
+        Text {
           Image(bootstrap: image)
           " \(name)"
-          
-        case .right:
+        }
+        .foregroundStyle(foregroundStyle)
+        
+      case .right:
+        Text {
           "\(name) "
           Image(bootstrap: image)
         }
+        .foregroundStyle(foregroundStyle)
       }
-      .foregroundStyle(foregroundStyle)
     }
-    .linkStyle(.hover)
+    .linkStyle(.underline(.none, hover: .bold))
     .role(.light)
   }
 }

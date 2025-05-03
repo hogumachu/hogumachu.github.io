@@ -15,16 +15,17 @@ struct WebStie: Site {
   let language: Language = .korean
   let builtInIconsEnabled: BootstrapOptions = .localBootstrap
   let author = "Hogumachu"
-  let homePage = HomePage()
-  let theme: some Theme = MainTheme()
-  let pages: [any StaticPage] = [
+  var homePage = HomePage()
+  var layout = MainLayout()
+  var lightTheme: (any Theme)? = DarkTheme()
+  var darkTheme: (any Theme)? = DarkTheme()
+  let staticPages: [any StaticPage] = [
     BlogPage(),
     ServicePage(),
-    CareerPage(),
     HeatPickPage()
   ]
-  let layouts: [any ContentPage] = [
+  let articlePages: [any ArticlePage] = [
     BlogContentLayout()
   ]
-  let syntaxHighlighters: [SyntaxHighlighter] = [.swift]
+  let syntaxHighlighterConfiguration: SyntaxHighlighterConfiguration = .init(languages: [.swift])
 }

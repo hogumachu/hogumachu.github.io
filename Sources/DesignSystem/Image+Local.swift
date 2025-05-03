@@ -8,13 +8,23 @@
 import Foundation
 import Ignite
 
-enum ImageResource: String {
+public enum ImageResource: String {
   case cool
   case robot
   case student
   
   var path: String {
     return "/images/\(rawValue).jpg"
+  }
+}
+
+enum SVGImageResource: String {
+  case logo
+  case swiftDark
+  case swiftLight
+  
+  var path: String {
+    return "/images/svg/\(rawValue).svg"
   }
 }
 
@@ -40,8 +50,20 @@ enum ContentBackgroundImageResource: String, CaseIterable {
   }
 }
 
+enum HeroImageResource: String {
+  case home
+  
+  var path: String {
+    return "/images/contents/hero/\(rawValue)-hero.jpg"
+  }
+}
+
 extension Image {
   init(local resource: ImageResource) {
+    self.init(resource.path, description: resource.rawValue + " image")
+  }
+  
+  init(local resource: SVGImageResource) {
     self.init(resource.path, description: resource.rawValue + " image")
   }
   
@@ -50,6 +72,10 @@ extension Image {
   }
   
   init(background resource: ContentBackgroundImageResource) {
+    self.init(resource.path, description: resource.rawValue + " image")
+  }
+  
+  init(hero resource: HeroImageResource) {
     self.init(resource.path, description: resource.rawValue + " image")
   }
   

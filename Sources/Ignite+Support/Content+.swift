@@ -8,7 +8,7 @@
 import Foundation
 import Ignite
 
-extension Content {
+extension Article {
   var description: String {
     return metadata["description"] as? String ?? ""
   }
