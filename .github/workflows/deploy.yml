@@ -18,4 +18,4 @@ jobs:
       - name: trigger readme update
         run: gh api /repos/hogumachu/hogumachu/dispatches -f event_type='blog_deployed'
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT }}
