@@ -13,6 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
       - name: Push Build folder to a git subtree for automatic deployment
         run: git push origin `git subtree split --prefix Build main`:production --force
+      - name: trigger readme update
+        run: gh api /repos/hogumachu/hogumachu/dispatches -f event_type='blog_deployed'
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
