@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="2025년에는 블로그 글을 거의 쓰지 못했다. 어느 정도 핑계이긴 하지만, 글을 각 잡고 쓰는 게 너무 어려웠다. 소재도 좋아야 하고, 이를 위한 사전 조사도 해야 하고… 생각보다 챙길 게 많았다.  그래서 2026년에는 일단 글을 마구마구 쓰기로 했다. 그냥 꾸준하게 쓰는 블로그에서 조금 가볍게 글을 쓰고 있다." />
+    <meta name="author" content="Hogumachu" />
+    <meta name="generator" content="Ignite v0.5.2" />
+    <title>꾸준하게 하기 - hogumachu tech</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/prism-xcode-dark.css" rel="stylesheet" data-highlight-theme="xcode-dark" />
+    <link href="/css/prism-plugins.css" rel="stylesheet" />
+    <link href="/css/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="/css/ignite-core.min.css" rel="stylesheet" />
+    <link href="https://hogumachu.github.io/article/with-ai" rel="canonical" />
+    <script>(function() {
+    function getThemePreference() {
+        return localStorage.getItem('custom-theme') || 'auto';
+    }
+
+    function applyTheme(themeID) {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const lightThemeID = document.documentElement.getAttribute('data-light-theme') || 'light';
+        const darkThemeID = document.documentElement.getAttribute('data-dark-theme') || 'dark';
+        const actualThemeID = themeID === 'auto' ? (prefersDark ? darkThemeID : lightThemeID) : themeID;
+
+        document.documentElement.setAttribute('data-bs-theme', actualThemeID);
+        document.documentElement.setAttribute('data-theme-state', themeID);
+    }
+
+    function applySyntaxTheme() {
+        const syntaxTheme = getComputedStyle(document.documentElement)
+            .getPropertyValue('--syntax-highlight-theme').trim().replace(/"/g, '');
+
+        if (!syntaxTheme) return;
+
+        document.querySelectorAll('link[data-highlight-theme]').forEach(link => {
+            link.setAttribute('disabled', 'disabled');
+        });
+
+        const themeLink = document.querySelector(`link[data-highlight-theme="${syntaxTheme}"]`);
+        if (themeLink) {
+            themeLink.removeAttribute('disabled');
+        }
+    }
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        const currentTheme = getThemePreference();
+        if (currentTheme === 'auto') {
+            applyTheme('auto');
+            applySyntaxTheme();
+        }
+    });
+
+    const savedTheme = getThemePreference();
+    applyTheme(savedTheme);
+    applySyntaxTheme();
+})();
+</script>
+    <meta property="og:site_name" content="hogumachu tech" />
+    <meta property="og:title" content="꾸준하게 하기" />
+    <meta name="twitter:title" content="꾸준하게 하기" />
+    <meta property="og:description" content="2025년에는 블로그 글을 거의 쓰지 못했다. 어느 정도 핑계이긴 하지만, 글을 각 잡고 쓰는 게 너무 어려웠다. 소재도 좋아야 하고, 이를 위한 사전 조사도 해야 하고… 생각보다 챙길 게 많았다.  그래서 2026년에는 일단 글을 마구마구 쓰기로 했다. 그냥 꾸준하게 쓰는 블로그에서 조금 가볍게 글을 쓰고 있다." />
+    <meta name="twitter:description" content="2025년에는 블로그 글을 거의 쓰지 못했다. 어느 정도 핑계이긴 하지만, 글을 각 잡고 쓰는 게 너무 어려웠다. 소재도 좋아야 하고, 이를 위한 사전 조사도 해야 하고… 생각보다 챙길 게 많았다.  그래서 2026년에는 일단 글을 마구마구 쓰기로 했다. 그냥 꾸준하게 쓰는 블로그에서 조금 가볍게 글을 쓰고 있다." />
+    <meta property="og:url" content="https://hogumachu.github.io/article/with-ai" />
+    <meta name="twitter:domain" content="hogumachu.github.io" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:dnt" content="on" />
+  </head>
+  <body class="container">
+    <div style="padding-bottom: 80px">
+      <header>
+        <nav class="fixed-top px-3 navbar navbar-expand-md" style="background-color: rgb(40 40 40 / 100%)" data-bs-theme="dark">
+          <div class="container">
+            <a href="/" class="navbar-brand"><img id="ssmeaamuiglfzcvm" src="/images/svg/logo.svg" alt="logo image" onmouseover="const ssmeaamuiglfzcvmOpacity = document.getElementById('ssmeaamuiglfzcvm');
+ssmeaamuiglfzcvmOpacity.style.opacity = 0.8;; const ssmeaamuiglfzcvmScale = document.getElementById('ssmeaamuiglfzcvm');
+ssmeaamuiglfzcvmScale.style.transform = 'scale(0.99';" onmouseout="const ssmeaamuiglfzcvmOpacity = document.getElementById('ssmeaamuiglfzcvm');
+ssmeaamuiglfzcvmOpacity.style.opacity = 1;; const ssmeaamuiglfzcvmScale = document.getElementById('ssmeaamuiglfzcvm');
+ssmeaamuiglfzcvmScale.style.transform = 'scale(1';" /></a>
+            <button type="button" class="navbar-toggler btn" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div id="navbarCollapse" class="collapse navbar-collapse">
+              <ul class="navbar-nav mb-2 mb-md-0 col justify-content-end">
+                <li class="nav-item"><a href="/blog-page" class="nav-link link-plain"><h6 id="yhtgmmcqdpbbrkov" class="text-body mb-0" style="font-weight: 400" onmouseover="const yhtgmmcqdpbbrkovOpacity = document.getElementById('yhtgmmcqdpbbrkov');
+yhtgmmcqdpbbrkovOpacity.style.opacity = 0.8;; const yhtgmmcqdpbbrkovScale = document.getElementById('yhtgmmcqdpbbrkov');
+yhtgmmcqdpbbrkovScale.style.transform = 'scale(0.99';" onmouseout="const yhtgmmcqdpbbrkovOpacity = document.getElementById('yhtgmmcqdpbbrkov');
+yhtgmmcqdpbbrkovOpacity.style.opacity = 1;; const yhtgmmcqdpbbrkovScale = document.getElementById('yhtgmmcqdpbbrkov');
+yhtgmmcqdpbbrkovScale.style.transform = 'scale(1';">Blog</h6></a></li>
+                <li class="nav-item"><a href="/service-page" class="nav-link link-plain"><h6 id="fkcwynclaoqicvaf" class="text-body mb-0" style="font-weight: 400" onmouseover="const fkcwynclaoqicvafOpacity = document.getElementById('fkcwynclaoqicvaf');
+fkcwynclaoqicvafOpacity.style.opacity = 0.8;; const fkcwynclaoqicvafScale = document.getElementById('fkcwynclaoqicvaf');
+fkcwynclaoqicvafScale.style.transform = 'scale(0.99';" onmouseout="const fkcwynclaoqicvafOpacity = document.getElementById('fkcwynclaoqicvaf');
+fkcwynclaoqicvafOpacity.style.opacity = 1;; const fkcwynclaoqicvafScale = document.getElementById('fkcwynclaoqicvaf');
+fkcwynclaoqicvafScale.style.transform = 'scale(1';">Service</h6></a></li>
+                <li class="nav-item"><a href="https://github.com/hogumachu" class="nav-link link-plain"><h6 id="zvkzrtbzvdzlthfs" class="mb-0" style="font-weight: 400" onmouseover="const zvkzrtbzvdzlthfsOpacity = document.getElementById('zvkzrtbzvdzlthfs');
+zvkzrtbzvdzlthfsOpacity.style.opacity = 0.8;; const zvkzrtbzvdzlthfsScale = document.getElementById('zvkzrtbzvdzlthfs');
+zvkzrtbzvdzlthfsScale.style.transform = 'scale(0.99';" onmouseout="const zvkzrtbzvdzlthfsOpacity = document.getElementById('zvkzrtbzvdzlthfs');
+zvkzrtbzvdzlthfsOpacity.style.opacity = 1;; const zvkzrtbzvdzlthfsScale = document.getElementById('zvkzrtbzvdzlthfs');
+zvkzrtbzvdzlthfsScale.style.transform = 'scale(1';">GitHub</h6></a></li>
+                <li class="nav-item"><a href="https://hogumachu.tistory.com" class="nav-link link-plain"><h6 id="xamxkezqaeexnjwz" class="mb-0" style="font-weight: 400" onmouseover="const xamxkezqaeexnjwzOpacity = document.getElementById('xamxkezqaeexnjwz');
+xamxkezqaeexnjwzOpacity.style.opacity = 0.8;; const xamxkezqaeexnjwzScale = document.getElementById('xamxkezqaeexnjwz');
+xamxkezqaeexnjwzScale.style.transform = 'scale(0.99';" onmouseout="const xamxkezqaeexnjwzOpacity = document.getElementById('xamxkezqaeexnjwz');
+xamxkezqaeexnjwzOpacity.style.opacity = 1;; const xamxkezqaeexnjwzScale = document.getElementById('xamxkezqaeexnjwz');
+xamxkezqaeexnjwzScale.style.transform = 'scale(1';">Tistory</h6></a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+    </div>
+    <div>
+      <h1 class="text-center" style="font-weight: 700">꾸준하게 하기</h1>
+      <p class="text-center pb-5">AI를 열심히 활용해보자 | 2026-01-30</p>
+      <p class="m-3 p-3"></p>
+      <h2>가볍게</h2>
+      <p>2025년에는 블로그 글을 거의 쓰지 못했다.<br /> 어느 정도 핑계이긴 하지만, 글을 각 잡고 쓰는 게 너무 어려웠다.<br /> 소재도 좋아야 하고, 이를 위한 사전 조사도 해야 하고… 생각보다 챙길 게 많았다.<br /> <br /> 그래서 2026년에는 일단 글을 마구마구 쓰기로 했다.<br /> <a href="https://thesteadycompany.github.io/">그냥 꾸준하게 쓰는 블로그</a>에서 조금 가볍게 글을 쓰고 있다.<br /></p>
+      <h2>AI와 함께</h2>
+      <p>개발뿐만 아니라 블로그도 AI와 함께하니 정말 편했다.<br /> 물론 <code>AGENTS</code>나 <code>SKILL</code>을 만들어 글쓰기를 규격화해두진 않았다.<br /> 그냥 최근에 올린 글 3개 정도를 넘겨주고, 비슷한 톤으로 써달라고 부탁한다.<br /> 가볍게 쓰기로 마음먹고 나니, 자그마치 13개의 글을 쓸 수 있었다.<br /></p>
+      <hr />
+      <h2>개발도 AI와 하기</h2>
+      <p><a href="https://tech.kakaopay.com/post/multiverse/">기기 없이 앱을 테스트하는 법, 멀티버스가 알려드립니다</a>라는 글을 보았다.<br /> 이에 대한 내용은 <a href="https://thesteadycompany.github.io/Garden/2026-01-24-multiverse-inspired-simulator-tool/">여기</a>에 적어두었다.<br /></p>
+      <p>그래서 비슷한 방향으로 <a href="https://github.com/thesteadycompany/TheDriver">TheDriver</a>라는 앱을 만들고 있다.<br /> 운 좋게도 <a href="https://github.com/code-yeongyu/oh-my-opencode">oh-my-opencode</a> <code>3.0.0</code>이 릴리즈되면서 초기 프로젝트 세팅이 정말 간편해졌다.<br /> 클로드는 가격이 부담돼서 개인 용도로는 <code>OpenAI</code>의 <code>Codex</code>를 쓰고 있는데, 제법 만족스럽다.<br /></p>
+      <hr />
+      <h2>AI가 바꾼 것들</h2>
+      <p>TheDriver를 만들면서 <code>Process</code>나 시뮬레이터 같은 걸 건드리는 일은 꽤 어려울 거라고 생각했다.<br /> 불가능한 건 아니지만, 검색에 꽤 많은 에너지를 쏟아야 할 줄 알았다. 그런데 지금은 AI에게 잘 설명하면 된다.<br /> <br /> 새로운 언어를 배우는 것도 훨씬 쉬워졌다.<br /> 리액트를 해본 적은 없지만, Cursor로 강의 몇 개를 보다 보면 자연스럽게 코드가 작성된다.<br /> 오히려 더 중요해진 건 아키텍처를 어떻게 할지, 디렉터리를 어떻게 잡을지, 컨벤션을 어떻게 가져갈지 같은 것들이다.<br /> 개별 구현 디테일보다, 방향을 잡고 검증하는 일이 더 중요해졌다.<br /> 결국 견고한 테스트 케이스를 잘 짜고, 성능이 의심된다면 성능을 검증할 수 있는 프롬프트를 잘 작성하는 게 중요해졌다.<br /> <br /> 예전엔 소스 코드가 자산이라고 생각했는데, 요즘은 <code>AGENTS</code>나 <code>SKILL</code> 같은 프롬프트가 자산인 것 같다.<br /> 수개월 동안 서비스를 만들며 시행착오를 거쳐 다듬은 프롬프트는 이제 정말 중요한 자산이 됐다.<br /></p>
+      <hr />
+      <h2>결국에는</h2>
+      <p>이제 iOS, Android, Frontend, Backend 같은 역할 구분이 예전만큼 중요하진 않은 것 같다.<br /> 결국 다 Product Engineer로 수렴하는 게 아닌가 싶다.<br /> <br /> 여러 회사에서 Product Engineer로 역할을 정리하는 흐름도 보이고,<br /> <a href="https://helloworld.kurly.com/">마켓컬리</a>도 바이브 코딩이나 프롬프트 등 AI 관련 아티클의 비중이 큰 걸 보면, 이제는 실험 단계를 넘어선 것 같다. 조금이라도 방심하면 도태되는 느낌이다.<br /></p>
+      <p></p>
+      <script repo="hogumachu/hogumachu.github.io" issue-term="pathname" theme="github-dark" crossorigin="anonymous" src="https://utteranc.es/client.js"></script>
+    </div>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/syntax-highlighting.js"></script>
+    <script src="/js/ignite-core.js"></script>
+  </body>
+</html>
